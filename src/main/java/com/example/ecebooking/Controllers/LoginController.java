@@ -1,2 +1,4 @@
-package com.example.ecebooking.Controllers;public class LoginController {
+package com.example.ecebooking.Controllers;
+
+public class LoginController {
 }

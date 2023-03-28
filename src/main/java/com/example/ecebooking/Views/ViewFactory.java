@@ -1,2 +1,4 @@
-package com.example.ecebooking.Views;public class ViewFactory {
+package com.example.ecebooking.Views;
+
+public class ViewFactory {
 }

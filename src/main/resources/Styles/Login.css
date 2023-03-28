@@ -1,0 +1,27 @@
+.Login_container{
+    -fx-background-image: url('../Images/background.jpeg');
+    -fx-background-size: cover;
+}
+.Login_left_container{
+    -fx-font-size: 2em;
+    -fx-text-fill: black;
+    -fx-alignment: center;
+}
+
+/* box choix du compte : */
+.account_selector{
+    -fx-background-color: #EEEEEE;
+    -fx-font-size: 0.2em;
+}
+.account_selector .label{
+    -fx-text-fill: #132A13;
+    -fx-font-size: 1.1em;
+    -fx-font-family: "Cooper Black";
+}
+.account_selector .arrow{
+    -fx-background-color: #132A13;
+}
+
+#choice-box-popup-menu{
+    -fx-background-color: #EEEEEE;
+}

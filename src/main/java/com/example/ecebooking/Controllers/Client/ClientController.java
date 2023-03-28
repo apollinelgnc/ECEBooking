@@ -1,2 +1,4 @@
-package com.example.ecebooking.Controllers.Client;public class ClientController {
+package com.example.ecebooking.Controllers.Client;
+
+public class ClientController {
 }

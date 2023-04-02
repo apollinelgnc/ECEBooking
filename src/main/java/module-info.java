@@ -3,6 +3,7 @@ module com.example.ecebooking {
     requires javafx.fxml;
     requires mysql.connector.j;
     requires org.kordamp.bootstrapfx.core;
+    requires de.jensd.fx.glyphs.materialstackicons;
 
     opens com.example.ecebooking to javafx.fxml;
     exports com.example.ecebooking;

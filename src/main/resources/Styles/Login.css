@@ -1,27 +1,49 @@
 .Login_container{
-    -fx-background-image: url('../Images/background.jpeg');
+    -fx-background-image: url('../Images/2.jpeg');
     -fx-background-size: cover;
+    -fx-alignment: center;
+    -fx-font-family: "Cooper Black";
 }
 .Login_left_container{
-    -fx-font-size: 2em;
-    -fx-text-fill: black;
-    -fx-alignment: center;
+    -fx-alignment: center !important;
+    -fx-font-family: "Cooper Black";
 }
-
+.Login_title{
+    -fx-alignment: center;
+    -fx-font-size: 3.5em;
+}
+.Login_text_1{
+    -fx-alignment: center;
+    -fx-font-size: 1.25em;
+}
+.Login_text_2{
+    -fx-alignment: center;
+    -fx-font-size: 1em;
+}
 /* box choix du compte : */
 .account_selector{
     -fx-background-color: #EEEEEE;
-    -fx-font-size: 0.2em;
+    -fx-font-size: 0.5em;
+    -fx-alignment: center;
+}
+.box_account{
+    -fx-background-color: #e1dada;
+    -fx-background-radius: 18 18 18 18;
+    -fx-border-radius: 18 18 18 18;
+    -fx-alignment: center;
 }
 .account_selector .label{
     -fx-text-fill: #132A13;
-    -fx-font-size: 1.1em;
+    -fx-font-size: 0.2em;
     -fx-font-family: "Cooper Black";
+    -fx-alignment: center;
 }
 .account_selector .arrow{
     -fx-background-color: #132A13;
+    -fx-font-size: 1.25em;
 }
 
 #choice-box-popup-menu{
     -fx-background-color: #EEEEEE;
+    -fx-alignment: center;
 }

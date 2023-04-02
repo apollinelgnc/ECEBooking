@@ -7,74 +7,107 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/Login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="Login_container" stylesheets="@../Styles/Login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.LoginController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/Login.css">
-         <styleClass>
-            <String fx:value="Login_container" />
-            <String fx:value="account_selector" />
-            <String fx:value="Login_container" />
-         </styleClass>
+      <VBox alignment="CENTER" layoutX="79.0" prefHeight="343.0" prefWidth="435.0" styleClass="Login_left_container" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="25.0">
          <children>
-            <VBox layoutX="157.0" prefHeight="400.0" prefWidth="300.0" styleClass="Login_left_container" stylesheets="@../Styles/Login.css">
-               <children>
-                  <Text fill="#1f561f" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue !" textAlignment="CENTER" wrappingWidth="194.171875">
-                     <font>
-                        <Font name="Cooper Black" size="29.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </Text>
-                  <Text fill="#132a13" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez le type de compte pour vous connectez  :" textAlignment="CENTER" wrappingWidth="181.62937927246094">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Cooper Black" size="10.0" />
-                     </font>
-                  </Text>
-                  <ChoiceBox prefHeight="48.0" prefWidth="179.0" styleClass="account_selector" stylesheets="@../Styles/Login.css" />
-                  <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="309.0" text="Identifiant : " textAlignment="CENTER" textFill="#132a13">
-                     <font>
-                        <Font name="Cooper Black" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets left="90.0" />
-                     </padding>
-                     <cursor>
-                        <Cursor fx:constant="NONE" />
-                     </cursor>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="379.0" styleClass="Login_left_container" stylesheets="@../Styles/Login.css" text="Mot de passe : " textAlignment="CENTER" textFill="#132a13">
-                     <font>
-                        <Font name="Cooper Black" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets left="90.0" />
-                     </padding>
-                     <cursor>
-                        <Cursor fx:constant="NONE" />
-                     </cursor>
-                  </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="84.0" text="Valider " textAlignment="CENTER" textFill="#132a13">
-                     <font>
-                        <Font name="Cooper Black" size="12.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="99.0" top="10.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Login_title" text="Bienvenue !" textAlignment="CENTER" wrappingWidth="221.171875">
+               <font>
+                  <Font name="Cooper Black" size="29.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Login_text_1" text="Choisissez le type de compte pour vous connectez  :" textAlignment="CENTER" wrappingWidth="447.6293697357178">
+               <font>
+                  <Font name="Cooper Black" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Text>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="231.0">
+            <ChoiceBox fx:id="acc_selector" prefHeight="15.0" prefWidth="170.0" stylesheets="@../Styles/Login.css">
+               <styleClass>
+                  <String fx:value="account_selector" />
+                  <String fx:value="arrow" />
+               </styleClass>
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin>
+            </ChoiceBox>
+            </HBox>
+            <Label fx:id="id" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="276.0" text="Identifiant : " textFill="WHITE">
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="90.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="231.0">
+            <TextField fx:id="id_entree" prefHeight="14.0" prefWidth="170.0" styleClass="account_selector" stylesheets="@../Styles/Login.css">
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin></TextField>
+            </HBox>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="20.0" prefWidth="291.0" text="Mot de passe : " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="90.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="26.0" prefWidth="231.0">
+            <PasswordField fx:id="mot_de_passe" prefHeight="14.0" prefWidth="170.0" styleClass="account_selector" stylesheets="@../Styles/Login.css">
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin></PasswordField>
+            </HBox>
+            <Button fx:id="loggin_boutton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="84.0" text="Valider " textAlignment="CENTER" textFill="#132a13">
+               <font>
+                  <Font name="Cooper Black" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur de connexion" wrappingWidth="84.00000000000011">
+               <font>
+                  <Font name="Cooper Black" size="8.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Login_text_2" text="ou">
+               <font>
+                  <Font name="Cooper Black" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fill="#132a13" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Login_text_2" text="Connectez vous en tant qu'invité !" textAlignment="CENTER" wrappingWidth="276.0">
+               <font>
+                  <Font name="Cooper Black" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
          </children>
-      </Pane>
+      </VBox>
    </children>
-   <styleClass>
-      <String fx:value="Login_container" />
-      <String fx:value="Login_container" />
-   </styleClass>
 </AnchorPane>

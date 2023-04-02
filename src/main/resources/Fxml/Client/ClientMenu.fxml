@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.ClientMenu">
+   <children>
+      <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="gauche_container">
+         <children>
+            <VBox prefHeight="80.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <Button fx:id="menu_button" mnemonicParsing="false" text="Menu" />
+                  <Button fx:id="reservation_button" mnemonicParsing="false" text="Réservations" />
+                  <Button fx:id="stats_button" mnemonicParsing="false" text="Statistiques" />
+                  <Line endX="120.0" />
+                  <Button fx:id="profile_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Profile" />
+                  <Button fx:id="log_out_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Log out" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

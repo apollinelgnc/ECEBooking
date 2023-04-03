@@ -1,0 +1,77 @@
+
+.background_container {
+    -fx-background-color : white;
+    -fx-alignment: center;
+    -fx-font-family: "Cooper Black";
+}
+.menu-bar{
+    -fx-spacing: 10;
+    -fx-background-color: #132A13;
+    -fx-background-insets: #132A13,1 1 1;
+    -fx-text-fill: white;
+    -fx-padding: 0.5em;
+    -fx-alignment: center;
+}
+.menu-item {
+    -fx-text-fill: white;
+    -fx-background-color: #132A13;
+    -fx-background-size: 0.2em;
+
+}
+.background_container_box{
+    -fx-background-radius: 10 10 10 10;
+    -fx-backdrop-filter: blur(5px);
+}
+.background_second_container{
+    -fx-background-image: url('../Images/dream_picture.jpeg');
+    -fx-background-size: cover;
+    -fx-text-fill: white;
+    -fx-font-size: 3em;
+    -fx-spacing: 20;
+}
+.search_box_Button{
+    -fx-background-color: white;
+    -fx-text-fill: #132A13;
+    -fx-font-size: 1em;
+    -fx-pref-height: 37;
+}
+.search_box_Button:hover{
+    -fx-cursor: hand;
+}
+.text_image{
+    -fx-font-size: 1.5em;
+}
+.text_white{
+    -fx-stroke: #132A13;
+    -fx-stroke-width: 0.5px;
+}
+.text_green{
+    -fx-stroke: white;
+    -fx-stroke-width: 0.5px;
+}
+.research_box{
+    -fx-background-color: #132A13 ;
+    -fx-background-radius: 10 10 10 10;
+    -fx-backdrop-filter: blur(5px);
+    -fx-alignment: center;
+    -fx-font-family: "Cooper Black";
+    -fx-box-shadow: 2px 2px 4px rgb(225, 218, 218);
+    -fx-spacing: 18;
+    -fx-padding: 0.5em;
+}
+.search_box{
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-text-fill: white;
+    -fx-pref-height: 50;
+    -fx-pref-width: 400;
+    -fx-spacing: 0.5em;
+}
+.search_box_last{
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-text-fill: white;
+    -fx-pref-height: 20;
+    -fx-pref-width: 200;
+    -fx-spacing: 0.5em;
+}

@@ -15,14 +15,6 @@ public class DataBaseConnection {
         catch (Exception e) {
             e.printStackTrace();
         }
-        Statement stmt = databaseLink.createStatement();
-        ResultSet res=stmt.executeQuery("SELECT * FROM login.user_client");
-        while(res.next()){
-            System.out.println(res.getInt("User_client"));
-            System.out.println(res.getString("name_client"));
-            System.out.println(res.getString("idUser_client"));
-            System.out.println(res.getString("mdptUse_client"));
-        }
         return databaseLink;
 
     }

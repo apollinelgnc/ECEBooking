@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Hebergement {
 
-    private String nom;
-    private String pays;
-    private String ville;
-    private String adresse;
-    private int nbPlace;
-    private int nbChambre;
-    private int tarif;
-    private int distanceCentre;
+    final String nom;
+    final String pays;
+    final String ville;
+    final String adresse;
+    final int nbPlace;
+    final int nbChambre;
+    final int tarif;
+    final int distanceCentre;
     private ArrayList<String> option;
     private ArrayList<String> activite;
     private ArrayList<String> reservation;
@@ -27,5 +27,4 @@ public class Hebergement {
         tarif = cost;
         distanceCentre = center;
     }
-
 }

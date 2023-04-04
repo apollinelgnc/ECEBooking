@@ -1,12 +1,12 @@
 package com.example.ecebooking.Controllers.Client;
 
-public class Membre extends Client{
+public class Membre extends Client{/*
     private String id;
     private String mdp;
     private int numero;
 
     public Membre(String nom,int numero,String id,String mdp) {
-        super(nom);
+        //super(nom);
         this.id = id;
         this.mdp = mdp;
         this.numero = numero;
@@ -43,5 +43,5 @@ public class Membre extends Client{
 
     public void setNumero(int numero) {
         this.numero = numero;
-    }
+    }*/
 }

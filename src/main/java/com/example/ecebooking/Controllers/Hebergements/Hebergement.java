@@ -4,28 +4,37 @@ import java.util.ArrayList;
 
 public class Hebergement {
 
-    private String nom;
-    private String pays;
+    private String nom_etablissement;
     private String ville;
-    private String adresse;
-    private int nbPlace;
-    private int nbChambre;
-    private int tarif;
+    private int nombre_chambres;
+    private int nombre_places;
+    private int prix;
     private int distanceCentre;
-    private ArrayList<String> option;
+    private int idhebergement;
+   /* private ArrayList<String> option;
     private ArrayList<String> activite;
-    private ArrayList<String> reservation;
+    private ArrayList<String> reservation;*/
 
-    public Hebergement(String name, String contry, String city, String adress, int place, int nbRoom, int cost, int center)
-    {
-        nom = name;
-        pays = contry;
-        ville = city;
-        adresse = adress;
-        nbPlace = place;
-        nbChambre = nbRoom;
-        tarif = cost;
-        distanceCentre = center;
+    public Hebergement(String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre, int idhebergement) {
+        this.nom_etablissement = nom_etablissement;
+        this.ville = ville;
+        this.nombre_chambres = nombre_chambres;
+        this.nombre_places = nombre_places;
+        this.prix = prix;
+        this.distanceCentre = distanceCentre;
+        this.idhebergement = idhebergement;
     }
 
+    @Override
+    public String toString() {
+        return "Hebergement{" +
+                "nom_etablissement='" + nom_etablissement + '\'' +
+                ", ville='" + ville + '\'' +
+                ", nombre_chambres=" + nombre_chambres +
+                ", nombre_places=" + nombre_places +
+                ", prix=" + prix +
+                ", distanceCentre=" + distanceCentre +
+                ", idhebergement=" + idhebergement +
+                '}';
+    }
 }

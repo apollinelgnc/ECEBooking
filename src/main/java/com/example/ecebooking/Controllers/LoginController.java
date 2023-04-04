@@ -41,14 +41,25 @@ public class LoginController {
         this.hebergements.add(hebergement);
     }
     public void Login(ActionEvent event) throws SQLException {
-        SQL_Data();
-
-      /*
-      LAISSER LE CODE
-      Window owner = button_valider.getScene().getWindow();
+        SQL_Data_Login();
+        SQL_Data_Hebergements();
+        Window owner = button_valider.getScene().getWindow();
         System.out.println(id_entree.getText());
         System.out.println(mot_de_passe.getText());
+        boolean equal=false;
+        for(int i=0; i<membres.size();i++){
+            if(id_entree.getText().equals(membres.get(i).getId())){
+                equal=true;
+                System.out.println("hello " +membres.get(i).getId());
+            }
 
+        }
+        System.out.println(equal);
+        if (!equal) {
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+                    "mauvais id");
+            return;
+        }
         if (id_entree.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                     "Veuillez entrer votre id");
@@ -63,19 +74,23 @@ public class LoginController {
         String password = mot_de_passe.getText();
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Login réussi !",
                 "Welcome " + id);
-        */
+
     }
-    public void SQL_Data() throws SQLException {
+    public void SQL_Data_Login()throws SQLException {
         DataBaseConnection connection = new DataBaseConnection();
         Statement stmt = connection.getConnection().createStatement();
-        ResultSet res = stmt.executeQuery("SELECT * FROM hebergement.hebergement");
-        /*while (res.next()) {
+        ResultSet res = stmt.executeQuery("SELECT * FROM login.user_client");
+        while (res.next()) {
             Membre m = new Membre(res.getString("name_client"), res.getInt("User_client"), res.getString("idUser_client"), res.getString("mdptUse_client"));
             System.out.println(m.toString());
             setMembres(m);
         }
-        ResultSet res = stmt.executeQuery("SELECT * FROM login.user_client");*/
-        while (res.next()) {
+    }
+    public void SQL_Data_Hebergements() throws SQLException {
+        DataBaseConnection connection = new DataBaseConnection();
+        Statement stmt = connection.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery("SELECT * FROM hebergement.hebergement");
+       while (res.next()) {
             Hebergement h;
             h = new Hebergement(res.getString("nom_etablissement"), res.getString("ville"), res.getInt("nombre_chambres"), res.getInt("nombre_places"),res.getInt("prix"),res.getInt("distance_centre"),res.getInt("idhebergement"));
             System.out.println(h.toString());
@@ -83,4 +98,3 @@ public class LoginController {
         }
     }
 }
-//String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre, int idhebergement)

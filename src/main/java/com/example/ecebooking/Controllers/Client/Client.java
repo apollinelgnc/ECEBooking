@@ -21,6 +21,7 @@ import java.util.Scanner;
 public class Client extends Invite{
 
     static int nbClient; // nombre de client total
+    private String nom;
     private String id;
     private String mdp;
     private int numero; // numero specific du client
@@ -44,9 +45,11 @@ public class Client extends Invite{
 
     // constructeur base de donnees
     public Client (String nom,int numero,String id,String mdp) {
+        this.nom = nom;
         this.id = id;
         this.mdp = mdp;
         this.numero = numero;
+        reduction = 0.9;
     }
 
     @Override

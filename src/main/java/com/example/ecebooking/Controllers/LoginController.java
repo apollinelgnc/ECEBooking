@@ -1,6 +1,6 @@
 package com.example.ecebooking.Controllers;
 
-import com.example.ecebooking.Controllers.Client.Membre;
+import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -18,7 +18,7 @@ public class LoginController {
     public TextField id_entree;
     public PasswordField mot_de_passe;
     public Button button_valider;
-    ArrayList<Membre> membres=new ArrayList<>();
+    ArrayList<Client> membres=new ArrayList<>();
     ArrayList<Hebergement>hebergements=new ArrayList<>();
 
 
@@ -31,12 +31,12 @@ public class LoginController {
         alert.show();
     }
 
-    public ArrayList<Membre> getMembres() {
+    public ArrayList<Client> getMembres() {
         return membres;
     }
 
-    public void setMembres(Membre membre) {
-        this.membres.add(membre);
+    public void setMembres(Client client) {
+        this.membres.add(client);
     }
     public void setHebergements(Hebergement hebergement) {
         this.hebergements.add(hebergement);
@@ -88,7 +88,7 @@ public class LoginController {
         Statement stmt = connection.getConnection().createStatement();
         ResultSet res = stmt.executeQuery("SELECT * FROM login.user_client");
         while (res.next()) {
-            Membre m = new Membre(res.getString("name_client"), res.getInt("User_client"), res.getString("idUser_client"), res.getString("mdptUse_client"));
+            Client m = new Client(res.getString("name_client"), res.getInt("User_client"), res.getString("idUser_client"), res.getString("mdptUse_client"));
             System.out.println(m.toString());
             setMembres(m);
         }

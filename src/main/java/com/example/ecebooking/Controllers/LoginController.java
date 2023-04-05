@@ -13,13 +13,14 @@ import java.util.ArrayList;
 
 
 public class LoginController {
-    public ChoiceBox acc_selector;
+    public ChoiceBox acc_selector = new ChoiceBox<>();
     public Label id;
     public TextField id_entree;
     public PasswordField mot_de_passe;
     public Button button_valider;
     ArrayList<Membre> membres=new ArrayList<>();
     ArrayList<Hebergement>hebergements=new ArrayList<>();
+
 
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
@@ -40,7 +41,13 @@ public class LoginController {
     public void setHebergements(Hebergement hebergement) {
         this.hebergements.add(hebergement);
     }
+
+    public void Choice( ){
+        acc_selector.getItems().add("Client");
+        acc_selector.getItems().add("Admin");
+    }
     public void Login(ActionEvent event) throws SQLException {
+        Choice();
         SQL_Data_Login();
         SQL_Data_Hebergements();
         Window owner = button_valider.getScene().getWindow();

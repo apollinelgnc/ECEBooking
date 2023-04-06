@@ -2,17 +2,21 @@ package com.example.ecebooking.Controllers;
 
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
+import com.example.ecebooking.Models.Model;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Window;
 
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 
-public class LoginController {
+public class LoginController implements Initializable {
     public ChoiceBox acc_selector = new ChoiceBox<>();
     public Label id;
     public TextField id_entree;
@@ -21,8 +25,11 @@ public class LoginController {
     ArrayList<Client> membres=new ArrayList<>();
     ArrayList<Hebergement>hebergements=new ArrayList<>();
 
+public void initialize(URL url, ResourceBundle resourceBundle){
+    button_valider.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView());
+}
 
-    private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+  /*  private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -103,5 +110,5 @@ public class LoginController {
             System.out.println(h.toString());
             setHebergements(h);
         }
-    }
+    }*/
 }

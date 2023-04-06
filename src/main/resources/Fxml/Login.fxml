@@ -59,12 +59,21 @@
          </VBox.margin>
       </Label>
       <PasswordField fx:id="mot_de_passe" prefHeight="22.0" prefWidth="250.0" styleClass="account_selector" stylesheets="@../Styles/Login.css" />
-      <Button fx:id="button_valider" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Login" prefHeight="20.0" prefWidth="84.0" styleClass="account_selector" text="Valider " textAlignment="CENTER" textFill="#132a13">
+      <Button fx:id="button_valider"
+              alignment="CENTER"
+              contentDisplay="CENTER"
+              mnemonicParsing="false"
+              prefHeight="20.0"
+              prefWidth="84.0"
+              styleClass="account_selector"
+              text="Valider "
+              textAlignment="CENTER"
+              textFill="#132a13">
          <font>
-            <Font name="Cooper Black" size="12.0" />
+            <Font name="Cooper Black" size="12.0"/>
          </font>
          <VBox.margin>
-            <Insets top="10.0" />
+            <Insets top="10.0"/>
          </VBox.margin>
       </Button>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Login_text_2" text="ou">

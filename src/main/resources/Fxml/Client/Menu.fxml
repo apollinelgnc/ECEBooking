@@ -15,8 +15,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="1024.0" styleClass="background_container" stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.ClientMenu">
-    <MenuBar layoutX="817.0" layoutY="14.0" prefHeight="21.0" prefWidth="181.0">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" styleClass="background_container" stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.ClientMenu">
+    <MenuBar layoutX="767.0" layoutY="14.0" prefHeight="21.0" prefWidth="181.0" AnchorPane.rightAnchor="25.0">
         <Menu fx:id="hotels_menu_bar" mnemonicParsing="false" text="Hotels">
             <MenuItem mnemonicParsing="false" text="Close" />
         </Menu>
@@ -27,7 +27,7 @@
             <MenuItem mnemonicParsing="false" text="About" />
         </Menu>
     </MenuBar>
-     <VBox layoutX="27.0" layoutY="60.0" prefHeight="338.0" prefWidth="798.0" styleClass="background_second_container" AnchorPane.bottomAnchor="601.6" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="24.600000000000023" AnchorPane.topAnchor="60.0">
+     <VBox layoutX="27.0" layoutY="60.0" styleClass="background_second_container" AnchorPane.bottomAnchor="473.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="60.0">
          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_white" text="Réserver vos" wrappingWidth="374.1014404296875">
              <VBox.margin>
                  <Insets left="50.0" top="50.0" />
@@ -39,7 +39,7 @@
            </VBox.margin>
        </Text>
      </VBox>
-   <HBox layoutX="87.0" layoutY="358.0" prefHeight="80.0" prefWidth="833.0" styleClass="research_box">
+   <HBox layoutX="87.0" layoutY="257.0" prefWidth="850.0" styleClass="research_box" AnchorPane.bottomAnchor="439.8" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="86.60000000000002" AnchorPane.topAnchor="257.0">
       <children>
          <VBox prefHeight="80.0" prefWidth="184.0" styleClass="search_box">
             <children>

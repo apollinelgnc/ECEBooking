@@ -2,39 +2,23 @@ package com.example.ecebooking.Controllers.Client;
 
 import java.util.Scanner;
 
-/*public class Client {
-    protected String nom;
-
-    public Client(String nom) {
-        this.nom = nom;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-}*/
-
 public class Client extends Invite{
 
-    static int nbClient; // nombre de client total
-    private String nom;
-    private String id;
-    private String mdp;
-    private int numero; // numero specific du client
+    static int compteur_client; // nombre de client total
+    protected String nom;
+    protected String id;
+    protected String mdp;
+    protected int numero; // numero specific du client
 
-    private double reduction;
+    protected double reduction;
 
     // constructeur nouveau client
     public Client(){
 
         Scanner clavier = new Scanner(System.in);
 
-        nbClient++;
-        numero = nbClient;
+        compteur_client++;
+        numero = compteur_client;
         reduction = 0.9;
 
         System.out.print("Veuillez saisir votre pseudo : ");
@@ -50,6 +34,7 @@ public class Client extends Invite{
         this.mdp = mdp;
         this.numero = numero;
         reduction = 0.9;
+        compteur_client++;
     }
 
     @Override

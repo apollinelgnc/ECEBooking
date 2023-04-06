@@ -21,8 +21,8 @@
 }
 .menu_container{
     -fx-padding: 10 10 10 20;
-    -fx-spacing: 20;
     -fx-font-family: "Cooper Black";
+    -fx-spacing: 2em;
 }
 .menu_container Button{
     -fx-pref-width: 115;

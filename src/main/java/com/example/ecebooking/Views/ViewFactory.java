@@ -44,4 +44,7 @@ public class ViewFactory {
         stage.setTitle("ECEBooking");
         stage.show();
     }
+    public void closeStage(Stage stage){
+        stage.close();
+    }
 }

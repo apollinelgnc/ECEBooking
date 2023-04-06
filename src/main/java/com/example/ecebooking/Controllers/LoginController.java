@@ -6,6 +6,7 @@ import com.example.ecebooking.Models.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.net.URL;
@@ -27,6 +28,11 @@ public class LoginController implements Initializable {
 
 public void initialize(URL url, ResourceBundle resourceBundle){
     button_valider.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView());
+}
+private void onLogin(){
+    Stage stage=(Stage) id.getScene().getWindow();
+    Model.getInstance().getViewFactory().closeStage(stage);
+    Model.getInstance().getViewFactory().ClientView();
 }
 
   /*  private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {

@@ -4,16 +4,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0"
-      prefWidth="180.0" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/19"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.ClientMenu">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.ClientMenu">
    <VBox prefHeight="484.0" prefWidth="180.0" styleClass="menu_container">
-      <Button fx:id="menu_button" mnemonicParsing="false" text="Menu"/>
-      <Button fx:id="stats_button" mnemonicParsing="false" text="Promos"/>
-      <Line endX="120.0"/>
-      <Button fx:id="profile_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Profile"/>
-      <Button fx:id="reservation_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Réservations"/>
-      <Button fx:id="log_out_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Log out"/>
+      <Button fx:id="menu_button" mnemonicParsing="false" text="Menu" />
+      <Button fx:id="stats_button" mnemonicParsing="false" text="Promos" />
+      <Line endX="120.0" />
+      <Button fx:id="profile_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Profile" />
+      <Button fx:id="reservation_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Réservations" />
+      <Button fx:id="log_out_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Log out" />
    </VBox>
-   <VBox layoutX="10.0" layoutY="10.0" prefHeight="410.0" prefWidth="180.0" styleClass="menu_container"/>
+   <VBox layoutX="10.0" layoutY="10.0" prefHeight="410.0" prefWidth="180.0" styleClass="menu_container" />
 </VBox>

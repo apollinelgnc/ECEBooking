@@ -9,7 +9,6 @@ public class Client extends Invite{
     protected String id;
     protected String mdp;
     protected int numero; // numero specific du client
-
     protected double reduction;
 
     // constructeur nouveau client

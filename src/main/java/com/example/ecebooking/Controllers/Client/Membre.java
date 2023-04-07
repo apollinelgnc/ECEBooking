@@ -1,47 +1,38 @@
 package com.example.ecebooking.Controllers.Client;
 
-public class Membre extends Client{/*
-    private String id;
-    private String mdp;
-    private int numero;
+import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 
-    public Membre(String nom,int numero,String id,String mdp) {
-        //super(nom);
-        this.id = id;
-        this.mdp = mdp;
-        this.numero = numero;
+import java.util.Scanner;
+
+public class Membre {
+    public static void main (String[] args) {
+
+        //Hebergement test = new Hebergement("Pourteau", "Royan", 13, 25, 150, 800, 17600);
+
+        String choix;
+        Scanner clavier = new Scanner(System.in);
+
+        do{
+            System.out.println("\n=======Menu======\n");
+            System.out.println("0. Quitter");
+            System.out.println("1. Inviter");
+            System.out.println("2. Se connecter");
+            System.out.print("\nsaisir menu : ");
+            choix = clavier.next();
+
+            switch (choix) {
+                case "0" -> System.out.println("Merci");
+                case "1" -> {
+                    Invite testI = new Invite();
+                    testI.menu();
+                }
+                case "2" -> {
+                    Client testC = new Client();
+                    testC.menu();
+                }
+                default -> {
+                }
+            }
+        }while(!choix.equals("0"));
     }
-
-    @Override
-    public String toString() {
-        return "Membre{" +
-                "id='" + id + '\'' +
-                ", mdp='" + mdp + '\'' +
-                ", numero=" + numero +
-                '}';
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }*/
 }

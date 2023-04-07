@@ -11,7 +11,6 @@ package com.example.ecebooking.Controllers;
  */
 import java.sql.*;
 import java.util.ArrayList;
-import java.sql.SQLException;
 
 /**
  *

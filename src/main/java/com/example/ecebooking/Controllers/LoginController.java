@@ -3,16 +3,12 @@ package com.example.ecebooking.Controllers;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Models.Model;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -98,7 +94,7 @@ private void onLogin(){
 
     }*/
     public void SQL_Data_Login() throws SQLException, ClassNotFoundException {
-        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "0802");
         System.out.println("gateau1");
         c1.ajouterTable("client");
         System.out.println("gateau4");
@@ -118,7 +114,7 @@ private void onLogin(){
     }
     public void SQL_Data_Hebergements() throws SQLException, ClassNotFoundException {
 
-        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
+        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "0802");
         c2.ajouterTable("etablissement");
         System.out.println("coockie1");
         c2.ajouterRequete("SELECT `nom` FROM `etablissement` WHERE 1");

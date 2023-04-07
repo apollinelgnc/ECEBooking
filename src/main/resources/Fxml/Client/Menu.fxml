@@ -5,29 +5,17 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" styleClass="background_container" stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.ClientMenu">
-    <MenuBar layoutX="767.0" layoutY="14.0" prefHeight="21.0" prefWidth="181.0" AnchorPane.rightAnchor="25.0">
-        <Menu fx:id="hotels_menu_bar" mnemonicParsing="false" text="Hotels">
-            <MenuItem mnemonicParsing="false" text="Close" />
-        </Menu>
-        <Menu fx:id="compte_menu_bar" mnemonicParsing="false" text="Compte">
-            <MenuItem mnemonicParsing="false" text="Delete" />
-        </Menu>
-        <Menu fx:id="help_menu_bar" mnemonicParsing="false" text="Help">
-            <MenuItem mnemonicParsing="false" text="About" />
-        </Menu>
-    </MenuBar>
-     <VBox layoutX="27.0" layoutY="60.0" styleClass="background_second_container" AnchorPane.bottomAnchor="473.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="60.0">
+<AnchorPane prefWidth="1024.0" styleClass="background_container" stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.ClientMenu">
+     <VBox layoutX="27.0" layoutY="60.0" prefHeight="269.0" prefWidth="999.0" styleClass="background_second_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0">
          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_white" text="Réserver vos" wrappingWidth="374.1014404296875">
              <VBox.margin>
                  <Insets left="50.0" top="50.0" />
@@ -40,42 +28,37 @@
            </VBox.margin>
        </Text>
      </VBox>
-   <HBox layoutX="87.0" layoutY="257.0" prefWidth="850.0" styleClass="research_box" AnchorPane.bottomAnchor="439.8" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="86.60000000000002" AnchorPane.topAnchor="257.0">
-      <children>
-         <VBox prefHeight="80.0" prefWidth="184.0" styleClass="search_box">
-            <children>
-                   <Label text="Destination" textFill="WHITE" />
-               <TextField prefHeight="25.0" prefWidth="142.0" styleClass="search_box_Button" />
-            </children>
-         </VBox>
-         <VBox styleClass="search_box">
-            <children>
-                   <Label text="Nombre de personne" textAlignment="CENTER" textFill="WHITE" />
-                  <ChoiceBox prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
-            </children>
-         </VBox>
-         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
-            <children>
-                   <Label text="Check in " textAlignment="CENTER" textFill="WHITE" />
-                  <DatePicker prefHeight="38.0" prefWidth="157.0" styleClass="search_box_Button" />
-            </children>
-         </VBox>
-         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
-            <children>
-                   <Label text="Check out" textAlignment="CENTER" textFill="WHITE" />
-                  <DatePicker prefHeight="38.0" prefWidth="160.0" styleClass="search_box_Button" />
-            </children>
-         </VBox>
-         <VBox prefHeight="80.0" prefWidth="126.0" styleClass="search_box_last">
-            <children>
-               <Label />
-                  <Button minWidth="50.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" styleClass="search_box_Button" text="go">
-                  <font>
-                     <Font size="2.0" />
-                  </font>
-                  </Button>
-            </children>
-         </VBox>
-      </children>
-   </HBox>
+    <HBox layoutX="87.0" layoutY="293.0" prefWidth="850.0" styleClass="research_box" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="86.60000000000002" AnchorPane.topAnchor="235.0">
+        <VBox prefHeight="80.0" prefWidth="184.0" styleClass="search_box">
+            <Label text="Destination" textFill="WHITE" />
+            <TextField prefHeight="25.0" prefWidth="142.0" styleClass="search_box_Button" />
+        </VBox>
+        <VBox styleClass="search_box">
+            <Label text="Nombre de personne" textAlignment="CENTER" textFill="WHITE" />
+            <ChoiceBox prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+        </VBox>
+        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
+            <Label text="Check in " textAlignment="CENTER" textFill="WHITE" />
+            <DatePicker prefHeight="38.0" prefWidth="157.0" styleClass="search_box_Button" />
+        </VBox>
+        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
+            <Label text="Check out" textAlignment="CENTER" textFill="WHITE" />
+            <DatePicker prefHeight="38.0" prefWidth="160.0" styleClass="search_box_Button" />
+        </VBox>
+        <VBox prefHeight="80.0" prefWidth="126.0" styleClass="search_box_last">
+            <Label />
+            <Button minWidth="50.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" styleClass="search_box_Button" text="go">
+                <font>
+                    <Font size="2.0" />
+                </font>
+            </Button>
+        </VBox>
+    </HBox>
+    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <fx:include source="Hebergement_1.fxml" />
+    </StackPane>
+    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="400.0">
+        <fx:include source="Hebergement_2.fxml" />
+    </StackPane>
+   <ScrollBar layoutX="1019.0" layoutY="1.0" orientation="VERTICAL" prefHeight="768.0" prefWidth="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 </AnchorPane>

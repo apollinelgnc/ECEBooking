@@ -1,11 +1,19 @@
 package com.example.ecebooking.Controllers.Hebergements;
 
+import javafx.scene.control.Label;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Hebergement {
 
     static int compte_hebergement;
+    public Label activités;
+    public Label options;
+    public Label distance;
+    public Label destination;
+    public Label type;
+    public Label nom_hebergement;
     private String nom_etablissement;
     private String ville;
     private int nombre_chambres;

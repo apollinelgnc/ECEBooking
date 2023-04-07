@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0"
+            prefWidth="720.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+   <ImageView fitHeight="125.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"/>
+   <VBox prefHeight="196.0" prefWidth="480.0" styleClass="vbox">
+      <Label fx:id="nom_hebergement" alignment="CENTER" prefHeight="35.0" prefWidth="434.0"
+             styleClass="menu_container_title" text="Nom hebergement"/>
+      <HBox prefHeight="32.0" prefWidth="480.0" styleClass="menu_container_info">
+         <Label fx:id="type" prefHeight="30.0" prefWidth="72.0" styleClass="menu_container_info" text="Type "/>
+         <HBox prefHeight="30.0" prefWidth="275.0">
+            <Label fx:id="destination" prefHeight="30.0" prefWidth="98.0" styleClass="menu_container_info"
+                   text="Destination"/>
+            <Label fx:id="distance" alignment="CENTER" prefHeight="11.0" prefWidth="74.0" styleClass="distance"
+                   text="Distance au centre ">
+               <HBox.margin>
+                  <Insets top="12.0"/>
+               </HBox.margin>
+            </Label>
+         </HBox>
+      </HBox>
+      <Label fx:id="options" styleClass="menu_container_options" text="Options-Services"/>
+      <Label fx:id="activités" styleClass="menu_container_options" text="Activités"/>
+   </VBox>
+</HBox>

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox prefHeight="750.0" prefWidth="180.0" stylesheets="@../../Styles/InviteMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.Invite">
+<VBox prefHeight="750.0" prefWidth="180.0" stylesheets="@../../Styles/InviteMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.InviteController">
     <VBox prefHeight="484.0" prefWidth="180.0" styleClass="menu_container">
         <Button fx:id="menu_button" mnemonicParsing="false" text="Menu" />
         <Line endX="120.0" />

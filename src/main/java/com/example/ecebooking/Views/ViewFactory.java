@@ -1,7 +1,7 @@
 package com.example.ecebooking.Views;
 
 import com.example.ecebooking.Controllers.Client.ClientController;
-import com.example.ecebooking.Controllers.Client.Invite;
+import com.example.ecebooking.Controllers.Client.InviteController;
 import com.example.ecebooking.Controllers.SignInController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

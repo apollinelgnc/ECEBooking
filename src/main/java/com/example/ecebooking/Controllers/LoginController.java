@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 
 public class LoginController implements Initializable {
-    public ChoiceBox acc_selector = new ChoiceBox();
+    public ChoiceBox<String> acc_selector = new ChoiceBox<>();
     public Label id;
     public TextField id_entree;
     public PasswordField mot_de_passe;
@@ -24,6 +24,8 @@ public class LoginController implements Initializable {
     ArrayList<Hebergement>hebergements=new ArrayList<>();
 
 public void initialize(URL url, ResourceBundle resourceBundle){
+    acc_selector.getItems().add("Client");
+    acc_selector.getItems().add("Admin");
     button_valider.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView());
     connection_invite.setOnAction(actionEvent -> Model.getInstance().getViewFactory().InviteView());
 }

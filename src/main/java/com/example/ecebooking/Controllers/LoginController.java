@@ -23,11 +23,13 @@ public class LoginController implements Initializable {
     ArrayList<Hebergement>hebergements=new ArrayList<>();
 
 public void initialize(URL url, ResourceBundle resourceBundle){
-    button_valider.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView());
+    button_valider.setOnAction(actionEvent -> {
+        Model.getInstance().getViewFactory().ClientView();
+
+    }
+    );
 }
 private void onLogin(){
-    Stage stage=(Stage) id.getScene().getWindow();
-    Model.getInstance().getViewFactory().closeStage(stage);
     Model.getInstance().getViewFactory().ClientView();
 }
 

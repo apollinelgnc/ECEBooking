@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class ViewFactory {
     // Client Views
     private AnchorPane MenuView;
+    private Stage stage;
     public ViewFactory(){}
 
     public AnchorPane getMenuView() {
@@ -29,6 +30,7 @@ public class ViewFactory {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/Client.Fxml"));
         ClientController clientController=new ClientController();
         loader.setController(clientController);
+        closeStage();
         createStage(loader);
     }
 
@@ -39,12 +41,13 @@ public class ViewFactory {
         }catch (Exception e){
             e.printStackTrace();
         }
-        Stage stage=new Stage();
+        stage=new Stage();
         stage.setScene(scene);
         stage.setTitle("ECEBooking");
         stage.show();
     }
-    public void closeStage(Stage stage){
+    public void closeStage(){
+        System.out.println("close");
         stage.close();
     }
 }

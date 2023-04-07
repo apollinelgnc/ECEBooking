@@ -14,8 +14,6 @@ public class App extends Application {
         LoginController loginControl = new LoginController();
         loginControl.SQL_Data_Login();
         loginControl.SQL_Data_Hebergements();
-
-
     }
 
 }

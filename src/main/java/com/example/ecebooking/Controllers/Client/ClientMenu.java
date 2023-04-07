@@ -18,4 +18,5 @@ public class ClientMenu implements Initializable {
     public Menu help_menu_bar;
 
     public void initialize(URL url, ResourceBundle resourceBundle){}
+
 }

@@ -1,0 +1,24 @@
+.signIn{
+    -fx-alignment: center;
+    -fx-font-family: "Cooper Black";
+    -fx-spacing: 3em;
+}
+.Pane{
+    -fx-background-color: #132A13;
+    -fx-background-radius: 20 20 20 20;
+}
+
+.signIn_text{
+    -fx-font-size: 2.5em;
+    -fx-text-fill: #FFFFFF;
+    -fx-text-alignment: center;
+}
+.signIn_choice{
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-spacing: 1.5em;
+}
+.pub{
+    -fx-text-fill: #FFFFFF;
+
+}

@@ -60,5 +60,6 @@
     <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="400.0">
         <fx:include source="Hebergement_2.fxml" />
     </StackPane>
+
    <ScrollBar layoutX="1019.0" layoutY="1.0" orientation="VERTICAL" prefHeight="768.0" prefWidth="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 </AnchorPane>

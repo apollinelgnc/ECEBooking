@@ -1,6 +1,8 @@
 package com.example.ecebooking.Views;
 
 import com.example.ecebooking.Controllers.Client.ClientController;
+import com.example.ecebooking.Controllers.Client.Invite;
+import com.example.ecebooking.Controllers.SignInController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -26,6 +28,13 @@ public class ViewFactory {
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(load);
     }
+    public void SignInView(){
+        FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/SignIn.fxml"));
+        SignInController signInController=new SignInController();
+        load.setController(signInController);
+        closeStage();
+        createStage(load);
+    }
     public void ClientView(){
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/Client.Fxml"));
         ClientController clientController=new ClientController();
@@ -33,7 +42,13 @@ public class ViewFactory {
         closeStage();
         createStage(loader);
     }
-
+    public void InviteView(){
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/Invite.Fxml"));
+        ClientController clientController=new ClientController();
+        loader.setController(clientController);
+        closeStage();
+        createStage(loader);
+    }
     private void createStage(FXMLLoader loader) {
         Scene scene=null;
         try{

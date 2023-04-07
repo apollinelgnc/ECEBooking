@@ -59,10 +59,11 @@ private void onLogin(){
         acc_selector.getItems().add("Client");
         acc_selector.getItems().add("Admin");
     }
-    public void Login(ActionEvent event) throws SQLException {
+    public void Login(ActionEvent event) throws SQLException, ClassNotFoundException {
         Choice();
         SQL_Data_Login();
         SQL_Data_Hebergements();
+
         Window owner = button_valider.getScene().getWindow();
         System.out.println(id_entree.getText());
         System.out.println(mot_de_passe.getText());
@@ -95,26 +96,34 @@ private void onLogin(){
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Login réussi !",
                 "Welcome " + id);
 
-    }
-    public void SQL_Data_Login()throws SQLException {
-        DataBaseConnection connection = new DataBaseConnection();
-        Statement stmt = connection.getConnection().createStatement();
-        ResultSet res = stmt.executeQuery("SELECT * FROM login.user_client");
-        while (res.next()) {
-            Client m = new Client(res.getString("name_client"), res.getInt("User_client"), res.getString("idUser_client"), res.getString("mdptUse_client"));
-            System.out.println(m.toString());
-            setMembres(m);
-        }
-    }
-    public void SQL_Data_Hebergements() throws SQLException {
-        DataBaseConnection connection = new DataBaseConnection();
-        Statement stmt = connection.getConnection().createStatement();
-        ResultSet res = stmt.executeQuery("SELECT * FROM hebergement.hebergement");
-       while (res.next()) {
-            Hebergement h;
-            h = new Hebergement(res.getString("nom_etablissement"), res.getString("ville"), res.getInt("nombre_chambres"), res.getInt("nombre_places"),res.getInt("prix"),res.getInt("distance_centre"),res.getInt("idhebergement"));
-            System.out.println(h.toString());
-            setHebergements(h);
-        }
     }*/
+    public void SQL_Data_Login() throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        System.out.println("gateau1");
+        c1.ajouterTable("client");
+        System.out.println("gateau4");
+        c1.ajouterRequete("SELECT `nom` FROM `client` WHERE 1");
+        System.out.println("gateau3");
+        for(int i=0; i<c1.requetes.size(); i++)
+        {
+            System.out.println("panckcake1"+ i);
+            for(int j=0; j<c1.remplirChampsRequete(c1.requetes.get(i)).size(); j++)
+            {
+                System.out.println("panckcake"+ i);
+                System.out.println(c1.remplirChampsRequete(c1.requetes.get(i)).get(j));
+            }
+
+        }
+        System.out.println("gateau5");
+    }
+    public void SQL_Data_Hebergements() throws SQLException, ClassNotFoundException {
+
+        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
+        c2.ajouterTable("etablissement");
+        System.out.println("coockie1");
+        c2.ajouterRequete("SELECT `nom` FROM `etablissement` WHERE 1");
+        System.out.println("coockie2");
+
+        System.out.println("coockie3");
+    }
 }

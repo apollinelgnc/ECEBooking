@@ -87,34 +87,89 @@ public class Invite {
                 // ville
                 case "2" -> {
                     System.out.print("Veuillez saisir la ville : ");
-                    ville_filtre = clavier.nextLine();
+                    ville_filtre = clavier.next();
+
+                    for(int i=0; i<Filtre.size();i++)
+                    {
+                        if(!Filtre.get(i).getVille().equals(ville_filtre))
+                        {
+                            Filtre.remove(Filtre.get(i));
+                            i--;
+                        }
+                    }
                 }
+                // chambre
                 case "3" -> {
                     System.out.print("Veuillez saisir le nombre de chambre : ");
                     nombre_chambres_filtre = clavier.nextInt();
+
+                    for(int i=0; i<Filtre.size();i++)
+                    {
+                        if(Filtre.get(i).getNombre_chambres() < nombre_chambres_filtre)
+                        {
+                            Filtre.remove(Filtre.get(i));
+                            i--;
+                        }
+                    }
                 }
+                // place
                 case "4" -> {
                     System.out.print("Veuillez saisir le nombre de place : ");
                     nombre_places_filtre = clavier.nextInt();
+
+                    for(int i=0; i<Filtre.size();i++)
+                    {
+                        if(Filtre.get(i).getNombre_places() < nombre_places_filtre)
+                        {
+                            Filtre.remove(Filtre.get(i));
+                            i--;
+                        }
+                    }
                 }
+                // prix
                 case "5" -> {
                     System.out.print("Veuillez saisir le prix : ");
                     prix_filtre = clavier.nextInt();
+
+                    for(int i=0; i<Filtre.size();i++)
+                    {
+                        if(Filtre.get(i).getPrix() > prix_filtre)
+                        {
+                            Filtre.remove(Filtre.get(i));
+                            i--;
+                        }
+                    }
                 }
                 case "6" -> {
                     System.out.print("Veuillez saisir la distance au centre : ");
                     distanceCentre_filtre = clavier.nextInt();
+
+                    for(int i=0; i<Filtre.size();i++)
+                    {
+                        if(Filtre.get(i).getDistanceCentre() > distanceCentre_filtre)
+                        {
+                            Filtre.remove(Filtre.get(i));
+                            i--;
+                        }
+                    }
                 }
                 case "7" -> System.out.println("Filtre valide");
                 default -> {
                 }
             }
+            System.out.println("Filtre");
+            for(Hebergement hebergement : Filtre)
+            {
+                System.out.println(hebergement.getNom_etablissement());
+            }
         } while (!choix.equals("0") && !choix.equals("7"));
+
+        /** Fin Filtre */
 
         if(choix.equals("7"))
         {
             System.out.println("==== RESULTATS ====\n");
-            System.out.println("FILTRE");
+            System.out.println("Filtre");
             for(Hebergement hebergement : Filtre)
             {
                 System.out.println(hebergement.getNom_etablissement());

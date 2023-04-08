@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -96,32 +99,21 @@ private void onLogin(){
 
     }*/
     public void SQL_Data_Login() throws SQLException, ClassNotFoundException {
-        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "0802");
-        System.out.println("gateau1");
+        DataBaseConnection c1 = new DataBaseConnection("ProjetING3", "root", "root");
         c1.ajouterTable("client");
-        System.out.println("gateau4");
         c1.ajouterRequete("SELECT `nom` FROM `client` WHERE 1");
-        System.out.println("gateau3");
         for(int i=0; i<c1.requetes.size(); i++)
         {
-            System.out.println("panckcake1"+ i);
             for(int j=0; j<c1.remplirChampsRequete(c1.requetes.get(i)).size(); j++)
             {
-                System.out.println("panckcake"+ i);
                 System.out.println(c1.remplirChampsRequete(c1.requetes.get(i)).get(j));
             }
 
         }
-        System.out.println("gateau5");
     }
     public void SQL_Data_Hebergements() throws SQLException, ClassNotFoundException {
-
-        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "0802");
+        DataBaseConnection c2 = new DataBaseConnection("ProjetING3", "root", "root");
         c2.ajouterTable("etablissement");
-        System.out.println("coockie1");
         c2.ajouterRequete("SELECT `nom` FROM `etablissement` WHERE 1");
-        System.out.println("coockie2");
-
-        System.out.println("coockie3");
     }
 }

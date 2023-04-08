@@ -3,9 +3,12 @@ package com.example.ecebooking.Controllers.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 
+import java.util.ArrayList;
+
 public class Admin extends Client {
 
-    public Admin (String nom,int numero,String id,String mdp) {
+    public Admin (String nom, int numero, String id, String mdp, ArrayList<Hebergement> hebergementListe) {
+        super(hebergementListe);
         this.nom = nom;
         this.id = id;
         this.mdp = mdp;
@@ -15,6 +18,6 @@ public class Admin extends Client {
 
     public void creerHebergement()
     {
-        Hebergement nouveau = new Hebergement();
+        hebergementListe.add(new Hebergement());
     }
 }

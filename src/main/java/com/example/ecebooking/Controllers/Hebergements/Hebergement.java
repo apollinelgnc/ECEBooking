@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Hebergement {
 
     static int compte_hebergement;
-    public Label activités;
+    public Label activites;
     public Label options;
     public Label distance;
     public Label destination;
@@ -25,6 +25,8 @@ public class Hebergement {
     private ArrayList<String> activite;
     private ArrayList<String> reservation;
 
+    /** Constructeurs */
+    // Récupération Base de données
     public Hebergement(String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre, int idhebergement) {
         this.nom_etablissement = nom_etablissement;
         this.ville = ville;
@@ -36,6 +38,7 @@ public class Hebergement {
         compte_hebergement ++;
     }
 
+    // Creation par l'utilisateur
     public Hebergement()
     {
         Scanner clavier = new Scanner(System.in);
@@ -57,6 +60,7 @@ public class Hebergement {
         idhebergement = compte_hebergement;
     }
 
+    /** METHODES */
     @Override
     public String toString() {
         return "Hebergement{" +
@@ -68,5 +72,85 @@ public class Hebergement {
                 ", distanceCentre=" + distanceCentre +
                 ", idhebergement=" + idhebergement +
                 '}';
+    }
+
+    public String getNom_etablissement() {
+        return nom_etablissement;
+    }
+
+    public void setNom_etablissement(String nom_etablissement) {
+        this.nom_etablissement = nom_etablissement;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public int getNombre_chambres() {
+        return nombre_chambres;
+    }
+
+    public void setNombre_chambres(int nombre_chambres) {
+        this.nombre_chambres = nombre_chambres;
+    }
+
+    public int getNombre_places() {
+        return nombre_places;
+    }
+
+    public void setNombre_places(int nombre_places) {
+        this.nombre_places = nombre_places;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
+    public int getDistanceCentre() {
+        return distanceCentre;
+    }
+
+    public void setDistanceCentre(int distanceCentre) {
+        this.distanceCentre = distanceCentre;
+    }
+
+    public int getIdhebergement() {
+        return idhebergement;
+    }
+
+    public void setIdhebergement(int idhebergement) {
+        this.idhebergement = idhebergement;
+    }
+
+    public ArrayList<String> getOption() {
+        return option;
+    }
+
+    public void setOption(ArrayList<String> option) {
+        this.option = option;
+    }
+
+    public ArrayList<String> getActivite() {
+        return activite;
+    }
+
+    public void setActivite(ArrayList<String> activite) {
+        this.activite = activite;
+    }
+
+    public ArrayList<String> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(ArrayList<String> reservation) {
+        this.reservation = reservation;
     }
 }

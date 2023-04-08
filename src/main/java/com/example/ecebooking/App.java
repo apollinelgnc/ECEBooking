@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 public class App extends Application {
+
     @Override
     public void start(Stage stage) throws SQLException, ClassNotFoundException {
         Model.getInstance().getViewFactory().LoginView();

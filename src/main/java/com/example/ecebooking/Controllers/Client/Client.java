@@ -1,5 +1,8 @@
 package com.example.ecebooking.Controllers.Client;
 
+import com.example.ecebooking.Controllers.Hebergements.Hebergement;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Client extends Invite{
@@ -11,9 +14,11 @@ public class Client extends Invite{
     protected int numero; // numero specific du client
     protected double reduction;
 
-    // constructeur nouveau client
-    public Client(){
+    /** CONSTRUCTEURS */
 
+    // création par l'utilisateur
+    public Client(ArrayList<Hebergement> hebergementListe){
+        super(hebergementListe);
         Scanner clavier = new Scanner(System.in);
 
         compteur_client++;
@@ -27,7 +32,8 @@ public class Client extends Invite{
     }
 
     // constructeur base de donnees
-    public Client (String nom,int numero,String id,String mdp) {
+    public Client (String nom,int numero,String id,String mdp, ArrayList<Hebergement> hebergementListe) {
+        super(hebergementListe);
         this.nom = nom;
         this.id = id;
         this.mdp = mdp;

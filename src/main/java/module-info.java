@@ -11,6 +11,8 @@ module com.example.ecebooking {
     exports com.example.ecebooking.Controllers;
     exports com.example.ecebooking.Controllers.Admin;
     exports com.example.ecebooking.Controllers.Client;
+    exports com.example.ecebooking.Controllers.Hebergements;
     exports com.example.ecebooking.Models;
     exports com.example.ecebooking.Views;
+
 }

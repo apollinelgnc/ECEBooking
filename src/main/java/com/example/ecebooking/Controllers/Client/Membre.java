@@ -23,7 +23,7 @@ public class Membre {
             System.out.println("\n=======Menu======\n");
             System.out.println("0. Quitter");
             System.out.println("1. Inviter");
-            System.out.println("2. Se connecter");
+            System.out.println("2. Se connecter (pas fonctionnel");
             System.out.print("\nsaisir menu : ");
             choix = clavier.next();
 
@@ -31,8 +31,7 @@ public class Membre {
                 case "0" -> System.out.println("Merci");
                 case "1" -> {
                     Invite testI = new Invite(hebergementListe);
-                    testI.reserver();
-                    //testI.menu();
+                    testI.menu();
                 }
                 case "2" -> {
                     Client testC = new Client(hebergementListe);

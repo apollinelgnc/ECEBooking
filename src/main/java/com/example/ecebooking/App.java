@@ -13,8 +13,8 @@ public class App extends Application {
     public void start(Stage stage) throws SQLException, ClassNotFoundException {
         Model.getInstance().getViewFactory().LoginView();
         LoginController loginControl = new LoginController();
-        loginControl.SQL_Data_Login();
-        loginControl.SQL_Data_Hebergements();
+        //loginControl.SQL_Data_Login();
+        //loginControl.SQL_Data_Hebergements();
     }
 
 }

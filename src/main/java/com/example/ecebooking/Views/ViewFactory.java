@@ -1,5 +1,6 @@
 package com.example.ecebooking.Views;
 
+import com.example.ecebooking.Controllers.Admin.AdminController;
 import com.example.ecebooking.Controllers.Client.ClientController;
 import com.example.ecebooking.Controllers.Client.InviteController;
 import com.example.ecebooking.Controllers.SignInController;
@@ -39,6 +40,13 @@ public class ViewFactory {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/Client.Fxml"));
         ClientController clientController=new ClientController();
         loader.setController(clientController);
+        closeStage();
+        createStage(loader);
+    }
+    public void AdminView(){
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.Fxml"));
+        AdminController adminController=new AdminController();
+        loader.setController(adminController);
         closeStage();
         createStage(loader);
     }

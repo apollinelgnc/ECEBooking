@@ -27,11 +27,28 @@ public class LoginController implements Initializable {
     ArrayList<Hebergement>hebergements=new ArrayList<>();
 
 public void initialize(URL url, ResourceBundle resourceBundle){
-    acc_selector.getItems().add("Client");
-    acc_selector.getItems().add("Admin");
-    button_valider.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView());
-    connection_invite.setOnAction(actionEvent -> Model.getInstance().getViewFactory().InviteView());
+    acc_selector.getItems().addAll("Client","Admin");
+    if (acc_selector.getSelectionModel().getSelectedItem() == null)
+        connection_invite.setOnAction(actionEvent -> Model.getInstance().getViewFactory().InviteView());
+
+    acc_selector.setOnAction(event -> {
+        String choix=acc_selector.getSelectionModel().getSelectedItem();
+        switch (choix){
+            case "Admin" :
+                choixAdmin();
+                break;
+            case "Client":
+                choixClient();
+                break;
+        }
+    });
 }
+public void choixClient(){
+    button_valider.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView());
+}
+    public void choixAdmin(){
+        button_valider.setOnAction(actionEvent -> Model.getInstance().getViewFactory().AdminView());
+    }
 private void onLogin(){
     Model.getInstance().getViewFactory().ClientView();
 }
@@ -99,7 +116,7 @@ private void onLogin(){
 
     }*/
     public void SQL_Data_Login() throws SQLException, ClassNotFoundException {
-        DataBaseConnection c1 = new DataBaseConnection("ProjetING3", "root", "root");
+        DataBaseConnection c1 = new DataBaseConnection("ProjetING3", "root", "0802");
         c1.ajouterTable("client");
         c1.ajouterRequete("SELECT `nom` FROM `client` WHERE 1");
         for(int i=0; i<c1.requetes.size(); i++)

@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -31,35 +30,29 @@
     <HBox layoutX="87.0" layoutY="293.0" prefWidth="850.0" styleClass="research_box" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="86.60000000000002" AnchorPane.topAnchor="235.0">
         <VBox prefHeight="80.0" prefWidth="184.0" styleClass="search_box">
             <Label text="Destination" textFill="WHITE" />
-            <TextField prefHeight="25.0" prefWidth="142.0" styleClass="search_box_Button" />
+            <TextField fx:id="destination" prefHeight="25.0" prefWidth="142.0" styleClass="search_box_Button" />
         </VBox>
         <VBox styleClass="search_box">
             <Label text="Nombre de personne" textAlignment="CENTER" textFill="WHITE" />
-            <ChoiceBox prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+            <ChoiceBox fx:id="nb_personnes" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
         </VBox>
         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
             <Label text="Check in " textAlignment="CENTER" textFill="WHITE" />
-            <DatePicker prefHeight="38.0" prefWidth="157.0" styleClass="search_box_Button" />
+            <DatePicker fx:id="check_in_date" prefHeight="38.0" prefWidth="157.0" styleClass="search_box_Button" />
         </VBox>
         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
             <Label text="Check out" textAlignment="CENTER" textFill="WHITE" />
-            <DatePicker prefHeight="38.0" prefWidth="160.0" styleClass="search_box_Button" />
+            <DatePicker fx:id="check_out_date" prefHeight="38.0" prefWidth="160.0" styleClass="search_box_Button" />
         </VBox>
         <VBox prefHeight="80.0" prefWidth="126.0" styleClass="search_box_last">
             <Label />
-            <Button minWidth="50.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" styleClass="search_box_Button" text="go">
+            <Button fx:id="go_button" minWidth="50.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="54.0" styleClass="search_box_Button" text="go">
                 <font>
                     <Font size="2.0" />
                 </font>
             </Button>
         </VBox>
     </HBox>
-    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-        <fx:include source="Hebergement_1.fxml" />
-    </StackPane>
-    <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="400.0">
-        <fx:include source="Hebergement_2.fxml" />
-    </StackPane>
 
    <ScrollBar layoutX="1019.0" layoutY="1.0" orientation="VERTICAL" prefHeight="768.0" prefWidth="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 </AnchorPane>

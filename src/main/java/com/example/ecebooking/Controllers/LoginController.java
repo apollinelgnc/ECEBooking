@@ -130,9 +130,14 @@ private void onLogin(){
         DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
         c2.ajouterTable("etablissement");
         //requetes sql qui me permet de chercher un type en particulier en fonction de la demande
-
+        String S1="SELECT * FROM `etablissement` ";
+        String S2="WHERE ";
+        String S3="wifi = '1' ";
+        String S4="&& fumeur ='1' ";
+        S1=S1+S2+S3+S4;
+        System.out.println(S1);
         //recherche de tous les etablisemeent dans la base de donnée
-        c2.ajouterRequete("SELECT * FROM `etablissement` ");
+        c2.ajouterRequete(S1);
 
         for(int i=0;i<c2.requetes.size();i++)
         {

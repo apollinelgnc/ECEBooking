@@ -126,7 +126,7 @@ private void onLogin(){
 
     }
     public void SQL_Data_Hebergements(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
-
+        //test
         DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
         c2.ajouterTable("etablissement");
         //requetes sql qui me permet de chercher un type en particulier en fonction de la demande

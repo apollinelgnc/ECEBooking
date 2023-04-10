@@ -18,7 +18,9 @@ public class App extends Application {
     public void start(Stage stage) throws SQLException, ClassNotFoundException {
         Model.getInstance().getViewFactory().LoginView();
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
-        //ArrayList<Hebergement> COListe = new ArrayList<>();
+        ArrayList<Client> COListe = new ArrayList<>();
+        LoginController loginControl = new LoginController();
+        loginControl.SQL_Data_Login(COListe);
         /*LoginController loginControl = new LoginController();
         loginControl.SQL_Data_Hebergements(hebergementListe);
         loginControl.afficherListeHebergements(hebergementListe);*/

@@ -96,7 +96,7 @@ private void onLogin(){
                 "Welcome " + id);
 
     }*/
-    public void SQL_Data_Login(ArrayList<Hebergement> Client) throws SQLException, ClassNotFoundException {
+    public void SQL_Data_Login(ArrayList<Client> Client) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
 
         c1.ajouterTable("client");
@@ -113,13 +113,13 @@ private void onLogin(){
                     System.out.println(word);
                 }
 
-                String nom_etablissement = words[0];
-                String ville = words[1];
-                int nombre_chambres = Integer.parseInt(words[2]);
-                int nombre_places = Integer.parseInt(words[3]);
+                String nom = words[0];
+                String utilisateur = words[1];
+                String mdp = words[2];
+                int id = Integer.parseInt(words[3]);
 
-                //Client C = new Client( , null);
-                //Client.add(C);
+                Client C = new Client( nom, utilisateur, mdp, id , null);
+                Client.add(C);
             }
         }
 
@@ -169,6 +169,18 @@ private void onLogin(){
             System.out.println("Nom : " + h.getNom_etablissement());
             System.out.println("Ville : " + h.getVille());
             System.out.println("Prix : " + h.getPrix());
+            // ... afficher d'autres attributs selon votre structure de données
+            System.out.println("--------------------");
+        }
+    }
+
+    public void afficherListeClient(ArrayList<Client> liste) {
+        // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
+        for (Client C : liste) {
+            System.out.println("Liste de client :");
+            System.out.println("Nom d utilisateur : " + C.getId());
+            System.out.println("Mdp du client  : " + C.getMdp());
+            System.out.println("Num du client : " + C.getNumero());
             // ... afficher d'autres attributs selon votre structure de données
             System.out.println("--------------------");
         }

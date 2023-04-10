@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Membre {
     public static void main (String[] args) {
 
-        ArrayList<Hebergement> hebergementListe = new ArrayList<>();
+      /*  ArrayList<Hebergement> hebergementListe = new ArrayList<>();
         hebergementListe.add(new Hebergement("Pourteau", "Royan", 13, 25, 150, 800, 1));
         hebergementListe.add(new Hebergement("Kerlano", "Quimper", 5, 10, 100, 700,2 ));
         hebergementListe.add(new Hebergement("272", "Paris", 4, 7, 250, 200, 3));
@@ -41,5 +41,5 @@ public class Membre {
                 }
             }
         }while(!choix.equals("0"));
-    }
+   */ }
 }

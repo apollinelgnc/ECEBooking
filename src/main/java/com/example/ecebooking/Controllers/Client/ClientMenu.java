@@ -2,9 +2,13 @@ package com.example.ecebooking.Controllers.Client;
 
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Models.Model;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.layout.StackPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,6 +25,7 @@ public class ClientMenu implements Initializable {
     public TextField destination;
     public DatePicker check_in_date;
     public DatePicker check_out_date;
+    public Label nom_hebergement;
     private int choix_nb_personne;
     private LocalDate check_in;
     private LocalDate check_out;
@@ -28,7 +33,7 @@ public class ClientMenu implements Initializable {
     private ArrayList<Hebergement> hebergements=new ArrayList<>();
 
 
-    public void initialize(URL url, ResourceBundle resourceBundle){
+   /* public void initialize(URL url, ResourceBundle resourceBundle){
         nb_personnes.getItems().addAll(1,2,3,4,5,6,7);
         go_button.setOnAction(event -> {
             if(nb_personnes.getSelectionModel().getSelectedItem()==null)
@@ -44,8 +49,27 @@ public class ClientMenu implements Initializable {
             System.out.println(desti + choix_nb_personne + check_in + check_out);
             Model.getInstance().getViewFactory().ClientView();
         });
-    }
+    }*/
+       private StackPane stackPane;
 
+       @Override
+       public void initialize(URL url, ResourceBundle rb) {
+           try {
+               // Charger le fichier FXML pour le menu
+               FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+               Node menu = menuLoader.load();
+
+               // Charger le fichier FXML pour les hôtels
+               FXMLLoader hotelsLoader = new FXMLLoader(getClass().getResource("Hebergements.fxml"));
+               Node hotels = hotelsLoader.load();
+
+               // Ajouter les éléments au StackPane
+               stackPane.getChildren().addAll(menu, hotels);
+
+           } catch (IOException ex) {
+               ex.printStackTrace();
+           }
+       }
 
     public int getChoix_nb_personne() {
         return choix_nb_personne;

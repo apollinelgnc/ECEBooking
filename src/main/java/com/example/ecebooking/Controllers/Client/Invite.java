@@ -48,7 +48,6 @@ public class Invite {
         int nombre_places_filtre = 0;
         int prix_filtre = 0;
         int distanceCentre_filtre = 0;
-
         ArrayList<Hebergement> Filtre = new ArrayList<>(hebergementListe);
 
         Scanner clavier = new Scanner(System.in);

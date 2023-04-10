@@ -118,7 +118,7 @@ private void onLogin(){
                 int nombre_chambres = Integer.parseInt(words[2]);
                 int nombre_places = Integer.parseInt(words[3]);
 
-                //Client C = new Client();
+                //Client C = new Client( , null);
                 //Client.add(C);
             }
         }

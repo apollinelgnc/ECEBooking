@@ -19,11 +19,9 @@ public class App extends Application {
         Model.getInstance().getViewFactory().LoginView();
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
         //ArrayList<Hebergement> COListe = new ArrayList<>();
-        LoginController loginControl = new LoginController();
-        //loginControl.SQL_Data_Login(COListe);
+        /*LoginController loginControl = new LoginController();
         loginControl.SQL_Data_Hebergements(hebergementListe);
-
-        loginControl.afficherListeHebergements(hebergementListe);
+        loginControl.afficherListeHebergements(hebergementListe);*/
 
         String choix;
         Scanner clavier = new Scanner(System.in);
@@ -32,7 +30,7 @@ public class App extends Application {
             System.out.println("\n=======Menu======\n");
             System.out.println("0. Quitter");
             System.out.println("1. Inviter");
-            System.out.println("2. Se connecter (pas fonctionnel");
+            System.out.println("2. Se connecter (pas fonctionnel)");
             System.out.print("\nsaisir menu : ");
             choix = clavier.next();
 

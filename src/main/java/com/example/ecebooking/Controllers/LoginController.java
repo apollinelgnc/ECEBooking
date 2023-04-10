@@ -96,19 +96,38 @@ private void onLogin(){
                 "Welcome " + id);
 
     }*/
-    public void SQL_Data_Login() throws SQLException, ClassNotFoundException {
+    public void SQL_Data_Login(ArrayList<Hebergement> Client) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
 
         c1.ajouterTable("client");
-        c1.ajouterRequete("SELECT `nom` FROM `client` ");
+        c1.ajouterRequete("SELECT * FROM `client` ");
+        for(int i=0;i<c1.requetes.size();i++)
+        {
 
+            for(int j=0;j<c1.remplirChampsRequete(c1.requetes.get(i)).size();j++)
+            {
+                //passage de la bdd sous la forme d une liste d'hebergment
+                String str = c1.remplirChampsRequete(c1.requetes.get(i)).get(j).toString();
+                String[] words = str.split(",");
+                for (String word : words) {
+                    System.out.println(word);
+                }
+
+                String nom_etablissement = words[0];
+                String ville = words[1];
+                int nombre_chambres = Integer.parseInt(words[2]);
+                int nombre_places = Integer.parseInt(words[3]);
+
+                //Client C = new Client();
+                //Client.add(C);
+            }
+        }
 
 
     }
-    public void SQL_Data_Hebergements() throws SQLException, ClassNotFoundException {
+    public void SQL_Data_Hebergements(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
 
         DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
-        ArrayList<Hebergement> hebergements = new ArrayList<>();
         c2.ajouterTable("etablissement");
         //requetes sql qui me permet de chercher un type en particulier en fonction de la demande
 
@@ -140,7 +159,7 @@ private void onLogin(){
         }
 
         System.out.println("coockie4");
-        afficherListeHebergements(hebergements);
+
     }
 
     public void afficherListeHebergements(ArrayList<Hebergement> liste) {

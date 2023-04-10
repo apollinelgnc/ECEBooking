@@ -14,7 +14,7 @@ public class App extends Application {
         Model.getInstance().getViewFactory().LoginView();
         LoginController loginControl = new LoginController();
         //loginControl.SQL_Data_Login();
-        //loginControl.SQL_Data_Hebergements();
+        loginControl.SQL_Data_Hebergements();
     }
 
 }

@@ -168,7 +168,7 @@ public class DataBaseConnection {
 // Retourner l'ArrayList
         for(int i=0; i<liste.size(); i++)
         {
-            System.out.println(liste.get(i));
+            //System.out.println(liste.get(i));
         }
         return liste;
     }

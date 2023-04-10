@@ -135,6 +135,7 @@ private void onLogin(){
         String S3="wifi = '1' ";
         String S4="&& fumeur ='1' ";
         S1=S1+S2+S3+S4;
+        //test de la concatenation de la string
         System.out.println(S1);
         //recherche de tous les etablisemeent dans la base de donnée
         c2.ajouterRequete(S1);

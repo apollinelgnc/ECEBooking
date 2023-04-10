@@ -32,7 +32,7 @@ public class Client extends Invite{
     }
 
     // constructeur base de donnees
-    public Client (String nom,int numero,String id,String mdp, ArrayList<Hebergement> hebergementListe) {
+    public Client (String nom,String id,String mdp,int numero, ArrayList<Hebergement> hebergementListe) {
         super(hebergementListe);
         this.nom = nom;
         this.id = id;

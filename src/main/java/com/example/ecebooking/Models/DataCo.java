@@ -1,8 +1,9 @@
-package com.example.ecebooking.Controllers;
+package com.example.ecebooking.Models;
 
 import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
+import com.example.ecebooking.Models.DataBaseConnection;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

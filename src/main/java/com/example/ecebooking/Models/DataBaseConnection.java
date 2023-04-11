@@ -1,4 +1,4 @@
-package com.example.ecebooking.Controllers;
+package com.example.ecebooking.Models;
 
 /*
  * To change this template, choose Tools | Templates

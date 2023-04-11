@@ -1,7 +1,7 @@
 package com.example.ecebooking.Controllers.Admin;
 
 import com.example.ecebooking.Controllers.Client.Client;
-import com.example.ecebooking.Controllers.DataCo;
+import com.example.ecebooking.Models.DataCo;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 
 import java.sql.SQLException;
@@ -75,7 +75,7 @@ public class Admin extends Client {
             //ArrayList<Hebergement> hebergementListe = new ArrayList<>();
             DataCo dataco = new DataCo();
             dataco.SQL_Data_Login(COListe);
-            dataco.afficherListeClient(COListe);
+            //dataco.afficherListeClient(COListe);
             dataco.SQL_Data_Admin(ADListe);
 
             System.out.println("\n======= Menu Admin ======\n");

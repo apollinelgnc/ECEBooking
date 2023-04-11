@@ -90,11 +90,7 @@ public class DataCo {
             {
                 //passage de la bdd sous la forme d une liste d'hebergment
                 String str = c2.remplirChampsRequete(c2.requetes.get(i)).get(j).toString();
-                System.out.println("test : " + str);
                 String[] words = str.split(",");
-                for (String word : words) {
-                    System.out.println(word);
-                }
 
                 String nom_etablissement = words[0];
                 String ville = words[1];
@@ -128,9 +124,9 @@ public class DataCo {
                 //passage de la bdd sous la forme d une liste d'hebergment
                 String str = c2.remplirChampsRequete(c2.requetes.get(i)).get(j).toString();
                 String[] words = str.split(",");
-                for (String word : words) {
+               /* for (String word : words) {
                     System.out.println(word);
-                }
+                }*/
 
                 String nom_etablissement = words[0];
                 String ville = words[1];

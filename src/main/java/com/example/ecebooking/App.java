@@ -19,14 +19,15 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws SQLException, ClassNotFoundException {
         Model.getInstance().getViewFactory().LoginView();
-    /*    ArrayList<Client> COListe = new ArrayList<>();
+        ArrayList<Client> COListe = new ArrayList<>();
         ArrayList<Admin> ADListe = new ArrayList<>();
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
         DataCo dataco = new DataCo();
         dataco.SQL_Data_Login(COListe);
-        dataco.afficherListeClient(COListe);
+        //dataco.afficherListeClient(COListe);
 
         dataco.SQL_Data_Admin(ADListe);
+
         String choix;
         Scanner clavier = new Scanner(System.in);
 
@@ -82,6 +83,15 @@ public class App extends Application {
 
                     int numClient=10;
                     dataco.Data_Creation_Login(nom, id, mdp, numClient);
+                   /* for (Client client : COListe) {
+                            if ((id.equals(client.getId())) && (mdp.equals(client.getMdp()))) {
+
+                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero(), hebergementListe);
+                                ConnexionClient.menu();
+                                buff=1;
+                            }
+                        }*/
+
                 }
                 case "4" ->{
                     Scanner clavier3 = new Scanner(System.in);
@@ -98,7 +108,7 @@ public class App extends Application {
                             if ((idA.equals(ad.getIdA())) && (mdpA.equals(ad.getMdpA()))) {
 
                                 Admin ConnexionAdmin = new Admin(ad.getNomA(), idA, mdpA, ad.getNumeroA(), hebergementListe);
-                                ConnexionAdmin.menu();
+                                ConnexionAdmin.menuAdmin();
                                 buff2=1;
                             }
                         }
@@ -108,7 +118,7 @@ public class App extends Application {
                 }
             }
         }while(!choix.equals("0"));
-*/
+
     }
 
 }

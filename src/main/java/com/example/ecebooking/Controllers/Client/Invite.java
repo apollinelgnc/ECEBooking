@@ -42,18 +42,27 @@ public class Invite {
 
     public void reserver() throws SQLException, ClassNotFoundException {
 
+        ArrayList<Hebergement> ListeHebergement = filtrer();
+
+        for(Hebergement h : ListeHebergement)
+        {
+            System.out.println(h.getNom_etablissement());
+        }
+    }
+
+    public ArrayList<Hebergement> filtrer() throws SQLException, ClassNotFoundException {
+
+        DataCo dataco = new DataCo();
+
+        StringBuilder request = new StringBuilder("SELECT * FROM `etablissement`");
+        ArrayList<String> filtre = new ArrayList<>();
+
         String nom_etablissement_filtre = "";
         String ville_filtre = "";
         int nombre_chambres_filtre = 0;
         int nombre_places_filtre = 0;
         int prix_filtre = 0;
         int distanceCentre_filtre = 0;
-
-        ArrayList<Hebergement> resultat;
-        String request = "SELECT * FROM `etablissement`";
-        ArrayList<String> filtre = new ArrayList<>();
-
-        DataCo dataco = new DataCo();
 
         Scanner clavier = new Scanner(System.in);
         String choix;
@@ -67,7 +76,6 @@ public class Invite {
             System.out.println("4. nb place : " + nombre_places_filtre);
             System.out.println("5. prix : " + prix_filtre);
             System.out.println("6. distance centre : " + distanceCentre_filtre);
-            System.out.println(request);
             System.out.println("7. Valider le filtre");
             System.out.print("\nsaisir choix: ");
             choix = clavier.next();
@@ -80,85 +88,35 @@ public class Invite {
                     System.out.print("Veuillez saisir le nom : ");
                     nom_etablissement_filtre = clavier.next();
                     filtre.add(" nom = '" + nom_etablissement_filtre +"'");
-/*
-                    for(int i=0; i<Filtre.size();i++)
-                    {
-                        if(!Filtre.get(i).getNom_etablissement().equals(nom_etablissement_filtre))
-                        {
-                            Filtre.remove(Filtre.get(i));
-                            i--;
-                        }
-                    }*/
                 }
                 // ville
                 case "2" -> {
                     System.out.print("Veuillez saisir la ville : ");
                     ville_filtre = clavier.next();
-/*
-                    for(int i=0; i<Filtre.size();i++)
-                    {
-                        if(!Filtre.get(i).getVille().equals(ville_filtre))
-                        {
-                            Filtre.remove(Filtre.get(i));
-                            i--;
-                        }
-                    }*/
+                    filtre.add(" ville = '" + ville_filtre +"'");
                 }
                 // chambre
                 case "3" -> {
                     System.out.print("Veuillez saisir le nombre de chambre : ");
                     nombre_chambres_filtre = clavier.nextInt();
                     filtre.add(" nbChambre  >= '" + nombre_chambres_filtre + "'");
-/*
-                    for(int i=0; i<Filtre.size();i++)
-                    {
-                        if(Filtre.get(i).getNombre_chambres() < nombre_chambres_filtre)
-                        {
-                            Filtre.remove(Filtre.get(i));
-                            i--;
-                        }
-                    }*/
                 }
                 // place
                 case "4" -> {
                     System.out.print("Veuillez saisir le nombre de place : ");
                     nombre_places_filtre = clavier.nextInt();
-/*
-                    for(int i=0; i<Filtre.size();i++)
-                    {
-                        if(Filtre.get(i).getNombre_places() < nombre_places_filtre)
-                        {
-                            Filtre.remove(Filtre.get(i));
-                            i--;
-                        }
-                    }*/
+                    filtre.add(" nbPlace  >= '" + nombre_places_filtre + "'");
                 }
                 // prix
                 case "5" -> {
                     System.out.print("Veuillez saisir le prix : ");
                     prix_filtre = clavier.nextInt();
-/*
-                    for(int i=0; i<Filtre.size();i++)
-                    {
-                        if(Filtre.get(i).getPrix() > prix_filtre)
-                        {
-                            Filtre.remove(Filtre.get(i));
-                            i--;
-                        }
-                    }*/
+                    filtre.add(" prix  <= '" + prix_filtre + "'");
                 }
                 case "6" -> {
                     System.out.print("Veuillez saisir la distance au centre : ");
                     distanceCentre_filtre = clavier.nextInt();
-/*
-                    for(int i=0; i<Filtre.size();i++)
-                    {
-                        if(Filtre.get(i).getDistanceCentre() > distanceCentre_filtre)
-                        {
-                            Filtre.remove(Filtre.get(i));
-                            i--;
-                        }
-                    }*/
+                    filtre.add(" distanceCentre <= '" + distanceCentre_filtre + "'");
                 }
                 case "7" -> System.out.println("Filtre valide");
                 default -> {
@@ -173,26 +131,16 @@ public class Invite {
         {
             if(filtre.size() > 0)
             {
-                request = request + " WHERE" + filtre.get(0);
+                request.append(" WHERE").append(filtre.get(0));
                 for (int i=1; i<filtre.size(); i++)
                 {
-                    request = request + " &&" + filtre.get(i);
+                    request.append(" &&").append(filtre.get(i));
                 }
             }
             System.out.println(request);
 
-            System.out.println("==== RESULTATS ====\n");
-            System.out.println("Filtre");
-
-            System.out.println("Liste");
-
         }
-        resultat = dataco.SQL_Data_Hebergements(request);
 
-        for(Hebergement h : resultat)
-        {
-            System.out.println(h.getNom_etablissement());
-        }
+        return dataco.SQL_Data_Hebergements(request.toString());
     }
-
 }

@@ -3,9 +3,8 @@ package com.example.ecebooking;
 import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Client.Invite;
-import com.example.ecebooking.Controllers.DataCo;
+import com.example.ecebooking.Models.DataCo;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
-import com.example.ecebooking.Controllers.LoginController;
 import com.example.ecebooking.Models.Model;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -19,22 +18,14 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws SQLException, ClassNotFoundException {
         Model.getInstance().getViewFactory().LoginView();
-
-
         ArrayList<Client> COListe = new ArrayList<>();
         ArrayList<Admin> ADListe = new ArrayList<>();
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
-
         DataCo dataco = new DataCo();
-
         dataco.SQL_Data_Login(COListe);
         //dataco.afficherListeClient(COListe);
 
         dataco.SQL_Data_Admin(ADListe);
-        //dataco.afficherListeAdmin(ADListe);
-
-        /*dataco.SQL_Data_Hebergements(hebergementListe);
-        dataco.afficherListeHebergements(hebergementListe);*/
 
         String choix;
         Scanner clavier = new Scanner(System.in);
@@ -91,6 +82,15 @@ public class App extends Application {
 
                     int numClient=10;
                     dataco.Data_Creation_Login(nom, id, mdp, numClient);
+                   /* for (Client client : COListe) {
+                            if ((id.equals(client.getId())) && (mdp.equals(client.getMdp()))) {
+
+                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero(), hebergementListe);
+                                ConnexionClient.menu();
+                                buff=1;
+                            }
+                        }*/
+
                 }
                 case "4" ->{
                     Scanner clavier3 = new Scanner(System.in);
@@ -107,12 +107,11 @@ public class App extends Application {
                             if ((idA.equals(ad.getIdA())) && (mdpA.equals(ad.getMdpA()))) {
 
                                 Admin ConnexionAdmin = new Admin(ad.getNomA(), idA, mdpA, ad.getNumeroA(), hebergementListe);
-                                ConnexionAdmin.menu();
+                                ConnexionAdmin.menuAdmin();
                                 buff2=1;
                             }
                         }
                     } while (buff2 == 0);
-
                 }
                 default -> {
                 }
@@ -122,3 +121,4 @@ public class App extends Application {
     }
 
 }
+

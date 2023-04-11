@@ -1,36 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="750.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView fitHeight="144.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" />
-      <VBox prefHeight="140.0" prefWidth="327.0" styleClass="vbox">
-         <children>
-            <Label fx:id="nom_hebergement" alignment="CENTER" prefHeight="35.0" prefWidth="434.0" styleClass="menu_container_title" text="Nom hebergement" />
-            <HBox prefHeight="32.0" prefWidth="480.0" styleClass="menu_container_info">
-               <children>
-                  <Label fx:id="type" prefHeight="30.0" prefWidth="72.0" styleClass="menu_container_info" text="Type " />
-                  <HBox prefHeight="30.0" prefWidth="275.0">
-                     <children>
-                        <Label fx:id="destination" prefHeight="30.0" prefWidth="98.0" styleClass="menu_container_info" text="Destination" />
-                        <Label fx:id="distance" alignment="CENTER" prefHeight="11.0" prefWidth="74.0" styleClass="distance" text="Distance au centre ">
-                           <HBox.margin>
-                              <Insets top="12.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
-            <Label fx:id="options" styleClass="menu_container_options" text="Options-Services" />
-            <Label fx:id="activités" styleClass="menu_container_options" text="Activités" />
-         </children>
+<VBox fx:id="Hebergements" alignment="CENTER" prefHeight="220.0" prefWidth="850.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Hebergements.HebergementsController">
+   <HBox styleClass="vbox">
+      <ImageView fitHeight="226.0" fitWidth="337.0">
+         <!-- Ajoutez ici l'URL de l'image de l'hôtel -->
+      </ImageView>
+      <VBox prefHeight="226.0" prefWidth="529.0">
+         <Label styleClass="menu_container_title" text="Nom de l'hôtel" />
+         <Label styleClass="menu_container_info" text="Adresse de l'hôtel" />
+         <Label styleClass="menu_container_options" text="Prix par nuit" />
       </VBox>
-   </children>
-</HBox>
+   </HBox>
+</VBox>

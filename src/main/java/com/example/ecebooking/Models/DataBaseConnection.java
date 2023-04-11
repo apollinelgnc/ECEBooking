@@ -1,4 +1,4 @@
-package com.example.ecebooking.Controllers;
+package com.example.ecebooking.Models;
 
 /*
  * To change this template, choose Tools | Templates
@@ -46,7 +46,7 @@ public class DataBaseConnection {
      *
      * @param nameDatabase="";
      * @param loginDatabase="";
-     * @param passwordDatabase="0802";
+     * @param passwordDatabase="";
      * @throws java.sql.SQLException;
      * @throws java.lang.ClassNotFoundException;
      */

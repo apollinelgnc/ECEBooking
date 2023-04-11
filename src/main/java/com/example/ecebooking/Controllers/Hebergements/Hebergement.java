@@ -1,6 +1,8 @@
 package com.example.ecebooking.Controllers.Hebergements;
 
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,12 +10,6 @@ import java.util.Scanner;
 public class Hebergement {
 
     static int compte_hebergement;
-    public Label activites;
-    public Label options;
-    public Label distance;
-    public Label destination;
-    public Label type;
-    public Label nom_hebergement;
     private String nom_etablissement;
     private String ville;
     private int nombre_chambres;
@@ -24,6 +20,7 @@ public class Hebergement {
     private ArrayList<String> option;
     private ArrayList<String> activite;
     private ArrayList<String> reservation;
+
 
     /** Constructeurs */
     // Récupération Base de données
@@ -37,7 +34,18 @@ public class Hebergement {
         this.idhebergement = idhebergement;
         compte_hebergement ++;
     }
-
+    /** Constructeurs */
+    // Récupération Base de données
+    public Hebergement(String nom_etablissement, String ville) {
+        this.nom_etablissement = nom_etablissement;
+        this.ville = ville;
+    }
+    public Node getNode() {
+        VBox vbox = new VBox();
+        vbox.getChildren().add(new Label("Nom : " + nom_etablissement));
+        vbox.getChildren().add(new Label("Adresse : " + ville));
+        return vbox;
+    }
     // Creation par l'utilisateur
     /*public Hebergement()
     {

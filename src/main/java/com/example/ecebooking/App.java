@@ -28,13 +28,13 @@ public class App extends Application {
         DataCo dataco = new DataCo();
 
         dataco.SQL_Data_Login(COListe);
-        //loginControl.afficherListeClient(COListe);
+        //dataco.afficherListeClient(COListe);
 
         dataco.SQL_Data_Admin(ADListe);
-        //loginControl.afficherListeAdmin(ADListe);
+        //dataco.afficherListeAdmin(ADListe);
 
         /*loginControl.SQL_Data_Hebergements(hebergementListe);
-        loginControl.afficherListeHebergements(hebergementListe);*/
+        dataco.afficherListeHebergements(hebergementListe);*/
 
         String choix;
         Scanner clavier = new Scanner(System.in);
@@ -71,6 +71,7 @@ public class App extends Application {
 
                                 Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero(), hebergementListe);
                                 ConnexionClient.menu();
+                                buff=1;
                             }
                         }
                     } while (buff == 0);
@@ -107,6 +108,7 @@ public class App extends Application {
 
                                 Admin ConnexionAdmin = new Admin(ad.getNomA(), idA, mdpA, ad.getNumeroA(), hebergementListe);
                                 ConnexionAdmin.menu();
+                                buff2=1;
                             }
                         }
                     } while (buff2 == 0);

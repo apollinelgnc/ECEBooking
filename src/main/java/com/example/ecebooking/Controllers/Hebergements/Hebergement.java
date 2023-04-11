@@ -39,7 +39,7 @@ public class Hebergement {
     }
 
     // Creation par l'utilisateur
-    public Hebergement()
+    /*public Hebergement()
     {
         Scanner clavier = new Scanner(System.in);
         String choix = "100";
@@ -58,7 +58,7 @@ public class Hebergement {
         distanceCentre = clavier.nextInt();
         compte_hebergement++;
         idhebergement = compte_hebergement;
-    }
+    }*/
 
     /** METHODES */
     @Override

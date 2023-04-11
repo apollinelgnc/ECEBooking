@@ -57,8 +57,8 @@ public class Admin extends Client {
         this.nomA = nom;
     }
 
-    public void creerHebergement()
+    /*public void creerHebergement()
     {
         hebergementListe.add(new Hebergement());
-    }
+    }*/
 }

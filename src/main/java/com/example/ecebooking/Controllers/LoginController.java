@@ -1,6 +1,5 @@
 package com.example.ecebooking.Controllers;
 
-import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Models.Model;
@@ -35,14 +34,7 @@ private void onLogin(){
     Model.getInstance().getViewFactory().ClientView();
 }
 
-
-
-}
-
-
-
-
-/*  private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+  /*  private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -104,3 +96,6 @@ private void onLogin(){
                 "Welcome " + id);
 
     }*/
+
+
+}

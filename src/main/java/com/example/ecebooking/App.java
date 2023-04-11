@@ -33,7 +33,7 @@ public class App extends Application {
         dataco.SQL_Data_Admin(ADListe);
         //dataco.afficherListeAdmin(ADListe);
 
-        /*loginControl.SQL_Data_Hebergements(hebergementListe);
+        /*dataco.SQL_Data_Hebergements(hebergementListe);
         dataco.afficherListeHebergements(hebergementListe);*/
 
         String choix;
@@ -122,4 +122,3 @@ public class App extends Application {
     }
 
 }
-

@@ -1,5 +1,6 @@
 package com.example.ecebooking.Controllers;
 
+import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Models.Model;
@@ -34,68 +35,6 @@ private void onLogin(){
     Model.getInstance().getViewFactory().ClientView();
 }
 
-  /*  private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.show();
-    }
-
-    public ArrayList<Client> getMembres() {
-        return membres;
-    }
-
-    public void setMembres(Client client) {
-        this.membres.add(client);
-    }
-    public void setHebergements(Hebergement hebergement) {
-        this.hebergements.add(hebergement);
-    }
-
-    public void Choice( ){
-        acc_selector.getItems().add("Client");
-        acc_selector.getItems().add("Admin");
-    }
-    public void Login(ActionEvent event) throws SQLException, ClassNotFoundException {
-        Choice();
-        SQL_Data_Login();
-        SQL_Data_Hebergements();
-
-        Window owner = button_valider.getScene().getWindow();
-        System.out.println(id_entree.getText());
-        System.out.println(mot_de_passe.getText());
-        boolean equal=false;
-        for(int i=0; i<membres.size();i++){
-            if(id_entree.getText().equals(membres.get(i).getId())){
-                equal=true;
-                System.out.println("hello " +membres.get(i).getId());
-            }
-
-        }
-        System.out.println(equal);
-        if (!equal) {
-            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "mauvais id");
-            return;
-        }
-        if (id_entree.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "Veuillez entrer votre id");
-            return;
-        }
-        if (mot_de_passe.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-                    "Veuillez entrer votre mdp");
-            return;
-        }
-        String id = id_entree.getText();
-        String password = mot_de_passe.getText();
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Login réussi !",
-                "Welcome " + id);
-
-    }*/
     public void SQL_Data_Login(ArrayList<Client> Client) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
 
@@ -109,10 +48,6 @@ private void onLogin(){
                 //passage de la bdd sous la forme d une liste d'hebergment
                 String str = c1.remplirChampsRequete(c1.requetes.get(i)).get(j).toString();
                 String[] words = str.split(",");
-                for (String word : words) {
-                    System.out.println(word);
-                }
-
                 String nom = words[0];
                 String utilisateur = words[1];
                 String mdp = words[2];
@@ -125,6 +60,48 @@ private void onLogin(){
 
 
     }
+
+
+    public void SQL_Data_Admin(ArrayList<Admin> Admin) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "");
+
+        c3.ajouterTable("admin");
+        c3.ajouterRequete("SELECT * FROM `admin` ");
+        for(int i=0;i<c3.requetes.size();i++)
+        {
+
+            for(int j=0;j<c3.remplirChampsRequete(c3.requetes.get(i)).size();j++)
+            {
+                //passage de la bdd sous la forme d une liste d'hebergment
+                String str = c3.remplirChampsRequete(c3.requetes.get(i)).get(j).toString();
+                String[] words = str.split(",");
+                String nom = words[0];
+                String utilisateur = words[1];
+                String mdp = words[2];
+                int id = Integer.parseInt(words[3]);
+
+                Admin C = new Admin( nom, utilisateur, mdp, id , null);
+                Admin.add(C);
+            }
+        }
+
+
+    }
+
+
+    public void Data_Creation_Login(String nom, String id, String mdp, int num) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String Snum= String.valueOf(num);
+        String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
+        String S2="'";
+        String S3=", ";
+        String S4="')";
+        S1=S1+nom+S2+S3+S2+id+S2+S3+S2+mdp+S2+S3+S2+Snum+S4;
+        c1.ajouterRequete(S1);
+        c1.executeUpdate(c1.requetes.get(0));
+    }
+
+
     public void SQL_Data_Hebergements(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
         //test
         DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
@@ -193,3 +170,69 @@ private void onLogin(){
     }
 
 }
+
+
+
+
+/*  private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
+    }
+
+    public ArrayList<Client> getMembres() {
+        return membres;
+    }
+
+    public void setMembres(Client client) {
+        this.membres.add(client);
+    }
+    public void setHebergements(Hebergement hebergement) {
+        this.hebergements.add(hebergement);
+    }
+
+    public void Choice( ){
+        acc_selector.getItems().add("Client");
+        acc_selector.getItems().add("Admin");
+    }
+    public void Login(ActionEvent event) throws SQLException, ClassNotFoundException {
+        Choice();
+        SQL_Data_Login();
+        SQL_Data_Hebergements();
+
+        Window owner = button_valider.getScene().getWindow();
+        System.out.println(id_entree.getText());
+        System.out.println(mot_de_passe.getText());
+        boolean equal=false;
+        for(int i=0; i<membres.size();i++){
+            if(id_entree.getText().equals(membres.get(i).getId())){
+                equal=true;
+                System.out.println("hello " +membres.get(i).getId());
+            }
+
+        }
+        System.out.println(equal);
+        if (!equal) {
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+                    "mauvais id");
+            return;
+        }
+        if (id_entree.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+                    "Veuillez entrer votre id");
+            return;
+        }
+        if (mot_de_passe.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+                    "Veuillez entrer votre mdp");
+            return;
+        }
+        String id = id_entree.getText();
+        String password = mot_de_passe.getText();
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Login réussi !",
+                "Welcome " + id);
+
+    }*/

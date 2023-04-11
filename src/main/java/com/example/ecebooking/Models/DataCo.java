@@ -1,4 +1,4 @@
-package com.example.ecebooking.Controllers;
+package com.example.ecebooking.Models;
 
 import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DataCo {
 
     public void SQL_Data_Login(ArrayList<Client> Client) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "root");
 
         c1.ajouterTable("client");
         c1.ajouterRequete("SELECT * FROM `client` ");
@@ -37,7 +37,7 @@ public class DataCo {
 
 
     public void SQL_Data_Admin(ArrayList<Admin> Admin) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "");
+        DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "root");
 
         c3.ajouterTable("admin");
         c3.ajouterRequete("SELECT * FROM `admin` ");
@@ -58,10 +58,7 @@ public class DataCo {
                 Admin.add(C);
             }
         }
-
-
     }
-
 
     public void Data_Creation_Login(String nom, String id, String mdp, int num) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
@@ -76,20 +73,12 @@ public class DataCo {
     }
 
 
-    public void SQL_Data_Hebergements(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
-        //test
-        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
+    public ArrayList<Hebergement> SQL_Data_Hebergements(String request) throws SQLException, ClassNotFoundException {
+
+        ArrayList<Hebergement>  hebergements = new ArrayList<>();
+        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "root");
         c2.ajouterTable("etablissement");
-        //requetes sql qui me permet de chercher un type en particulier en fonction de la demande
-        String S1="SELECT * FROM `etablissement` ";
-        String S2="WHERE ";
-        String S3="wifi = '1' ";
-        String S4="&& fumeur ='1' ";
-        S1=S1+S2+S3+S4;
-        //test de la concatenation de la string
-        System.out.println(S1);
-        //recherche de tous les etablisemeent dans la base de donnée
-        c2.ajouterRequete(S1);
+        c2.ajouterRequete(request);
 
         for(int i=0;i<c2.requetes.size();i++)
         {
@@ -114,9 +103,7 @@ public class DataCo {
                 hebergements.add(h);
             }
         }
-
-        System.out.println("coockie4");
-
+        return hebergements;
     }
 
     public void afficherListeHebergements(ArrayList<Hebergement> liste) {

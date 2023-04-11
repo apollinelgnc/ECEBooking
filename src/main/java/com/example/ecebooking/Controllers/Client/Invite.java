@@ -1,6 +1,6 @@
 package com.example.ecebooking.Controllers.Client;
 
-import com.example.ecebooking.Controllers.DataCo;
+import com.example.ecebooking.Models.DataCo;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 
 import java.sql.SQLException;

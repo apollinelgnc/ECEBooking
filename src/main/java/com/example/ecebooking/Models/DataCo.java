@@ -3,6 +3,7 @@ package com.example.ecebooking.Models;
 import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
+import com.example.ecebooking.Models.DataBaseConnection;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class DataCo {
 
     public void SQL_Data_Login(ArrayList<Client> Client) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "root");
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
 
         c1.ajouterTable("client");
         c1.ajouterRequete("SELECT * FROM `client` ");
@@ -37,7 +38,7 @@ public class DataCo {
 
 
     public void SQL_Data_Admin(ArrayList<Admin> Admin) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "root");
+        DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "");
 
         c3.ajouterTable("admin");
         c3.ajouterRequete("SELECT * FROM `admin` ");
@@ -58,7 +59,10 @@ public class DataCo {
                 Admin.add(C);
             }
         }
+
+
     }
+
 
     public void Data_Creation_Login(String nom, String id, String mdp, int num) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
@@ -72,6 +76,42 @@ public class DataCo {
         c1.executeUpdate(c1.requetes.get(0));
     }
 
+
+    public void SQL_Data_Hebergements2(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
+
+        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
+        c2.ajouterTable("etablissement");
+        //recherche de tous les etablisemeent dans la base de donnée
+        c2.ajouterRequete("SELECT * FROM `etablissement` ");
+        for(int i=0;i<c2.requetes.size();i++)
+        {
+
+            for(int j=0;j<c2.remplirChampsRequete(c2.requetes.get(i)).size();j++)
+            {
+                //passage de la bdd sous la forme d une liste d'hebergment
+                String str = c2.remplirChampsRequete(c2.requetes.get(i)).get(j).toString();
+                System.out.println("test : " + str);
+                String[] words = str.split(",");
+                for (String word : words) {
+                    System.out.println(word);
+                }
+
+                String nom_etablissement = words[0];
+                String ville = words[1];
+                int nombre_chambres = Integer.parseInt(words[2]);
+                int nombre_places = Integer.parseInt(words[3]);
+                int prix = Integer.parseInt(words[4]);
+                int distanceCentre = Integer.parseInt(words[5]);
+                int wifi = Integer.parseInt(words[6]);
+                int menage = Integer.parseInt(words[7]);
+                int fumeur = Integer.parseInt(words[8]);
+                int idhebergement = Integer.parseInt(words[9]);
+                Hebergement h = new Hebergement(nom_etablissement, ville, nombre_chambres, nombre_places, prix, distanceCentre, wifi, menage, fumeur, idhebergement);
+                hebergements.add(h);
+            }
+        }
+
+    }
 
     public ArrayList<Hebergement> SQL_Data_Hebergements(String request) throws SQLException, ClassNotFoundException {
 
@@ -98,8 +138,11 @@ public class DataCo {
                 int nombre_places = Integer.parseInt(words[3]);
                 int prix = Integer.parseInt(words[4]);
                 int distanceCentre = Integer.parseInt(words[5]);
-                int idhebergement = Integer.parseInt(words[6]);
-                Hebergement h = new Hebergement(nom_etablissement, ville, nombre_chambres, nombre_places, prix, distanceCentre, idhebergement);
+                int wifi = Integer.parseInt(words[6]);
+                int menage = Integer.parseInt(words[7]);
+                int fumeur = Integer.parseInt(words[8]);
+                int idhebergement = Integer.parseInt(words[9]);
+                Hebergement h = new Hebergement(nom_etablissement, ville, nombre_chambres, nombre_places, prix, distanceCentre, wifi, menage, fumeur, idhebergement);
                 hebergements.add(h);
             }
         }

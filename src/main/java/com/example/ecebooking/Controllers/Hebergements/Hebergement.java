@@ -16,6 +16,9 @@ public class Hebergement {
     private int nombre_places;
     private int prix;
     private int distanceCentre;
+    private int wifi;
+    private int menage;
+    private int fumeur;
     private int idhebergement;
     private ArrayList<String> option;
     private ArrayList<String> activite;
@@ -24,14 +27,18 @@ public class Hebergement {
 
     /** Constructeurs */
     // Récupération Base de données
-    public Hebergement(String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre, int idhebergement) {
+    public Hebergement(String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre, int Wifi, int Menage, int Fumeur, int idhebergement) {
         this.nom_etablissement = nom_etablissement;
         this.ville = ville;
         this.nombre_chambres = nombre_chambres;
         this.nombre_places = nombre_places;
         this.prix = prix;
         this.distanceCentre = distanceCentre;
+        this.wifi=Wifi;
+        this.menage=Menage;
+        this.fumeur=Fumeur;
         this.idhebergement = idhebergement;
+
         compte_hebergement ++;
     }
     /** Constructeurs */
@@ -160,5 +167,29 @@ public class Hebergement {
 
     public void setReservation(ArrayList<String> reservation) {
         this.reservation = reservation;
+    }
+
+    public int getWifi() {
+        return wifi;
+    }
+
+    public void setWifi(int wifi) {
+        this.wifi = wifi;
+    }
+
+    public void setMenage(int menage) {
+        this.menage = menage;
+    }
+
+    public void setFumeur(int fumeur) {
+        this.fumeur = fumeur;
+    }
+
+    public int getMenage() {
+        return menage;
+    }
+
+    public int getFumeur() {
+        return fumeur;
     }
 }

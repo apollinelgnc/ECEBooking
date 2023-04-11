@@ -72,11 +72,12 @@ public class Admin extends Client {
         do {
             ArrayList<Client> COListe = new ArrayList<>();
             ArrayList<Admin> ADListe = new ArrayList<>();
-            //ArrayList<Hebergement> hebergementListe = new ArrayList<>();
+            ArrayList<Hebergement> hebergementListe = new ArrayList<>();
             DataCo dataco = new DataCo();
             dataco.SQL_Data_Login(COListe);
             //dataco.afficherListeClient(COListe);
             dataco.SQL_Data_Admin(ADListe);
+            dataco.SQL_Data_Hebergements2(hebergementListe);
 
             System.out.println("\n======= Menu Admin ======\n");
             System.out.println("0. Quitter");
@@ -87,15 +88,33 @@ public class Admin extends Client {
 
             switch (choix) {
                 case "0" -> System.out.println("Merci0");
-                case "1" -> System.out.println("Merci1"); //gererHebrgement();
-                case "2" -> System.out.println("Merci2");
+                case "1" -> gererHebrgement(hebergementListe); //gererHebrgement();
+                case "2" -> gererClient();
                 default -> {
                 }
             }
         } while (!choix.equals("0"));
 
-        /*public void gererHebrgement(){
-            }*/
+
+        }
+
+        public void gererHebrgement(ArrayList<Hebergement> hebergementListe){
+            afficherListeHebergements(hebergementListe);
+        }
+
+            public void afficherListeHebergements(ArrayList<Hebergement> liste) {
+                // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
+                for (Hebergement h : liste) {
+                    System.out.println("Hébergement : " + h.getIdhebergement());
+                    System.out.println("Nom : " + h.getNom_etablissement());
+                    System.out.println("Ville : " + h.getVille());
+                    System.out.println("Prix : " + h.getPrix());
+                    // ... afficher d'autres attributs selon votre structure de données
+                    System.out.println("--------------------");
+                }
+            }
+        public void gererClient(){
+
         }
 
 }

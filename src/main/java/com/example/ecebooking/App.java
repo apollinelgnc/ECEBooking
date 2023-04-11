@@ -3,6 +3,7 @@ package com.example.ecebooking;
 import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Client.Invite;
+import com.example.ecebooking.Controllers.DataCo;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Controllers.LoginController;
 import com.example.ecebooking.Models.Model;
@@ -24,12 +25,12 @@ public class App extends Application {
         ArrayList<Admin> ADListe = new ArrayList<>();
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
 
-        LoginController loginControl = new LoginController();
+        DataCo dataco = new DataCo();
 
-        loginControl.SQL_Data_Login(COListe);
+        dataco.SQL_Data_Login(COListe);
         //loginControl.afficherListeClient(COListe);
 
-        loginControl.SQL_Data_Admin(ADListe);
+        dataco.SQL_Data_Admin(ADListe);
         //loginControl.afficherListeAdmin(ADListe);
 
         /*loginControl.SQL_Data_Hebergements(hebergementListe);
@@ -88,7 +89,7 @@ public class App extends Application {
                     String mdp = clavier2.nextLine();
 
                     int numClient=10;
-                    loginControl.Data_Creation_Login(nom, id, mdp, numClient);
+                    dataco.Data_Creation_Login(nom, id, mdp, numClient);
                 }
                 case "4" ->{
                     Scanner clavier3 = new Scanner(System.in);

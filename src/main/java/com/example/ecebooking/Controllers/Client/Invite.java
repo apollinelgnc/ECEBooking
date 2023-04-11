@@ -24,17 +24,12 @@ public class Invite {
             System.out.println("\n======= Menu Invite ======\n");
             System.out.println("0. Quitter");
             System.out.println("1. Faire une reservation");
-            System.out.println("2. Se connecter (pas fonctionnel");
             System.out.print("\nsaisir menu : ");
             choix = clavier.next();
 
             switch (choix) {
                 case "0" -> System.out.println("Merci");
                 case "1" -> reserver();
-                case "2" -> {
-                    Client testC = new Client(hebergementListe);
-                    testC.menu();
-                }
                 default -> {
                 }
             }

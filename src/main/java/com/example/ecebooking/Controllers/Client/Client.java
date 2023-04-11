@@ -17,18 +17,8 @@ public class Client extends Invite{
     /** CONSTRUCTEURS */
 
     // création par l'utilisateur
-    public Client(ArrayList<Hebergement> hebergementListe){
+   public Client(ArrayList<Hebergement> hebergementListe){
         super(hebergementListe);
-        Scanner clavier = new Scanner(System.in);
-
-        compteur_client++;
-        numero = compteur_client;
-        reduction = 0.9;
-
-        System.out.print("Veuillez saisir votre pseudo : ");
-        id = clavier.nextLine();
-        System.out.print("Veuillez saisir votre mdp : ");
-        mdp = clavier.nextLine();
     }
 
     // constructeur base de donnees
@@ -73,5 +63,14 @@ public class Client extends Invite{
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+
+
+    public String getNom() {
+        return nom;
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

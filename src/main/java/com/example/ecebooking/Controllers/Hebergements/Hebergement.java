@@ -10,12 +10,6 @@ import java.util.Scanner;
 public class Hebergement {
 
     static int compte_hebergement;
-    public Label activites;
-    public Label options;
-    public Label distance;
-    public Label destination;
-    public Label type;
-    public Label nom_hebergement;
     private String nom_etablissement;
     private String ville;
     private int nombre_chambres;
@@ -27,6 +21,19 @@ public class Hebergement {
     private ArrayList<String> activite;
     private ArrayList<String> reservation;
 
+
+    /** Constructeurs */
+    // Récupération Base de données
+    public Hebergement(String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre, int idhebergement) {
+        this.nom_etablissement = nom_etablissement;
+        this.ville = ville;
+        this.nombre_chambres = nombre_chambres;
+        this.nombre_places = nombre_places;
+        this.prix = prix;
+        this.distanceCentre = distanceCentre;
+        this.idhebergement = idhebergement;
+        compte_hebergement ++;
+    }
     /** Constructeurs */
     // Récupération Base de données
     public Hebergement(String nom_etablissement, String ville) {

@@ -46,7 +46,7 @@ public class DataBaseConnection {
      *
      * @param nameDatabase="";
      * @param loginDatabase="";
-     * @param passwordDatabase="0802";
+     * @param passwordDatabase="";
      * @throws java.sql.SQLException;
      * @throws java.lang.ClassNotFoundException;
      */

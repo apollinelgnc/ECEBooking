@@ -1,6 +1,5 @@
 package com.example.ecebooking.Controllers;
 
-import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Models.Model;
@@ -8,38 +7,34 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
 public class LoginController implements Initializable {
-    public ChoiceBox acc_selector = new ChoiceBox<>();
+    public ChoiceBox<String> acc_selector = new ChoiceBox<>();
     public Label id;
     public TextField id_entree;
     public PasswordField mot_de_passe;
     public Button button_valider;
-    ArrayList<Client> membres=new ArrayList<>();
-    ArrayList<Hebergement>hebergements=new ArrayList<>();
-    private PreparedStatement stmt;
+    public Hyperlink connection_invite;
 
-    public void initialize(URL url, ResourceBundle resourceBundle){
-    button_valider.setOnAction(actionEvent -> {
-        Model.getInstance().getViewFactory().ClientView();
-
+    String choix;
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        acc_selector.getItems().add("Client");
+        acc_selector.getItems().add("Admin");
+        button_valider.setOnAction(actionEvent -> {
+            if (acc_selector.getSelectionModel().getSelectedItem() != null) {
+                choix = acc_selector.getSelectionModel().getSelectedItem();
+                if (choix == "Admin")
+                    Model.getInstance().getViewFactory().AdminView();
+                if (choix == "Client")
+                    Model.getInstance().getViewFactory().ClientView();
+            }
+        });
+        connection_invite.setOnAction(event -> Model.getInstance().getViewFactory().InviteView());
     }
-    );
 }
-private void onLogin(){
-    Model.getInstance().getViewFactory().ClientView();
-}
-
-
-
-}
-
-
 
 
 /*  private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {

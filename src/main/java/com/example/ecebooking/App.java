@@ -19,23 +19,14 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws SQLException, ClassNotFoundException {
         Model.getInstance().getViewFactory().LoginView();
-
-
-        ArrayList<Client> COListe = new ArrayList<>();
+    /*    ArrayList<Client> COListe = new ArrayList<>();
         ArrayList<Admin> ADListe = new ArrayList<>();
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
-
         DataCo dataco = new DataCo();
-
         dataco.SQL_Data_Login(COListe);
-        //dataco.afficherListeClient(COListe);
+        dataco.afficherListeClient(COListe);
 
         dataco.SQL_Data_Admin(ADListe);
-        //dataco.afficherListeAdmin(ADListe);
-
-        /*loginControl.SQL_Data_Hebergements(hebergementListe);
-        dataco.afficherListeHebergements(hebergementListe);*/
-
         String choix;
         Scanner clavier = new Scanner(System.in);
 
@@ -112,13 +103,12 @@ public class App extends Application {
                             }
                         }
                     } while (buff2 == 0);
-
                 }
                 default -> {
                 }
             }
         }while(!choix.equals("0"));
-
+*/
     }
 
 }

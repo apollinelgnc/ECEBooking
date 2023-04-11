@@ -13,7 +13,6 @@
     -fx-background-size: cover;
     -fx-text-fill: white;
     -fx-font-size: 3em;
-    -fx-spacing: 20;
 }
 .search_box_Button{
     -fx-background-color: white;
@@ -40,22 +39,26 @@
     -fx-background-radius: 10 10 10 10;
     -fx-alignment: center;
     -fx-font-family: "Cooper Black";
-    -fx-spacing: 18;
-    -fx-padding: 0.75em;
+    -fx-padding: 1em;
+    -fx-spacing: 1.5em;
 }
 .search_box{
     -fx-alignment: center;
     -fx-text-alignment: center;
     -fx-text-fill: white;
     -fx-pref-height: 50;
-    -fx-pref-width: 400;
-    -fx-spacing: 0.5em;
+    -fx-pref-width: 170;
 }
 .search_box_last{
     -fx-alignment: center;
     -fx-text-alignment: center;
     -fx-text-fill: white;
     -fx-pref-height: 20;
-    -fx-pref-width: 200;
-    -fx-spacing: 0.5em;
+    -fx-pref-width: 75;
+}
+.prix{
+    -fx-pref-width: 250;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+
 }

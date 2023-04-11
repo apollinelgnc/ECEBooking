@@ -1,64 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<StackPane prefHeight="768.0" styleClass="background_container" stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Hebergements.HebergementsController">
+<StackPane prefHeight="768.0" styleClass="background_container" stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Client.MenuController">
    <Pane prefHeight="768.0" prefWidth="1024">
-    <!-- Menu en fond -->
-    <VBox prefHeight="199.0" prefWidth="1024.0">
-       <VBox prefHeight="10.0" VBox.vgrow="NEVER">
-           <VBox prefHeight="151.0" prefWidth="1024.0" styleClass="background_second_container">            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_white" text="Réserver vos" wrappingWidth="374.1014404296875">
-                <VBox.margin>
-                    <Insets left="50.0" top="50.0" />
-                </VBox.margin>
-            </Text>
-            <Text fill="#132a13" layoutX="60.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_green" text="vacances de rêves " wrappingWidth="374.1014404296875">
-                <VBox.margin>
-                    <Insets left="150.0" top="-15.0" />
-                </VBox.margin>
-            </Text>
-        </VBox>
-       </VBox>
-        <HBox layoutX="87.0" layoutY="293.0" prefHeight="48.0" prefWidth="1024.0" styleClass="research_box" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="86.60000000000002" AnchorPane.topAnchor="235.0">
-            <VBox prefHeight="80.0" prefWidth="184.0" styleClass="search_box">
-                <Label text="Destination" textFill="WHITE" />
-                <TextField fx:id="destination" focusTraversable="false" prefHeight="25.0" prefWidth="142.0" styleClass="search_box_Button" />
-            </VBox>
-            <VBox styleClass="search_box">
-                <Label text="Nombre de personne" textAlignment="CENTER" textFill="WHITE" />
-                <ChoiceBox fx:id="nb_persons" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
-                <Label text="Check in " textAlignment="CENTER" textFill="WHITE" />
-                <DatePicker fx:id="check_in_date" focusTraversable="false" prefHeight="38.0" prefWidth="157.0" styleClass="search_box_Button" />
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
-                <Label text="Check out" textAlignment="CENTER" textFill="WHITE" />
-                <DatePicker fx:id="check_out_date" focusTraversable="false" prefHeight="38.0" prefWidth="160.0" styleClass="search_box_Button" />
-            </VBox>
-            <VBox prefHeight="50.0" prefWidth="200.0" styleClass="search_box_last">
-                <Label />
-                <Button fx:id="randomizeHotelsButton" minWidth="90.0" mnemonicParsing="false" onAction="#afficherHotelsAleatoires" prefHeight="50.0" styleClass="search_box_Button" text="GO">
-                    <font>
-                        <Font size="2.0" />
-                    </font>
-                </Button>
-            </VBox>
-        </HBox>
-
-            <Pane prefHeight="200.0" prefWidth="1024.0" styleClass="container_list_hotels" VBox.vgrow="ALWAYS">
-        <ScrollPane prefHeight="571.0" prefWidth="1024.0" styleClass="scroll_pane_list_hotels">
-            <VBox fx:id="Hebergements" prefHeight="569.0" prefWidth="1024.0" spacing="10.0" styleClass="list_hotels">
-                <padding>
-                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                </padding>
-            </VBox>
-        </ScrollPane>
-    </Pane>
+    <VBox prefHeight="126.0" prefWidth="1024.0">
+        <VBox prefHeight="121.0" prefWidth="1024.0" styleClass="background_second_container">            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_white" text="Réserver vos" wrappingWidth="374.1014404296875">
+             <VBox.margin>
+                 <Insets left="50.0" top="25.0" />
+             </VBox.margin>
+         </Text>
+         <Text fill="#132a13" layoutX="60.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_green" text="vacances de rêves " wrappingWidth="374.1014404296875">
+             <VBox.margin>
+                 <Insets left="150.0" top="-15.0" />
+             </VBox.margin>
+         </Text>
+     </VBox>
     </VBox>
+     <HBox layoutY="109.0" prefHeight="41.0" prefWidth="1024.0" styleClass="research_box">
+         <VBox prefHeight="80.0" prefWidth="184.0" styleClass="search_box">
+             <Label text="Destination" textFill="WHITE" />
+             <TextField fx:id="destination" focusTraversable="false" prefHeight="25.0" prefWidth="142.0" styleClass="search_box_Button" />
+         </VBox>
+         <VBox prefHeight="40.0" prefWidth="300.0" styleClass="search_box">
+             <Label text="Nombre de personne" textAlignment="CENTER" textFill="WHITE" />
+             <ChoiceBox fx:id="nb_persons" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+         </VBox>
+         <VBox prefHeight="46.0" prefWidth="173.0" styleClass="search_box">
+            <Label text="Nom de l'hébergement" textFill="WHITE" />
+            <TextField fx:id="nom_hebergement" focusTraversable="false" prefHeight="10.0" prefWidth="95.0" styleClass="search_box_Button" />
+         </VBox>
+         <VBox prefHeight="46.0" prefWidth="173.0" styleClass="search_box">
+             <Label text="Distance au centre " textFill="WHITE" />
+             <TextField fx:id="distance" focusTraversable="false" prefHeight="10.0" prefWidth="95.0" styleClass="search_box_Button" text="en mètre " />
+            <Label text="Prix" textFill="WHITE" />
+            <TextField fx:id="prix" focusTraversable="false" prefHeight="10.0" prefWidth="95.0" styleClass="search_box_Button" text="en €" />
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
+             <Label text="Check in " textAlignment="CENTER" textFill="WHITE" />
+             <DatePicker fx:id="check_in_date" focusTraversable="false" prefHeight="38.0" prefWidth="157.0" styleClass="search_box_Button" />
+             <Label text="Check out" textAlignment="CENTER" textFill="WHITE" />
+             <DatePicker fx:id="check_out_date" focusTraversable="false" prefHeight="38.0" prefWidth="160.0" styleClass="search_box_Button" />
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
+             <Label text="Nombre de places" textAlignment="CENTER" textFill="WHITE" />
+             <ChoiceBox fx:id="nombre_places" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+             <Label text="Nombre de chambre" textAlignment="CENTER" textFill="WHITE" />
+             <ChoiceBox fx:id="nombre_chambres" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+         </VBox>
+         <VBox prefHeight="40.0" prefWidth="138.0" styleClass="search_box_last">
+             <Label />
+             <Button fx:id="go" minWidth="90.0" mnemonicParsing="false" prefHeight="50.0" styleClass="search_box_Button" text="GO">
+                 <font>
+                     <Font size="2.0" />
+                 </font>
+             </Button>
+         </VBox>
+     </HBox>
 
    </Pane>
 </StackPane>

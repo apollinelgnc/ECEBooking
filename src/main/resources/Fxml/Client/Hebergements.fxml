@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="Hebergements" alignment="CENTER" prefHeight="220.0" prefWidth="850.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Hebergements.HebergementsController">
-   <HBox fx:id="hbox" styleClass="vbox">
-      <ImageView fitHeight="226.0" fitWidth="337.0">
-         <!-- Ajoutez ici l'URL de l'image de l'hôtel -->
-      </ImageView>
-      <VBox prefHeight="226.0" prefWidth="529.0">
-         <Label fx:id="nom" styleClass="menu_container_title" text="Nom de l'hôtel" />
-         <Label fx:id="ville" styleClass="menu_container_info" text="Adresse de l'hôtel" />
-         <Label fx:id="prix" styleClass="menu_container_options" text="Prix par nuit" />
-      </VBox>
-   </HBox>
+<VBox fx:id="vboxHebergement" prefWidth="200" xmlns="http://javafx.com/javafx/14" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Hebergements.Hebergement">
+   <ListView fx:id="listViewHebergements" />
+   <Label fx:id="lblDestination" text="Destination : " />
+   <Label fx:id="lblPrix" text="Prix : " />
+   <Label fx:id="lblNbChambres" text="Nombre de chambres : " />
+   <Label fx:id="lblNbPlaces" text="Nombre de places : " />
+   <Label fx:id="lblNom" text="Nom : " />
+   <Label fx:id="lblDistanceCentre" text="Distance du centre : " />
 </VBox>

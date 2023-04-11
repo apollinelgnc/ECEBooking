@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -18,6 +19,10 @@ public class HebergementsController implements Initializable {
     public DatePicker check_out_date;
     public TextField destination;
     public ChoiceBox nb_persons;
+    public Label nom;
+    public Label ville;
+    public Label prix;
+    public HBox hbox;
 
     private List<Hebergement> hotels;
     @FXML
@@ -45,14 +50,15 @@ public class HebergementsController implements Initializable {
         hotelsAleatoires = hotelsAleatoires.subList(0, nombreAleatoire);
 
         // Effacer le conteneur d'hôtels et ajouter les hôtels sélectionnés avec une marge inférieure de 100
-        if(Hebergements.getChildren()!=null)
+        if (Hebergements.getChildren() != null)
             Hebergements.getChildren().clear();
         for (Hebergement hotel : hotelsAleatoires) {
-            VBox.setMargin(hotel.getNode(), new Insets(0, 0, 100, 0));
-            Hebergements.getChildren().add(hotel.getNode());
+            nom=new Label(hotel.getNom_etablissement());
+            ville=new Label(hotel.getVille());
+            hbox=new HBox(nom,ville);
+           // VBox.setMargin(hbox, new Insets(0, 0, 100, 0));
+            Hebergements.getChildren().add(hbox);
         }
     }
 
 }
-
-

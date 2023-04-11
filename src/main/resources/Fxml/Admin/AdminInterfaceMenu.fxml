@@ -6,9 +6,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="background_container" stylesheets="@../../Styles/AdminMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Admin.AdminController">
    <Pane prefHeight="79.0" prefWidth="1024.0" styleClass="research_box">
-      <Button layoutX="160.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Les hôtels" />
-      <Button layoutX="348.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Les réservations" />
-      <Button layoutX="569.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Statistiques" />
-      <Button layoutX="782.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Promotions" />
+      <Button fx:id="hotels" layoutX="160.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Les hôtels" />
+      <Button fx:id="reservations" layoutX="348.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Les réservations" />
+      <Button fx:id="stats" layoutX="569.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Statistiques" />
+      <Button fx:id="promo" layoutX="782.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Promotions" />
    </Pane>
 </AnchorPane>

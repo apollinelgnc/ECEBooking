@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Hebergement {
 
@@ -49,8 +48,14 @@ public class Hebergement {
     }
     public Node getNode() {
         VBox vbox = new VBox();
-        vbox.getChildren().add(new Label("Nom : " + nom_etablissement));
-        vbox.getChildren().add(new Label("Adresse : " + ville));
+        Label nomLabel = new Label("Nom : " + nom_etablissement);
+        if (!vbox.getChildren().contains(nomLabel)) {
+            vbox.getChildren().add(nomLabel);
+        }
+        Label adresseLabel = new Label("Adresse : " + ville);
+        if (!vbox.getChildren().contains(adresseLabel)) {
+            vbox.getChildren().add(adresseLabel);
+        }
         return vbox;
     }
     // Creation par l'utilisateur
@@ -75,6 +80,7 @@ public class Hebergement {
         idhebergement = compte_hebergement;
     }*/
 
+
     /** METHODES */
     @Override
     public String toString() {
@@ -98,6 +104,7 @@ public class Hebergement {
     }
 
     public String getVille() {
+
         return ville;
     }
 

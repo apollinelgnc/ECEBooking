@@ -33,14 +33,18 @@ public class Reservation {
     public int getId_client() {
         return id_client;
     }
+
+    public LocalDate getDebut() {
+        return debut;
+    }
+
+    public LocalDate getFin() {
+        return fin;
+    }
+
     public boolean verification() throws SQLException, ClassNotFoundException {
         DataCo dataco = new DataCo();
         ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation(this.id_hebergement);
-
-        for(Reservation resa : bdd_reservation)
-        {
-            resa.afficher();
-        }
 
         for (Reservation reservation : bdd_reservation) {
             if (reservation.getId_hebergement() == this.id_hebergement) {
@@ -50,6 +54,10 @@ public class Reservation {
                 }
                 if (reservation.debut.isBefore(this.fin) && this.fin.isBefore(reservation.fin)) {
                     System.out.println(reservation.debut + " " + this.fin + " " + reservation.fin);
+                    return false;
+                }
+                if(this.debut.isBefore(reservation.debut) && reservation.fin.isBefore(this.fin)) {
+                    System.out.println(this.debut+ " " + reservation.debut + " " + reservation.fin + " " + this.fin);
                     return false;
                 }
             }

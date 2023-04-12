@@ -33,7 +33,7 @@ public class App extends Application {
             System.out.println("0. Quitter");
             System.out.println("1. Inviter");
             System.out.println("2. Se connecter Client");
-            System.out.println("3. Se creer un compte Client");
+            System.out.println("3. Se créer un compte Client");
             System.out.println("4. Se connecter Admin");
             System.out.print("\nsaisir menu : ");
             choix = clavier.next();

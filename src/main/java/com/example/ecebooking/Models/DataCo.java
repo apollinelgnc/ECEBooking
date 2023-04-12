@@ -175,6 +175,19 @@ public class DataCo {
         return listeReservation;
     }
 
+    public void Data_Creation_Reservation(Reservation nouveau) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c5 = new DataBaseConnection("bdd_projets6", "root", "root");
+        //String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
+        String S1 ="INSERT INTO `reservation` (`idHebergement`, `idClient`, `debutAnnee`, `debutMois`, `debutJour`, `finAnnee`, `finMois`, `finJour`) VALUES ('";
+        String S2="'";
+        String S3=", ";
+        String S4="')";
+        S1=S1+nouveau.getId_hebergement()+S2+S3+S2+nouveau.getId_client()+S2+S3+S2+nouveau.getDebut().getYear()+S2+S3+S2+nouveau.getDebut().getMonthValue()+S2+S3+S2+nouveau.getDebut().getDayOfMonth()+S2+S3+S2+nouveau.getFin().getYear()+S2+S3+S2+nouveau.getFin().getMonthValue()+S2+S3+S2+nouveau.getFin().getDayOfMonth()+S4;
+        System.out.println(S1);
+        c5.ajouterRequete(S1);
+        c5.executeUpdate(c5.requetes.get(0));
+    }
+
     public void afficherListeHebergements(ArrayList<Hebergement> liste) {
         // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
         for (Hebergement h : liste) {

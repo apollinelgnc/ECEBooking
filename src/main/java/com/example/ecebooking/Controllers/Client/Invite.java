@@ -30,7 +30,7 @@ public class Invite {
 
             switch (choix) {
                 case "0" -> System.out.println("Merci");
-                case "1" -> System.out.println("Matt fait des tests <3");//reserver();
+                case "1" -> reserver();
                 default -> {
                 }
             }
@@ -90,6 +90,8 @@ public class Invite {
 
         if(valide)
         {
+            DataCo dataco = new DataCo();
+            dataco.Data_Creation_Reservation(nouveau);
             System.out.println("Validée");
         }
         else System.out.println("Refusée");

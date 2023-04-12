@@ -1,21 +1,18 @@
 package com.example.ecebooking.Controllers.Client;
 
+import com.example.ecebooking.Controllers.Reservation;
 import com.example.ecebooking.Models.DataCo;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Invite {
 
-    /** ATTRIBUTS */
-    protected ArrayList<Hebergement> hebergementListe;
-
     /** CONSTRUCTEURS */
-    public Invite(ArrayList<Hebergement> hebergementListe) {
-        this.hebergementListe = hebergementListe;
-    }
+    public Invite() {}
 
     /** METHODES */
     public void menu() throws SQLException, ClassNotFoundException {
@@ -33,21 +30,70 @@ public class Invite {
 
             switch (choix) {
                 case "0" -> System.out.println("Merci");
-                case "1" -> reserver();
+                case "1" -> System.out.println("Matt fait des tests <3");//reserver();
                 default -> {
                 }
             }
         } while (!choix.equals("0"));
     }
 
-    public void reserver() throws SQLException, ClassNotFoundException {
+    public void reserver() throws SQLException, ClassNotFoundException
+    {
+        int jour_debut, mois_debut, annee_debut;
+        int jour_fin, mois_fin, annee_fin;
+        boolean valide;
 
+        Scanner clavier = new Scanner(System.in);
+        int choix;
+
+        // Liste des hébergements de la BDD après le filtre
         ArrayList<Hebergement> ListeHebergement = filtrer();
 
-        for(Hebergement h : ListeHebergement)
+        // Choix de l'hébergement pour la réservation
+        do {
+            System.out.println("===== Resultat Filtre =====\n");
+            for(int i=1; i<=ListeHebergement.size(); i++)
+            {
+                System.out.println(i +". " + ListeHebergement.get(i-1).getNom_etablissement());
+            }
+            System.out.println("0. Quitter\n");
+            System.out.print("Saisir menu : ");
+            choix = clavier.nextInt();
+
+        }while(ListeHebergement.size() < choix || choix < 0);
+
+
+        // Choix des dates
+        System.out.println("===== Choix Date =====\n");
+        System.out.print("jour de debut : ");
+        jour_debut = clavier.nextInt();
+        System.out.print("mois de debut : ");
+        mois_debut = clavier.nextInt();
+        System.out.print("annee de debut : ");
+        annee_debut = clavier.nextInt();
+        //Dates debut = new Dates (jour_debut, mois_debut, annee_debut);
+        LocalDate debut = LocalDate.of(annee_debut, mois_debut, jour_debut);
+
+        System.out.print("\njour de fin : ");
+        jour_fin = clavier.nextInt();
+        System.out.print("mois de fin : ");
+        mois_fin = clavier.nextInt();
+        System.out.print("annee de fin : ");
+        annee_fin = clavier.nextInt();
+        //Dates fin = new Dates(jour_fin, mois_fin, annee_fin);
+        LocalDate fin = LocalDate.of(annee_fin, mois_fin, jour_fin);
+
+        Reservation nouveau = new Reservation(ListeHebergement.get(choix-1).getIdhebergement(), -1, debut, fin);
+
+        // Verification disponibilité date
+        valide = nouveau.verification();
+
+        if(valide)
         {
-            System.out.println(h.getNom_etablissement());
+            System.out.println("Validée");
         }
+        else System.out.println("Refusée");
+
     }
 
     public ArrayList<Hebergement> filtrer() throws SQLException, ClassNotFoundException {
@@ -63,6 +109,10 @@ public class Invite {
         int nombre_places_filtre = 0;
         int prix_filtre = 0;
         int distanceCentre_filtre = 0;
+        String wifi_filtre = "non";
+        String menage_filtre = "non";
+        String  fumeur_filtre = "non";
+
 
         Scanner clavier = new Scanner(System.in);
         String choix;
@@ -76,7 +126,10 @@ public class Invite {
             System.out.println("4. nb place : " + nombre_places_filtre);
             System.out.println("5. prix : " + prix_filtre);
             System.out.println("6. distance centre : " + distanceCentre_filtre);
-            System.out.println("7. Valider le filtre");
+            System.out.println("7. Filtre wifi : " + wifi_filtre);
+            System.out.println("8. Filtre menage : " + menage_filtre);
+            System.out.println("9. Filtre fumeur : " + fumeur_filtre);
+            System.out.println("10. Valider le filtre");
             System.out.print("\nsaisir choix: ");
             choix = clavier.next();
 
@@ -118,16 +171,28 @@ public class Invite {
                     distanceCentre_filtre = clavier.nextInt();
                     filtre.add(" distanceCentre <= '" + distanceCentre_filtre + "'");
                 }
-                case "7" -> System.out.println("Filtre valide");
+                case "7" -> {
+                    wifi_filtre = "oui";
+                    filtre.add(" wifi = '1'");
+                }
+                case "8" -> {
+                    menage_filtre = "oui";
+                    filtre.add(" menage = '1'");
+                }
+                case "9" -> {
+                    fumeur_filtre = "oui";
+                    filtre.add(" fumeur = '1'");
+                }
+                case "10" -> System.out.println("Filtre valide");
                 default -> {
                 }
             }
 
-        } while (!choix.equals("0") && !choix.equals("7"));
+        } while (!choix.equals("0") && !choix.equals("10"));
 
         /*Fin Filtre */
 
-        if(choix.equals("7"))
+        if(choix.equals("10"))
         {
             if(filtre.size() > 0)
             {
@@ -137,8 +202,6 @@ public class Invite {
                     request.append(" &&").append(filtre.get(i));
                 }
             }
-            System.out.println(request);
-
         }
 
         return dataco.SQL_Data_Hebergements(request.toString());

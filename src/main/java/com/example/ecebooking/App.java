@@ -4,7 +4,6 @@ import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Client.Invite;
 import com.example.ecebooking.Models.DataCo;
-import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Models.Model;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -20,7 +19,6 @@ public class App extends Application {
         Model.getInstance().getViewFactory().LoginView();
         ArrayList<Client> COListe = new ArrayList<>();
         ArrayList<Admin> ADListe = new ArrayList<>();
-        ArrayList<Hebergement> hebergementListe = new ArrayList<>();
         DataCo dataco = new DataCo();
         dataco.SQL_Data_Login(COListe);
         //dataco.afficherListeClient(COListe);
@@ -43,7 +41,7 @@ public class App extends Application {
             switch (choix) {
                 case "0" -> System.out.println("Merci");
                 case "1" -> {
-                    Invite testI = new Invite(hebergementListe);
+                    Invite testI = new Invite();
                     testI.menu();
                 }
                 case "2" -> {
@@ -60,7 +58,7 @@ public class App extends Application {
                         for (Client client : COListe) {
                             if ((id.equals(client.getId())) && (mdp.equals(client.getMdp()))) {
 
-                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero(), hebergementListe);
+                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero());
                                 ConnexionClient.menu();
                                 buff=1;
                             }
@@ -106,7 +104,7 @@ public class App extends Application {
                         for (Admin ad : ADListe) {
                             if ((idA.equals(ad.getIdA())) && (mdpA.equals(ad.getMdpA()))) {
 
-                                Admin ConnexionAdmin = new Admin(ad.getNomA(), idA, mdpA, ad.getNumeroA(), hebergementListe);
+                                Admin ConnexionAdmin = new Admin(ad.getNomA(), idA, mdpA, ad.getNumeroA());
                                 ConnexionAdmin.menuAdmin();
                                 buff2=1;
                             }

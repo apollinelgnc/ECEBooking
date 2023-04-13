@@ -18,8 +18,8 @@ public class Admin extends Client {
     protected double reductionA;
 
 
-    public Admin (String nom, String id, String mdp, int numero, ArrayList<Hebergement> hebergementListe) {
-        super(hebergementListe);
+    public Admin (String nom, String id, String mdp, int numero) {
+        super();
         this.nomA = nom;
         this.idA = id;
         this.mdpA = mdp;

@@ -1,10 +1,5 @@
 package com.example.ecebooking.Controllers.Client;
 
-import com.example.ecebooking.Controllers.Hebergements.Hebergement;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Client extends Invite{
 
     static int compteur_client; // nombre de client total
@@ -17,13 +12,13 @@ public class Client extends Invite{
     /** CONSTRUCTEURS */
 
     // création par l'utilisateur
-   public Client(ArrayList<Hebergement> hebergementListe){
-        super(hebergementListe);
+   public Client(){
+       super();
     }
 
     // constructeur base de donnees
-    public Client (String nom,String id,String mdp,int numero, ArrayList<Hebergement> hebergementListe) {
-        super(hebergementListe);
+    public Client (String nom,String id,String mdp,int numero) {
+        super();
         this.nom = nom;
         this.id = id;
         this.mdp = mdp;

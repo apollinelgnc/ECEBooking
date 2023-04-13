@@ -65,14 +65,14 @@ public class LoginController implements Initializable {
         if (Objects.equals(choix, "Admin")) {
             for (Admin ad : ADListe) {
                 if (id.equals(ad.getIdA()) && mot_de_passe.equals(ad.getMdpA())) {
-                    Admin ConnexionAdmin = new Admin(ad.getNomA(), id, mot_de_passe, ad.getNumeroA(), hebergementListe);
+                    Admin ConnexionAdmin = new Admin(ad.getNomA(), id, mot_de_passe, ad.getNumeroA());
                     return true;
                 }
             }
         } else if (Objects.equals(choix, "Client")) {
             for (Client client : COListe) {
                 if (id.equals(client.getId()) && mot_de_passe.equals(client.getMdp())) {
-                    Client ConnexionClient = new Client(client.getNom(), id, mot_de_passe, client.getNumero(), hebergementListe);
+                    Client ConnexionClient = new Client(client.getNom(), id, mot_de_passe, client.getNumero());
                     return true;
                 }
             }

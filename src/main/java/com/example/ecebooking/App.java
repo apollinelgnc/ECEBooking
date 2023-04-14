@@ -23,12 +23,11 @@ public class App extends Application {
         ArrayList<Admin> ADListe = new ArrayList<>();
         DataCo dataco = new DataCo();
         dataco.SQL_Data_Login(COListe);
-        //dataco.afficherListeClient(COListe);
-
         dataco.SQL_Data_Admin(ADListe);
 
         String choix;
         Scanner clavier = new Scanner(System.in);
+
 
         do{
             System.out.println("\n=======Menu======\n");
@@ -58,9 +57,9 @@ public class App extends Application {
                         String mdp = clavier2.nextLine();
 
                         for (Client client : COListe) {
-                            if ((id.equals(client.getId())) && (mdp.equals(client.getMdp()))) {
+                            if ((id.equals(client.getUtilisateur())) && (mdp.equals(client.getMdp()))) {
 
-                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero());
+                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getId());
                                 ConnexionClient.menu();
                                 buff=1;
                             }

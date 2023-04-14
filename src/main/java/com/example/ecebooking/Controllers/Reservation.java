@@ -7,44 +7,48 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Reservation {
+    final int id_hebergement;
+    final double prix;
+    final int id_client;
+    final LocalDate debut;
+    final LocalDate fin;
 
-    static int nombre_reservation;
-    private int id_hebergement;
-    private int id_client;
-    private LocalDate debut;
-    private LocalDate fin;
-
-    //public Reservation(int id_hebergement, int id_client, Dates date_debut, Dates date_fin) {
-    public Reservation(int id_hebergement, int id_client, LocalDate date_debut, LocalDate date_fin) {
+    public Reservation(int id_hebergement, int id_client, LocalDate date_debut, LocalDate date_fin, double prix) {
         this.id_hebergement = id_hebergement;
         this.id_client = id_client;
         this.debut = date_debut;
         this.fin = date_fin;
-    }
-
-    public static int getNombre_reservation() {
-        return nombre_reservation;
+        this.prix = prix;
     }
 
     public int getId_hebergement() {
         return id_hebergement;
     }
-
     public int getId_client() {
         return id_client;
     }
-
-    public LocalDate getDebut() {
-        return debut;
-    }
-
-    public LocalDate getFin() {
-        return fin;
-    }
+    public LocalDate getDebut() {return debut;}
+    public LocalDate getFin() {return fin;}
+    public double getPrix() {return prix;}
 
    /* public boolean verification() throws SQLException, ClassNotFoundException {
         DataCo dataco = new DataCo();
-        ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation(this.id_hebergement);
+        ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation();
+
+        for(int i=0; i<bdd_reservation.size(); i++)
+        {
+            if(bdd_reservation.get(i).getId_hebergement() != this.id_hebergement)
+            {
+                bdd_reservation.remove(i);
+                i--;
+            }
+        }
+
+        if(debut.equals(fin))
+        {
+            System.out.println("Les reservation doivent être au moins de 24h");
+            return false;
+        }
 
         for (Reservation reservation : bdd_reservation) {
             if (reservation.getId_hebergement() == this.id_hebergement) {
@@ -67,7 +71,7 @@ public class Reservation {
 */
     public void afficher()
     {
-        System.out.println(this.id_hebergement + " " + this.id_client + " " + this.debut + " " + this.fin);
+        System.out.println(this.id_hebergement + "\n" + this.id_client + "\n" + this.debut + "\n" + this.fin + "\n" + this.prix);
     }
 
     @Override

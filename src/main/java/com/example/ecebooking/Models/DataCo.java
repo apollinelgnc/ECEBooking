@@ -142,11 +142,12 @@ public class DataCo {
         return hebergements;
     }
 
-    public ArrayList<Reservation> SQL_Data_Reservation(int id) throws SQLException, ClassNotFoundException {
+    public ArrayList<Reservation> SQL_Data_Reservation() throws SQLException, ClassNotFoundException {
         DataBaseConnection c4 = new DataBaseConnection("bdd_projets6", "root", "root");
 
         c4.ajouterTable("reservation");
-        c4.ajouterRequete("SELECT * FROM `reservation` WHERE idHebergement = " + id);
+        //c4.ajouterRequete("SELECT * FROM `reservation` WHERE idHebergement = " + id);
+        c4.ajouterRequete("SELECT * FROM `reservation`");
         ArrayList<Reservation> listeReservation = new ArrayList<>();
 
         for(int i=0;i<c4.requetes.size();i++)

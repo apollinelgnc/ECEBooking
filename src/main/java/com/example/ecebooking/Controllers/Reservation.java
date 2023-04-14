@@ -33,7 +33,16 @@ public class Reservation {
 
     public boolean verification() throws SQLException, ClassNotFoundException {
         DataCo dataco = new DataCo();
-        ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation(this.id_hebergement);
+        ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation();
+
+        for(int i=0; i<bdd_reservation.size(); i++)
+        {
+            if(bdd_reservation.get(i).getId_hebergement() != this.id_hebergement)
+            {
+                bdd_reservation.remove(i);
+                i--;
+            }
+        }
 
         if(debut.equals(fin))
         {

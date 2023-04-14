@@ -99,10 +99,10 @@ public class Admin extends Client {
         }
 
         public void gererHebrgement(ArrayList<Hebergement> hebergementListe){
-            afficherListeHebergements(hebergementListe);
+            //afficherListeHebergements(hebergementListe);
         }
 
-            public void afficherListeHebergements(ArrayList<Hebergement> liste) {
+          /*  public void afficherListeHebergements(ArrayList<Hebergement> liste) {
                 // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
                 for (Hebergement h : liste) {
                     System.out.println("Hébergement : " + h.getIdhebergement());
@@ -112,7 +112,7 @@ public class Admin extends Client {
                     // ... afficher d'autres attributs selon votre structure de données
                     System.out.println("--------------------");
                 }
-            }
+            }*/
         public void gererClient(){
 
         }

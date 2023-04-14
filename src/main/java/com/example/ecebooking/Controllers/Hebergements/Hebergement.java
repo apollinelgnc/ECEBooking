@@ -12,81 +12,96 @@ import java.util.ArrayList;
 public class Hebergement {
 
     static int compte_hebergement;
-    public VBox vboxHebergement=new VBox();
-    private String nom_etablissement;
-    private String ville;
-    private int nombre_chambres;
-    private int nombre_places;
-    private int prix;
-    private int distanceCentre;
-    private int wifi;
-    private int menage;
-    private int fumeur;
-    private int idhebergement;
-    private ArrayList<String> option;
-    private ArrayList<String> activite;
-    private ArrayList<String> reservation;
-    @FXML
-    private ListView<Hebergement> listViewHebergements;
-    private ArrayList<Hebergement> listeHebergements= new ArrayList<>();
-    @FXML
-    private Label lblDestination;
-
-    @FXML
-    private Label lblPrix;
-
-    @FXML
-    private Label lblNbChambres;
-
-    @FXML
-    private Label lblNbPlaces;
-
-    @FXML
-    private Label lblNom;
-
-    @FXML
-    private Label lblDistanceCentre;
-
-    // ...
-
-    // Méthode pour afficher les détails de l'hébergement sélectionné
-    private void afficherDetailsHebergement(Hebergement hebergement) {
-        // Mettre à jour les labels avec les détails de l'hébergement
-        lblDestination.setText("Destination : " + hebergement.getVille());
-        lblPrix.setText("Prix : " + hebergement.getPrix() + " €");
-        lblNbChambres.setText("Nombre de chambres : " + hebergement.getNombre_chambres());
-        lblNbPlaces.setText("Nombre de places : " + hebergement.getNombre_places());
-        lblNom.setText("Nom : " + hebergement.getNom_etablissement());
-        lblDistanceCentre.setText("Distance du centre : " + hebergement.getDistanceCentre() + " km");
-    }
-
-    /**
+      public VBox vboxHebergement=new VBox();
+      private String nom_etablissement;
+      private String ville;
+      private int nombre_chambres;
+      private int nombre_places;
+      private int prix;
+      private int distanceCentre;
+      private int wifi;
+      private int menage;
+      private int fumeur;
+      private int idhebergement;
+     /*
+     * private ArrayList<String> option;
+     * private ArrayList<String> activite;
+     * private ArrayList<String> reservation;
+     *
+     * @FXML private ListView<Hebergement> listViewHebergements;
+     * private ArrayList<Hebergement> listeHebergements= new ArrayList<>();
+     * @FXML private Label lblDestination;
+     * @FXML private Label lblPrix;
+     * @FXML private Label lblNbChambres;
+     * @FXML private Label lblNbPlaces;
+     * @FXML private Label lblNom;
+     * @FXML private Label lblDistanceCentre;
+     * <p>
+     * // ...
+     * <p>
+     * // Méthode pour afficher les détails de l'hébergement sélectionné
+     * <p>
+     * <p>
+     * /**
      * Constructeurs
      */
     // Récupération Base de données
-    public Hebergement(String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre) throws SQLException, ClassNotFoundException {
+
+    private String nom;
+    private String adresse;
+    private String description;
+    private double prix1;
+
+    public Hebergement(String nom, String adresse, String description, double prix) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.description = description;
+        this.prix1 = prix;
+    }
+
+    // Getters pour accéder aux propriétés de l'hôtel
+    public String getNom() {
+        return nom;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrix() {
+        return prix;
+    }
+    public Hebergement(String nom_etablissement, String ville, int nombre_chambres, int nombre_places, int prix, int distanceCentre, int wifi, int menage, int fumeur, int id) throws SQLException, ClassNotFoundException {
         this.nom_etablissement = nom_etablissement;
         this.ville = ville;
         this.nombre_chambres = nombre_chambres;
         this.nombre_places = nombre_places;
         this.prix = prix;
         this.distanceCentre = distanceCentre;
-       // this.wifi = Wifi;
-       // this.menage = Menage;
-       // this.fumeur = Fumeur;
-       // this.idhebergement = idhebergement;
+        this.wifi = wifi;
+        this.menage = menage;
+        this.fumeur = fumeur;
+        this.idhebergement = id;
 
         compte_hebergement++;
-        initialize();
     }
+}
+
+
+
+   /*
 
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
 
-        ArrayList<Hebergement> listeHebergements = filtrer(nom_etablissement,ville,nombre_chambres,nombre_places,prix,distanceCentre );
+        ArrayList<Hebergement> listeHebergements = filtrer(nom_etablissement,ville,nombre_chambres,nombre_places,prix,distanceCentre,wifi,menage,fumeur,idhebergement );
     }
 
-    private ArrayList<Hebergement> filtrer(String nom_etablissement_filtre,String ville_filtre,int nombre_chambres_filtre,int nombre_places_filtre, int prix_filtre, int distanceCentre_filtre )throws SQLException, ClassNotFoundException {
+    private ArrayList<Hebergement> filtrer(String nom_etablissement_filtre,String ville_filtre,int nombre_chambres_filtre,int nombre_places_filtre, int prix_filtre, int distanceCentre_filtre, int wifi, int menage,int fumeur,int id )throws SQLException, ClassNotFoundException {
         System.out.println("cocu");
         DataCo dataco = new DataCo();
         System.out.println("cocu2");
@@ -100,7 +115,7 @@ public class Hebergement {
         filtre.add(" nbPlace  >= '" + nombre_places_filtre + "'");
         filtre.add(" prix  <= '" + prix_filtre + "'");
         filtre.add(" distanceCentre <= '" + distanceCentre_filtre + "'");
-
+        filtre.add(" wifi <= '" + wifi + "'");
         if (filtre.size() > 0) {
             request.append(" WHERE").append(filtre.get(0));
             for (int i = 1; i < filtre.size(); i++) {
@@ -115,9 +130,9 @@ public class Hebergement {
         return tempo;
     }
 
-    /**
-     * METHODES
-     */
+
+    // METHODES
+
     @Override
     public String toString() {
         return "Hebergement{" +
@@ -236,3 +251,4 @@ public class Hebergement {
         this.fumeur = fumeur;
     }
 }
+*/

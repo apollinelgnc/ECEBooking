@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox fx:id="vboxHebergement" prefWidth="200" xmlns="http://javafx.com/javafx/14" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Hebergements.Hebergement">
-   <ListView fx:id="listViewHebergements" />
-   <Label fx:id="lblDestination" text="Destination : " />
-   <Label fx:id="lblPrix" text="Prix : " />
-   <Label fx:id="lblNbChambres" text="Nombre de chambres : " />
-   <Label fx:id="lblNbPlaces" text="Nombre de places : " />
-   <Label fx:id="lblNom" text="Nom : " />
-   <Label fx:id="lblDistanceCentre" text="Distance du centre : " />
-</VBox>
+<Pane fx:id="conteneur" prefHeight="425.0" prefWidth="425.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+       <Label fx:id="titre" layoutX="113.0" layoutY="27.0" prefWidth="200.0" styleClass="menu_container_title" />
+       <Label fx:id="nom" layoutY="73.0" prefWidth="200.0" styleClass="menu_container_info" />
+       <Label fx:id="prix" layoutX="325.0" layoutY="75.0" prefWidth="100.0" styleClass="menu_container_info" />
+      <ImageView fx:id="image" fitHeight="279.0" fitWidth="388.0" layoutX="19.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" styleClass="menu_container" />
+   </children>
+</Pane>

@@ -42,7 +42,7 @@ public class Reservation {
         return fin;
     }
 
-    public boolean verification() throws SQLException, ClassNotFoundException {
+   /* public boolean verification() throws SQLException, ClassNotFoundException {
         DataCo dataco = new DataCo();
         ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation(this.id_hebergement);
 
@@ -64,7 +64,7 @@ public class Reservation {
         }
         return true;
     }
-
+*/
     public void afficher()
     {
         System.out.println(this.id_hebergement + " " + this.id_client + " " + this.debut + " " + this.fin);

@@ -1,32 +1,23 @@
-.menu_container{
+.menu_container {
     -fx-background-color: #EEEEEE;
     -fx-font-family: "Cooper Black";
     -fx-spacing: 0.5em;
-    -fx-effect: dropshadow(two-pass-box,#132A13,5,0,0,4);
+    -fx-effect: dropshadow(two-pass-box, #132A13, 5, 0, 0, 4);
     -fx-background-radius: 20 20 20 20;
-
-}
-.vbox{
-    -fx-spacing: 0.75em;
+    -fx-alignment: center;
 }
 .menu_container_title{
     -fx-font-size: 2em;
-    -fx-alignment: center;
     -fx-text-fill: #132A13;
+    -fx-alignment: center;
+
 }
-.first_line{
-    -fx-spacing: 5em;
-}
+
 .menu_container_info{
     -fx-font-size: 1.25em;
     -fx-text-fill: #567856;
+    -fx-text-alignment: center;
     -fx-spacing: 2em;
-}
-.distance{
-    -fx-font-size: 0.5em;
+    -fx-alignment: center;
 
-}
-.menu_container_options{
-    -fx-font-size: 0.75em;
-    -fx-text-fill: #000000;
 }

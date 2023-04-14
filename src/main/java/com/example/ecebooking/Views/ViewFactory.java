@@ -2,28 +2,28 @@ package com.example.ecebooking.Views;
 
 import com.example.ecebooking.Controllers.Admin.AdminController;
 import com.example.ecebooking.Controllers.Client.ClientController;
-import com.example.ecebooking.Controllers.Client.InviteController;
+import com.example.ecebooking.Controllers.Hebergements.HebergementsController;
 import com.example.ecebooking.Controllers.SignInController;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class ViewFactory {
-    // Client Views
-    private AnchorPane MenuView;
     private Stage stage;
     public ViewFactory(){}
 
-    public AnchorPane getMenuView() {
-        if(MenuView == null){
-            try{
-                MenuView=new FXMLLoader(getClass().getResource("/Fxml/Client/Menu.fxml")).load();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        return MenuView;
+    public void MenuView() {
+        FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Client/Menu.fxml"));
+        createStage(load);
+
+    }
+    public Node HebergementView() throws IOException {
+        FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Client/Hebergements.fxml"));
+        return load.load();
     }
     public void LoginView(){
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
@@ -36,6 +36,7 @@ public class ViewFactory {
         closeStage();
         createStage(load);
     }
+
     public void ClientView(){
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/Client.Fxml"));
         ClientController clientController=new ClientController();
@@ -57,6 +58,12 @@ public class ViewFactory {
         closeStage();
         createStage(loader);
     }
+    public Object load(String fxmlPath) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Parent root = loader.load();
+        return loader.getController();
+    }
+
     private void createStage(FXMLLoader loader) {
         Scene scene=null;
         try{

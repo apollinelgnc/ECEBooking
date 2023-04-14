@@ -11,10 +11,15 @@ import java.util.Scanner;
 
 public class Invite {
 
-    /** CONSTRUCTEURS */
-    public Invite() {}
+    /**
+     * CONSTRUCTEURS
+     */
+    public Invite() {
+    }
 
-    /** METHODES */
+    /**
+     * METHODES
+     */
     public void menu() throws SQLException, ClassNotFoundException {
 
 
@@ -30,15 +35,14 @@ public class Invite {
 
             switch (choix) {
                 case "0" -> System.out.println("Merci");
-                case "1" -> reserver();
+              //  case "1" -> reserver();
                 default -> {
                 }
             }
         } while (!choix.equals("0"));
     }
 
-    public void reserver() throws SQLException, ClassNotFoundException
-    {
+   /* public void reserver() throws SQLException, ClassNotFoundException {
         int jour_debut, mois_debut, annee_debut;
         int jour_fin, mois_fin, annee_fin;
         boolean valide;
@@ -52,15 +56,14 @@ public class Invite {
         // Choix de l'hébergement pour la réservation
         do {
             System.out.println("===== Resultat Filtre =====\n");
-            for(int i=1; i<=ListeHebergement.size(); i++)
-            {
-                System.out.println(i +". " + ListeHebergement.get(i-1).getNom_etablissement());
+            for (int i = 1; i <= ListeHebergement.size(); i++) {
+                System.out.println(i + ". " + ListeHebergement.get(i - 1).getNom_etablissement());
             }
             System.out.println("0. Quitter\n");
             System.out.print("Saisir menu : ");
             choix = clavier.nextInt();
 
-        }while(ListeHebergement.size() < choix || choix < 0);
+        } while (ListeHebergement.size() < choix || choix < 0);
 
 
         // Choix des dates
@@ -83,22 +86,20 @@ public class Invite {
         //Dates fin = new Dates(jour_fin, mois_fin, annee_fin);
         LocalDate fin = LocalDate.of(annee_fin, mois_fin, jour_fin);
 
-        Reservation nouveau = new Reservation(ListeHebergement.get(choix-1).getIdhebergement(), -1, debut, fin);
+        Reservation nouveau = new Reservation(ListeHebergement.get(choix - 1).getIdhebergement(), -1, debut, fin);
 
         // Verification disponibilité date
         valide = nouveau.verification();
 
-        if(valide)
-        {
+        if (valide) {
             DataCo dataco = new DataCo();
             dataco.Data_Creation_Reservation(nouveau);
             System.out.println("Validée");
-        }
-        else System.out.println("Refusée");
+        } else System.out.println("Refusée");
 
-    }
+    }*/
 
-    public ArrayList<Hebergement> filtrer() throws SQLException, ClassNotFoundException {
+    public void filtrer() throws SQLException, ClassNotFoundException {
 
         DataCo dataco = new DataCo();
 
@@ -113,7 +114,7 @@ public class Invite {
         int distanceCentre_filtre = 0;
         String wifi_filtre = "non";
         String menage_filtre = "non";
-        String  fumeur_filtre = "non";
+        String fumeur_filtre = "non";
 
 
         Scanner clavier = new Scanner(System.in);
@@ -142,13 +143,13 @@ public class Invite {
                 case "1" -> {
                     System.out.print("Veuillez saisir le nom : ");
                     nom_etablissement_filtre = clavier.next();
-                    filtre.add(" nom = '" + nom_etablissement_filtre +"'");
+                    filtre.add(" nom = '" + nom_etablissement_filtre + "'");
                 }
                 // ville
                 case "2" -> {
                     System.out.print("Veuillez saisir la ville : ");
                     ville_filtre = clavier.next();
-                    filtre.add(" ville = '" + ville_filtre +"'");
+                    filtre.add(" ville = '" + ville_filtre + "'");
                 }
                 // chambre
                 case "3" -> {
@@ -193,19 +194,5 @@ public class Invite {
         } while (!choix.equals("0") && !choix.equals("10"));
 
         /*Fin Filtre */
-
-        if(choix.equals("10"))
-        {
-            if(filtre.size() > 0)
-            {
-                request.append(" WHERE").append(filtre.get(0));
-                for (int i=1; i<filtre.size(); i++)
-                {
-                    request.append(" &&").append(filtre.get(i));
-                }
-            }
-        }
-
-        return dataco.SQL_Data_Hebergements(request.toString());
     }
 }

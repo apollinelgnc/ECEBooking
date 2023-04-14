@@ -13,7 +13,7 @@ public class Hebergement {
     private String ville;
     private int nombre_chambres;
     private int nombre_places;
-    private int prix;
+    private double prix;
     private int distanceCentre;
     private int wifi;
     private int menage;
@@ -128,9 +128,7 @@ public class Hebergement {
         this.nombre_places = nombre_places;
     }
 
-    public int getPrix() {
-        return prix;
-    }
+    public double getPrix() {return prix;}
 
     public void setPrix(int prix) {
         this.prix = prix;

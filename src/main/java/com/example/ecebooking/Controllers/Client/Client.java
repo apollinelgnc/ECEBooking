@@ -1,12 +1,16 @@
 package com.example.ecebooking.Controllers.Client;
 
+import com.example.ecebooking.Controllers.Reservation;
+
+import java.time.LocalDate;
+
 public class Client extends Invite{
 
     static int compteur_client; // nombre de client total
     protected String nom;
-    protected String id;
+    protected String utilisateur;
     protected String mdp;
-    protected int numero; // numero specific du client
+    protected int id; // numero specific du client
     protected double reduction;
 
     /** CONSTRUCTEURS */
@@ -17,55 +21,41 @@ public class Client extends Invite{
     }
 
     // constructeur base de donnees
-    public Client (String nom,String id,String mdp,int numero) {
+    public Client (String nom,String utilisateur,String mdp,int id) {
         super();
         this.nom = nom;
-        this.id = id;
+        this.utilisateur = utilisateur;
         this.mdp = mdp;
-        this.numero = numero;
+        this.id = id;
         reduction = 0.9;
         compteur_client++;
+    }
+
+    public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix)
+    {
+        prix = prix * getReduction();
+        return new Reservation(i,this.getId(),debut,fin,prix);
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "id='" + id + '\'' +
+                "utilisateur='" + utilisateur + '\'' +
                 ", mdp='" + mdp + '\'' +
-                ", numero=" + numero +
+                ", id=" + id +
                 '}';
     }
 
-    public String getId() {
+    public String getMdp() {return mdp;}
+    public double getReduction() {return reduction;}
+    public int getId() {
         return id;
     }
-
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-
-
     public String getNom() {
         return nom;
     }
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    public String getUtilisateur() {return utilisateur;}
 }

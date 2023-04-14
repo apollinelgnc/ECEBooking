@@ -53,7 +53,7 @@ public class LoginController implements Initializable {
         connection_invite.setOnAction(event -> Model.getInstance().getViewFactory().InviteView());
     }
 
-    public boolean login_data(String choix, String id, String mot_de_passe, String prenom) throws SQLException, ClassNotFoundException {
+    public boolean login_data(String choix, String utilisateur, String mot_de_passe, String prenom) throws SQLException, ClassNotFoundException {
         ArrayList<Client> COListe = new ArrayList<>();
         ArrayList<Admin> ADListe = new ArrayList<>();
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
@@ -65,20 +65,20 @@ public class LoginController implements Initializable {
         if (Objects.equals(choix, "Admin")) {
             for (Admin ad : ADListe) {
                 if (id.equals(ad.getIdA()) && mot_de_passe.equals(ad.getMdpA())) {
-                    Admin ConnexionAdmin = new Admin(ad.getNomA(), id, mot_de_passe, ad.getNumeroA());
+                    Admin ConnexionAdmin = new Admin(ad.getNomA(), utilisateur, mot_de_passe, ad.getNumeroA());
                     return true;
                 }
             }
         } else if (Objects.equals(choix, "Client")) {
             for (Client client : COListe) {
-                if (id.equals(client.getId()) && mot_de_passe.equals(client.getMdp())) {
-                    Client ConnexionClient = new Client(client.getNom(), id, mot_de_passe, client.getNumero());
+                if (id.equals(client.getUtilisateur()) && mot_de_passe.equals(client.getMdp())) {
+                    Client ConnexionClient = new Client(client.getNom(), utilisateur, mot_de_passe, client.getId());
                     return true;
                 }
             }
         }
         else {
-            dataco.Data_Creation_Login(prenom, id,mot_de_passe,COListe.size()+1);
+            dataco.Data_Creation_Login(prenom, utilisateur, mot_de_passe,COListe.size()+1);
         }
 
         return false;

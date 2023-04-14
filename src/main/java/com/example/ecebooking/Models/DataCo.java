@@ -61,14 +61,14 @@ public class DataCo {
     }
 
 
-    public void Data_Creation_Login(String nom, String id, String mdp, int num) throws SQLException, ClassNotFoundException {
+    public void Data_Creation_Login(String nom, String utilisateur, String mdp, int id) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "root");
-        String Snum= String.valueOf(num);
+        String Snum= String.valueOf(id);
         String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
         String S2="'";
         String S3=", ";
         String S4="')";
-        S1=S1+nom+S2+S3+S2+id+S2+S3+S2+mdp+S2+S3+S2+Snum+S4;
+        S1=S1+nom+S2+S3+S2+utilisateur+S2+S3+S2+mdp+S2+S3+S2+Snum+S4;
         c1.ajouterRequete(S1);
         c1.executeUpdate(c1.requetes.get(0));
     }
@@ -164,11 +164,12 @@ public class DataCo {
                 int finAnnee = Integer.parseInt(words[5]);
                 int finMois = Integer.parseInt(words[6]);
                 int finJour = Integer.parseInt(words[7]);
+                int prix = Integer.parseInt(words[8]);
 
                 LocalDate debut = LocalDate.of(debutAnnee,debutMois,debutJour);
                 LocalDate fin = LocalDate.of(finAnnee,finMois,finJour);
 
-                Reservation C = new Reservation( idHebegement, idClient, debut, fin);
+                Reservation C = new Reservation( idHebegement, idClient, debut, fin, prix);
                 listeReservation.add(C);
             }
         }
@@ -178,12 +179,12 @@ public class DataCo {
     public void Data_Creation_Reservation(Reservation nouveau) throws SQLException, ClassNotFoundException {
         DataBaseConnection c5 = new DataBaseConnection("bdd_projets6", "root", "root");
         //String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
-        String S1 ="INSERT INTO `reservation` (`idHebergement`, `idClient`, `debutAnnee`, `debutMois`, `debutJour`, `finAnnee`, `finMois`, `finJour`) VALUES ('";
+        String S1 ="INSERT INTO `reservation` (`idHebergement`, `idClient`, `debutAnnee`, `debutMois`, `debutJour`, `finAnnee`, `finMois`, `finJour`, `prix`) VALUES ('";
         String S2="'";
         String S3=", ";
         String S4="')";
-        S1=S1+nouveau.getId_hebergement()+S2+S3+S2+nouveau.getId_client()+S2+S3+S2+nouveau.getDebut().getYear()+S2+S3+S2+nouveau.getDebut().getMonthValue()+S2+S3+S2+nouveau.getDebut().getDayOfMonth()+S2+S3+S2+nouveau.getFin().getYear()+S2+S3+S2+nouveau.getFin().getMonthValue()+S2+S3+S2+nouveau.getFin().getDayOfMonth()+S4;
-        System.out.println(S1);
+        S1=S1+nouveau.getId_hebergement()+S2+S3+S2+nouveau.getId_client()+S2+S3+S2+nouveau.getDebut().getYear()+S2+S3+S2+nouveau.getDebut().getMonthValue()+S2+S3+S2+nouveau.getDebut().getDayOfMonth()+S2+S3+S2+nouveau.getFin().getYear()+S2+S3+S2+nouveau.getFin().getMonthValue()+S2+S3+S2+nouveau.getFin().getDayOfMonth()+S2+S3+S2+nouveau.getPrix()+S4;
+        //System.out.println(S1);
         c5.ajouterRequete(S1);
         c5.executeUpdate(c5.requetes.get(0));
     }
@@ -204,9 +205,9 @@ public class DataCo {
         // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
         for (Client C : liste) {
             System.out.println("Liste de client :");
-            System.out.println("Nom d utilisateur : " + C.getId());
+            System.out.println("Nom d utilisateur : " + C.getUtilisateur());
             System.out.println("Mdp du client  : " + C.getMdp());
-            System.out.println("Num du client : " + C.getNumero());
+            System.out.println("Num du client : " + C.getId());
             // ... afficher d'autres attributs selon votre structure de données
             System.out.println("--------------------");
         }

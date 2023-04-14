@@ -56,9 +56,9 @@ public class App extends Application {
                         String mdp = clavier2.nextLine();
 
                         for (Client client : COListe) {
-                            if ((id.equals(client.getId())) && (mdp.equals(client.getMdp()))) {
+                            if ((id.equals(client.getUtilisateur())) && (mdp.equals(client.getMdp()))) {
 
-                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero());
+                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getId());
                                 ConnexionClient.menu();
                                 buff=1;
                             }

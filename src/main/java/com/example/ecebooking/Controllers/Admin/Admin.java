@@ -511,6 +511,15 @@ public class Admin {
     public void PromoC() throws SQLException, ClassNotFoundException {
         // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
         //dataco.Data_Promo_Client(choix1, choix2);
+        String choix1;
+        String choix2;
+        Scanner clavier = new Scanner(System.in);
+        System.out.println("\n-- Pour client voulez vous Ajouter une promotion --");
+        System.out.println("-- entrer l'id du client --");
+        choix1=clavier.next();
+        System.out.println("-- quelle promo --");
+        choix2=clavier.next();
+        dataco.Data_Promo_Client(choix1, choix2);
 
     }
 

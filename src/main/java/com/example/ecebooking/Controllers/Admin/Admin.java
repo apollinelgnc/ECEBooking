@@ -115,6 +115,7 @@ public class Admin {
             System.out.println("Wifi : " + h.getWifi());
             System.out.println("Menage : " + h.getMenage());
             System.out.println("Fumeur : " + h.getFumeur());
+
             // ... afficher d'autres attributs selon votre structure de données
             System.out.println("--------------------");
         }
@@ -453,12 +454,12 @@ public class Admin {
 
     public void gererClient() throws SQLException, ClassNotFoundException {
 
-        dataco.SQL_Data_Login(COListe);
+
         String choixH;
         Scanner clavier = new Scanner(System.in);
         do{
 
-
+            dataco.SQL_Data_Login(COListe);
             System.out.println("\n======= Menu Admin ======\n");
             System.out.println("0. Quitter");
             System.out.println("1. Afficher la liste des Clients");
@@ -476,7 +477,7 @@ public class Admin {
                 case "2" -> SuppClient();
                 case "3" -> PromoC();
                 case "4" -> AfficherReservation();
-                //case "5" ->;
+                case "5" -> SuppReza();
                 default -> {
                 }
             }
@@ -491,7 +492,7 @@ public class Admin {
             System.out.println("Nom d utilisateur : "+ C.getNom());
             System.out.println("Pseudo d utilisateur : " + C.getUtilisateur());
             System.out.println("Mdp du client  : " + C.getMdp());
-            System.out.println("Num du client : " + C.getId());
+            System.out.println("ID du client : " + C.getId());
             // ... afficher d'autres attributs selon votre structure de données
             System.out.println("--------------------");
         }
@@ -531,6 +532,18 @@ public class Admin {
        {
            resa.afficher();
        }
+    }
+
+    public void SuppReza() throws SQLException, ClassNotFoundException {
+
+        String choix;
+        Scanner clavier = new Scanner(System.in);
+        System.out.println("\n-- Quelle resa voulez vous supprimer --");
+        System.out.println("-- entrer l'id de la resa --");
+        choix=clavier.next();
+        choix="'"+choix+"'";
+        dataco.Data_Supp_Reza(choix);
+
     }
 
 }

@@ -82,6 +82,7 @@ public class Reservation {
         System.out.println("debut : " + this.debut);
         System.out.println("fin : " + this.fin);
         System.out.println("prix : " + this.prix);
+        System.out.println("ID resa : " + this.id);
     }
 
     @Override

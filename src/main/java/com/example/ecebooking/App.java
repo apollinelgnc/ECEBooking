@@ -21,12 +21,15 @@ public class App extends Application {
         ArrayList<Admin> ADListe = new ArrayList<>();
         DataCo dataco = new DataCo();
         dataco.SQL_Data_Login(COListe);
-        //dataco.afficherListeClient(COListe);
-
         dataco.SQL_Data_Admin(ADListe);
 
         String choix;
         Scanner clavier = new Scanner(System.in);
+        int test=0;
+        do{
+            System.out.print("nombre de chambre ");
+            test = Integer.parseInt(clavier.nextLine());
+        }while((2>test)||(4<test));
 
         do{
             System.out.println("\n=======Menu======\n");

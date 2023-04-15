@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class DataCo {
 
+    ArrayList<Hebergement>  hebergements = new ArrayList<>();
     public void SQL_Data_Login(ArrayList<Client> Client) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "root");
-
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
         c1.ajouterTable("client");
         c1.ajouterRequete("SELECT * FROM `client` ");
         for(int i=0;i<c1.requetes.size();i++)
@@ -33,11 +33,13 @@ public class DataCo {
                 Client.add(C);
             }
         }
+
+
     }
 
 
     public void SQL_Data_Admin(ArrayList<Admin> Admin) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "root");
+        DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "");
 
         c3.ajouterTable("admin");
         c3.ajouterRequete("SELECT * FROM `admin` ");
@@ -58,17 +60,19 @@ public class DataCo {
                 Admin.add(C);
             }
         }
+
+
     }
 
 
-    public void Data_Creation_Login(String nom, String utilisateur, String mdp, int id) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "root");
-        String Snum= String.valueOf(id);
+    public void Data_Creation_Login(String nom, String id, String mdp, int num) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String Snum= String.valueOf(num);
         String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
         String S2="'";
         String S3=", ";
         String S4="')";
-        S1=S1+nom+S2+S3+S2+utilisateur+S2+S3+S2+mdp+S2+S3+S2+Snum+S4;
+        S1=S1+nom+S2+S3+S2+id+S2+S3+S2+mdp+S2+S3+S2+Snum+S4;
         c1.ajouterRequete(S1);
         c1.executeUpdate(c1.requetes.get(0));
     }
@@ -76,7 +80,7 @@ public class DataCo {
 
     public void SQL_Data_Hebergements2(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
 
-        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "root");
+        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
         c2.ajouterTable("etablissement");
         //recherche de tous les etablisemeent dans la base de donnée
         c2.ajouterRequete("SELECT * FROM `etablissement` ");
@@ -108,8 +112,8 @@ public class DataCo {
 
     public ArrayList<Hebergement> SQL_Data_Hebergements(String request) throws SQLException, ClassNotFoundException {
 
-        ArrayList<Hebergement>  hebergements = new ArrayList<>();
-        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "root");
+
+        DataBaseConnection c2 = new DataBaseConnection("bdd_projets6", "root", "");
         c2.ajouterTable("etablissement");
         c2.ajouterRequete(request);
 
@@ -140,6 +144,34 @@ public class DataCo {
             }
         }
         return hebergements;
+    }
+
+    public void Data_Supp_Hebergement(String nom) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String S1 ="DELETE FROM `etablissement` WHERE `id`=";
+        S1=S1+nom;
+        System.out.println(S1);
+        c1.ajouterRequete(S1);
+        c1.executeUpdate(c1.requetes.get(0));
+    }
+
+    public void Data_Actu_Hebergement(String nom) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String S1 ="DELETE FROM `etablissement` WHERE `nom`=";
+        S1=S1+nom;
+        c1.ajouterRequete(S1);
+        c1.executeUpdate(c1.requetes.get(0));
+    }
+
+    public void Data_Ajout_Hebergement(String nom) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String S1 ="INSERT INTO `etablissement`(`nom`, `ville`, `nbChambre`, `nbPlace`, `prix`, `distanceCentre`, `wifi`, `menage`, `fumeur`, `id`, `Promo`) VALUES ('";
+        String S2="'";
+        String S3=", ";
+        String S4="')";
+       // S1=S1+    +S2+S3+S2+  +S2+S3+S2+   +S2+S3+S2+    +S4;
+        c1.ajouterRequete(S1);
+        c1.executeUpdate(c1.requetes.get(0));
     }
 
     public ArrayList<Reservation> SQL_Data_Reservation() throws SQLException, ClassNotFoundException {
@@ -190,27 +222,5 @@ public class DataCo {
         c5.executeUpdate(c5.requetes.get(0));
     }
 
-    public void afficherListeHebergements(ArrayList<Hebergement> liste) {
-        // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
-        for (Hebergement h : liste) {
-            System.out.println("Hébergement :");
-            System.out.println("Nom : " + h.getNom_etablissement());
-            System.out.println("Ville : " + h.getVille());
-            System.out.println("Prix : " + h.getPrix());
-            // ... afficher d'autres attributs selon votre structure de données
-            System.out.println("--------------------");
-        }
-    }
 
-    public void afficherListeClient(ArrayList<Client> liste) {
-        // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
-        for (Client C : liste) {
-            System.out.println("Liste de client :");
-            System.out.println("Nom d utilisateur : " + C.getUtilisateur());
-            System.out.println("Mdp du client  : " + C.getMdp());
-            System.out.println("Num du client : " + C.getId());
-            // ... afficher d'autres attributs selon votre structure de données
-            System.out.println("--------------------");
-        }
-    }
 }

@@ -43,24 +43,23 @@ public class MenuControllerClient {
     private DataCo data = new DataCo();
     @FXML
     private VBox vbox;
-
-    private int id;
     public Button menu_button=new Button();
     public Button stats_button=new Button();
     public Button profile_button=new Button();
     public Button reservation_button=new Button();
     public Button log_out_button=new Button();
 
-    public MenuControllerClient(int id){
-        this.id = id;
+    Client c;
+    public MenuControllerClient(Client client){
+        c = client;
     }
     public MenuControllerClient(){}
 
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
 
-        System.out.println(id);
+        System.out.println(c.getId());
         reservation_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
-        menu_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView(id));
+        menu_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView(c));
         profile_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
         stats_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
         log_out_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
@@ -81,20 +80,22 @@ public class MenuControllerClient {
         row.setSpacing(100); // Définir un espacement entre les hébergements de chaque ligne
         for (int i = 0; i < taille; i++) {
             Hebergement hotel = hotels.get().get(i);
+            hotel.setPrix(c.getReduction());
             FXMLLoader loader = new FXMLLoader(); // Créer une nouvelle instance de FXMLLoader
             loader.setLocation(getClass().getResource("/Fxml/Hebergement/Hebergements.fxml")); // Définir l'emplacement pour FXMLLoader
             HebergementsController hebergementsView = new HebergementsController();
             loader.setController(hebergementsView);
+            hotel.setReducClient();
             Pane view = loader.load(); // Charger Hebergements.fxml
             // Utiliser les données de l'hôtel pour configurer la vue
             hebergementsView.setHotel(hotel);
             row.getChildren().add(view); // Ajouter la vue à la ligne courante
-            if ((i + 1) % 2 == 0 || i == hotels.get().size() - 1) {
+            //if ((i + 1) % 2 == 0 || i == hotels.get().size() - 1) {
                 container.getChildren().add(row); // Ajouter la ligne au conteneur principal
                 row = new HBox(); // Créer une nouvelle ligne pour les hébergements suivants
                 row.setAlignment(Pos.CENTER); // Centrer les éléments de la ligne horizontalement
                 row.setSpacing(100); // Définir un espacement entre les hébergements de chaque ligne
-            }
+           // }
             loader = new FXMLLoader(); // Créer une nouvelle instance de FXMLLoader pour la vue suivante
         }
 

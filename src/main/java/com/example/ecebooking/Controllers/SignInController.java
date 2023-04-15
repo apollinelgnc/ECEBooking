@@ -2,6 +2,7 @@ package com.example.ecebooking.Controllers;
 
 import com.example.ecebooking.Models.DataCo;
 import com.example.ecebooking.Models.Model;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.sql.SQLException;
@@ -15,8 +16,9 @@ public class SignInController {
     public TextField prenom_signIn;
 
     public void initialize() throws SQLException, ClassNotFoundException {
+        System.out.println(prenom_signIn.getText());
         DataCo dataco = new DataCo();
-        dataco.Data_Creation_Login(prenom_signIn.getText(), id_SignIn.getText(),mdp_signIn.getText(),10);
+        dataco.Data_Creation_Login(prenom_signIn.getText(), id_SignIn.getText(),mdp_signIn.getText(),15);
         go_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().LoginView());
     }
 }

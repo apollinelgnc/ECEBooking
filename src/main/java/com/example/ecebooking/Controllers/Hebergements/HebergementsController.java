@@ -13,15 +13,12 @@ import java.sql.SQLException;
 public class HebergementsController {
 
     @FXML
-    private Label nom;
-    @FXML
-    private Label prix;
+    private Label nom,nb_place,nb_chambre,menage,fumeur,wifi,prix,ville,promo,reducs;
     @FXML
     private ImageView image;
     private Hebergement hotel;
     // attributs pour l'affichage de l'hebergement clique
-    @FXML
-    private Label ville;
+
 
 
     // Méthode pour définir les informations de l'hôtel dans les composants graphiques
@@ -45,6 +42,20 @@ public class HebergementsController {
         nom.setText(hotel.getNom_etablissement());
         ville.setText(hotel.getVille());
         prix.setText(Double.toString(hotel.getPrix()));
+        /*if(hotel.getNombre_chambres()==null) {
+            nb_chambre.setText("0");
+        }
+        nb_chambre.setText(String.valueOf(hotel.getNombre_chambres()));
+        if(hotel.getNombre_places()==0)
+            nb_chambre.setText("0");
+        nb_place.setText(String.valueOf(hotel.getNombre_places()));*/
+        fumeur.setText("Fumeur : " +hotel.getFumeur());
+        menage.setText("Ménage : " +hotel.getMenage());
+        wifi.setText("Wifi : " +hotel.getWifi());
+        if(hotel.getPromo()!=1)
+            promo.setText("Promotions !");
+        if(hotel.getReducClient()==true)
+            reducs.setText("Réductions client");
     }
 
 }

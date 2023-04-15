@@ -42,7 +42,7 @@ public class LoginController implements Initializable {
                         if (Objects.equals(choix, "Admin"))
                             Model.getInstance().getViewFactory().AdminView();
                         else if (Objects.equals(choix, "Client"))
-                            Model.getInstance().getViewFactory().ClientView(client.getId());
+                            Model.getInstance().getViewFactory().ClientView(client);
                     } else {
                         System.out.println("error " + id_entree.getText());
 

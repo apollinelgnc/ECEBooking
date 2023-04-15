@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<Pane AnchorPane.rightAnchor="0.0" fx:id="conteneur" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="conteneur" prefHeight="147.0" prefWidth="775.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" AnchorPane.rightAnchor="0.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-       <Label fx:id="nom" layoutX="113.0" layoutY="27.0" prefWidth="200.0" styleClass="menu_container_title" />
-       <Label fx:id="ville" layoutY="73.0" prefWidth="200.0" styleClass="menu_container_info" />
-       <Label fx:id="prix" layoutX="325.0" layoutY="75.0" prefWidth="100.0" styleClass="menu_container_info" />
-      <ImageView fx:id="image" fitHeight="279.0" fitWidth="388.0" layoutX="19.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" styleClass="menu_container" />
+       <Label fx:id="nom" layoutX="213.0" layoutY="-1.0" prefHeight="41.0" prefWidth="424.0" styleClass="menu_container_title" />
+       <Label fx:id="ville" layoutX="165.0" layoutY="55.0" prefHeight="19.0" prefWidth="144.0" styleClass="menu_container_info" />
+       <Label fx:id="prix" layoutX="572.0" layoutY="55.0" prefWidth="100.0" styleClass="menu_container_info" />
+      <Label fx:id="promo" layoutX="590.0" layoutY="44.0" prefHeight="12.0" prefWidth="65.0" styleClass="promotions" />
+      <Label fx:id="reducs" layoutX="662.0" layoutY="61.0" prefHeight="12.0" prefWidth="100.0" styleClass="promotions" />
+      <ImageView fx:id="image" fitHeight="137.0" fitWidth="144.0" layoutX="28.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="menu_container" />
+      <Label fx:id="nb_place" layoutX="353.0" layoutY="55.0" prefHeight="19.0" prefWidth="144.0" styleClass="menu_container_info" />
+      <Label fx:id="nb_chambres" layoutX="353.0" layoutY="95.0" prefHeight="19.0" prefWidth="144.0" styleClass="menu_container_info" />
+      <Label fx:id="menage" layoutX="165.0" layoutY="95.0" prefHeight="19.0" prefWidth="144.0" styleClass="menu_container_info" />
+      <Label fx:id="fumeur" layoutX="309.0" layoutY="95.0" prefHeight="19.0" prefWidth="144.0" styleClass="menu_container_info" />
+      <Label fx:id="wifi" layoutX="453.0" layoutY="95.0" prefHeight="19.0" prefWidth="144.0" styleClass="menu_container_info" />
    </children>
 </Pane>

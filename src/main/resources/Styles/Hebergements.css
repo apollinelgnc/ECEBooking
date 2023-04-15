@@ -12,7 +12,14 @@
     -fx-alignment: center;
 
 }
+.promotions{
+    -fx-font-size: 0.75em;
+    -fx-text-fill: #c85660;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
 
+
+}
 .menu_container_info{
     -fx-font-size: 1.25em;
     -fx-text-fill: #567856;

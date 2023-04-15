@@ -27,15 +27,13 @@ public class ViewFactory {
     }
     public void SignInView(){
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/SignIn.fxml"));
-        SignInController signInController=new SignInController();
-        load.setController(signInController);
         closeStage();
         createStage(load);
     }
 
-    public void ClientView(int i){
+    public void ClientView(Client client){
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/MenuClient.Fxml"));
-        MenuControllerClient menuControllerClient=new MenuControllerClient(i);
+        MenuControllerClient menuControllerClient=new MenuControllerClient(client);
         loader.setController(menuControllerClient);
         closeStage();
         createStage(loader);

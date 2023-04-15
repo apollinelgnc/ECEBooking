@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Admin extends Client {
+public class Admin {
 
     //static int compteur_client; // nombre de client total
     protected String nomA;
@@ -17,7 +17,10 @@ public class Admin extends Client {
     protected String mdpA;
     protected int numeroA; // numero specific du client
     protected double reductionA;
-
+    DataCo dataco = new DataCo();
+    ArrayList<Client> COListe = new ArrayList<>();
+    ArrayList<Hebergement> hebergementListe = new ArrayList<>();
+    ArrayList<Admin> ADListe = new ArrayList<>();
 
     public Admin (String nom, String id, String mdp, int numero) {
         super();
@@ -32,39 +35,20 @@ public class Admin extends Client {
         return idA;
     }
 
-    public void setIdA(String id) {
-        this.idA = id;
-    }
-
     public String getMdpA() {
         return mdpA;
-    }
-
-    public void setMdpA(String mdp) {
-        this.mdpA = mdp;
     }
 
     public int getNumeroA() {
         return numeroA;
     }
 
-    public void setNumeroA(int numero) {
-        this.numeroA = numero;
-    }
-
-
     public String getNomA() {
         return nomA;
     }
-    public void setNomA(String nom) {
-        this.nomA = nom;
-    }
 
-    DataCo dataco = new DataCo();
-    ArrayList<Client> COListe = new ArrayList<>();
-    ArrayList<Hebergement> hebergementListe = new ArrayList<>();
-    ArrayList<Admin> ADListe = new ArrayList<>();
 
+    /** METHODES */
     public void menuAdmin() throws SQLException, ClassNotFoundException {
         String choix;
         Scanner clavier = new Scanner(System.in);
@@ -87,8 +71,6 @@ public class Admin extends Client {
                 }
             }
         } while (!choix.equals("0"));
-
-
     }
 
     public void gererHebrgement() throws SQLException, ClassNotFoundException {
@@ -148,6 +130,7 @@ public class Admin extends Client {
         dataco.Data_Supp_Hebergement(choix);
 
     }
+
     public void ActuHergement() throws SQLException, ClassNotFoundException {
         String nom_etablissement =null;
         String ville=null;
@@ -183,10 +166,7 @@ public class Admin extends Client {
 
             switch (choix) {
                 //quitter
-                case "0" -> {
-                    System.out.println("Merci");
-
-                }
+                case "0" -> System.out.println("Merci");
                 // nom hebergement
                 case "1" -> {
                     System.out.print("Veuillez saisir le nom : ");
@@ -392,17 +372,17 @@ public class Admin extends Client {
     public void AjoutHbergement() throws SQLException, ClassNotFoundException {
         // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
         Scanner clavier = new Scanner(System.in);
-        int nombre_chambres = 0;
-        int nombre_places=0;
-        int prix=0;
-        int distanceCentre=0;
+        int nombre_chambres;
+        int nombre_places;
+        int prix;
+        int distanceCentre;
         String Snombre_chambres;
         String Snombre_places;
         String Sprix;
         String SdistanceCentre;
-        String Wifi=null;
-        String Menage=null;
-        String fumeur=null;
+        String Wifi;
+        String Menage;
+        String fumeur;
 
 
         System.out.print("nom de l'hotel: ");
@@ -468,18 +448,7 @@ public class Admin extends Client {
         int num=37;
         dataco.Data_Ajout_Hebergement(nom, ville, Snombre_chambres, Snombre_places, Sprix, SdistanceCentre, Wifi, Menage, fumeur, num);
 
-
-
     }
-
-
-
-
-
-
-
-
-
 
     public void gererClient() throws SQLException, ClassNotFoundException {
 
@@ -505,7 +474,7 @@ public class Admin extends Client {
                 case "1" -> afficherListeClient(COListe);   //gererHebrgement();
                 case "2" -> SuppClient();
                 case "3" -> PromoC();
-                //case "4" ->;
+                case "4" -> AfficherReservation();
                 //case "5" ->;
                 default -> {
                 }
@@ -542,6 +511,11 @@ public class Admin extends Client {
     public void PromoC() throws SQLException, ClassNotFoundException {
         // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
         //dataco.Data_Promo_Client(choix1, choix2);
+
+    }
+
+    public void AfficherReservation()
+    {
 
     }
 

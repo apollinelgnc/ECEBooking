@@ -121,7 +121,6 @@ public class Invite {
 
     // Permet de créer une reservation avec l'ID du client ou -1 pour les invités
     public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix) {
-
         return new Reservation(i,-1,debut,fin,prix,-1);
     }
 

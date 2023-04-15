@@ -1,6 +1,7 @@
 package com.example.ecebooking.Controllers.Admin;
 
 import com.example.ecebooking.Controllers.Client.Client;
+import com.example.ecebooking.Controllers.Reservation;
 import com.example.ecebooking.Models.DataCo;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 
@@ -523,9 +524,13 @@ public class Admin {
 
     }
 
-    public void AfficherReservation()
-    {
+    public void AfficherReservation() throws SQLException, ClassNotFoundException {
+       ArrayList<Reservation> ListeReservation = dataco.SQL_Data_Reservation();
 
+       for(Reservation resa : ListeReservation)
+       {
+           resa.afficher();
+       }
     }
 
 }

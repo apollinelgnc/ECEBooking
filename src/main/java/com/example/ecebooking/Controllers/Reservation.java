@@ -77,7 +77,7 @@ public class Reservation {
 
     public void afficher()
     {
-        System.out.println("ID Hebergement : " + this.id_hebergement);
+        System.out.println("\nID Hebergement : " + this.id_hebergement);
         System.out.println("ID Client : " + this.id_client);
         System.out.println("debut : " + this.debut);
         System.out.println("fin : " + this.fin);

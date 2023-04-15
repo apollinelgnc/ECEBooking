@@ -95,6 +95,7 @@ public class Admin extends Client {
         dataco.SQL_Data_Hebergements2(hebergementListe);
         String choixH;
         Scanner clavier = new Scanner(System.in);
+        do{
         System.out.println("\n======= Menu Admin ======\n");
         System.out.println("0. Quitter");
         System.out.println("1. Afficher la liste des hebergement");
@@ -103,9 +104,7 @@ public class Admin extends Client {
         System.out.println("4. Ajouter une reduction a un hebergement");
         System.out.println("5. Ajouter un hebergement");
         System.out.print("\nsaisir menu : ");
-        choixH = clavier.next();
-
-        do{
+            choixH = clavier.next();
             switch (choixH) {
                 case "0" -> System.out.println("Merci");
                 case "1" -> afficherListeHebergements(hebergementListe);//gererHebrgement();
@@ -250,17 +249,20 @@ public class Admin extends Client {
         dataco.SQL_Data_Login(COListe);
         String choixH;
         Scanner clavier = new Scanner(System.in);
-        System.out.println("\n======= Menu Admin ======\n");
-        System.out.println("0. Quitter");
-        System.out.println("1. Afficher la liste des Clients");
-        System.out.println("2. Supprimer un client");
-        System.out.println("3. Ajouter une reduction aux clients");
-        System.out.println("4. Liste des Reservations");
-        System.out.println("5. Supprimer une reservation");
-        System.out.print("\nsaisir menu : ");
-        choixH = clavier.next();
-
         do{
+
+
+            System.out.println("\n======= Menu Admin ======\n");
+            System.out.println("0. Quitter");
+            System.out.println("1. Afficher la liste des Clients");
+            System.out.println("2. Supprimer un client");
+            System.out.println("3. Ajouter une reduction aux clients");
+            System.out.println("4. Liste des Reservations");
+            System.out.println("5. Supprimer une reservation");
+            System.out.print("\nsaisir menu : ");
+            choixH = clavier.next();
+
+
             switch (choixH) {
                 case "0" -> System.out.println("Merci");
                 case "1" -> afficherListeClient(COListe);   //gererHebrgement();

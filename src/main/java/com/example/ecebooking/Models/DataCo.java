@@ -175,7 +175,7 @@ public class DataCo {
     }
 
     public ArrayList<Reservation> SQL_Data_Reservation() throws SQLException, ClassNotFoundException {
-        DataBaseConnection c4 = new DataBaseConnection("bdd_projets6", "root", "root");
+        DataBaseConnection c4 = new DataBaseConnection("bdd_projets6", "root", "");
 
         c4.ajouterTable("reservation");
         //c4.ajouterRequete("SELECT * FROM `reservation` WHERE idHebergement = " + id);
@@ -210,7 +210,7 @@ public class DataCo {
     }
 
     public void Data_Creation_Reservation(Reservation nouveau) throws SQLException, ClassNotFoundException {
-        DataBaseConnection c5 = new DataBaseConnection("bdd_projets6", "root", "root");
+        DataBaseConnection c5 = new DataBaseConnection("bdd_projets6", "root", "");
         //String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
         String S1 ="INSERT INTO `reservation` (`idHebergement`, `idClient`, `debutAnnee`, `debutMois`, `debutJour`, `finAnnee`, `finMois`, `finJour`, `prix`) VALUES ('";
         String S2="'";

@@ -25,11 +25,7 @@ public class App extends Application {
 
         String choix;
         Scanner clavier = new Scanner(System.in);
-        int test=0;
-        do{
-            System.out.print("nombre de chambre ");
-            test = Integer.parseInt(clavier.nextLine());
-        }while((2>test)||(4<test));
+
 
         do{
             System.out.println("\n=======Menu======\n");

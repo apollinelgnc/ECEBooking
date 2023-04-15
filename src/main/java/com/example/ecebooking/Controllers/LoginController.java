@@ -59,7 +59,6 @@ public class LoginController implements Initializable {
         ArrayList<Hebergement> hebergementListe = new ArrayList<>();
         DataCo dataco = new DataCo();
         dataco.SQL_Data_Login(COListe);
-        dataco.afficherListeClient(COListe);
         dataco.SQL_Data_Admin(ADListe);
 
         if (Objects.equals(choix, "Admin")) {

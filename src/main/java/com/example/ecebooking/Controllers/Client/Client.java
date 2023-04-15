@@ -25,13 +25,13 @@ public class Client extends Invite{
     }
 
     // constructeur base de donnees
-    public Client (String nom,String utilisateur,String mdp,int id) {
+    public Client (String nom,String utilisateur,String mdp,int id, double reduction) {
         super();
         this.nom = nom;
         this.utilisateur = utilisateur;
         this.mdp = mdp;
         this.id = id;
-        reduction = 0.9;
+        this.reduction = reduction;
         compteur_client++;
     }
 

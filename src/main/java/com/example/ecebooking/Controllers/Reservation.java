@@ -48,6 +48,10 @@ public class Reservation {
         {
             System.out.println("Les reservation doivent être au moins de 24h");
             return false;
+        }else if(fin.isBefore(debut))
+        {
+            System.out.println("La date de fin est avant la date de début");
+            return false;
         }
 
         for (Reservation reservation : bdd_reservation) {

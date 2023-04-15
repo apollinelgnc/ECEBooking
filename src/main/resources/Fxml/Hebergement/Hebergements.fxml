@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="conteneur" prefHeight="425.0" prefWidth="425.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane AnchorPane.rightAnchor="0.0" fx:id="conteneur" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
        <Label fx:id="nom" layoutX="113.0" layoutY="27.0" prefWidth="200.0" styleClass="menu_container_title" />
        <Label fx:id="ville" layoutY="73.0" prefWidth="200.0" styleClass="menu_container_info" />

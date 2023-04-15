@@ -41,7 +41,9 @@ public class Hebergement {
     public int getPrix() {
         return prix;
     }
-
+    public String getPrixStrg(){
+            return prix + "€";
+    }
     public void setPrix(int prix) {
         this.prix = prix;
     }

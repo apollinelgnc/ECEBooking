@@ -1,33 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0"
-            prefWidth="1024.0" stylesheets="@../Styles/SignIn.css" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1">
-   <Pane layoutX="209.0" layoutY="129.0" styleClass="Pane" AnchorPane.leftAnchor="209.0"
-         AnchorPane.rightAnchor="208.60000000000002" AnchorPane.topAnchor="129.0">
-      <VBox layoutX="71.0" layoutY="-1.0" prefHeight="538.0" prefWidth="464.0" styleClass="signIn">
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signIn_text" text="Créer votre compte ! "
-               wrappingWidth="319.9951171875"/>
-         <HBox prefHeight="36.0" prefWidth="554.0" styleClass="signIn_choice">
-            <TextArea fx:id="nom_signIn" prefHeight="100.0" prefWidth="300.0" text="Nom"/>
-            <TextArea fx:id="prenom_signIn" prefHeight="100.0" prefWidth="300.0" text="Prénom "/>
-         </HBox>
-         <TextArea fx:id="id_SignIn" prefHeight="34.0" prefWidth="606.0" text="Identifiant"/>
-         <PasswordField fx:id="mdp_signIn" text="Mot de passe"/>
-         <CheckBox fx:id="offres" mnemonicParsing="false" styleClass="pub"
-                   text="Voulez-vous recevoir nos offres ?"/>
-         <Button fx:id="go_button" mnemonicParsing="false" text="Go "/>
-      </VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="signIn" stylesheets="@../Styles/SignIn.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <Pane layoutX="209.0" layoutY="129.0" styleClass="Pane" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="208.60000000000002" AnchorPane.topAnchor="129.0">
+      <Text fill="WHITE" layoutX="143.0" layoutY="121.73905944824219" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signIn_text" text="Créer votre compte ! " wrappingWidth="319.9951171875" />
+      <Label layoutX="71.0" layoutY="165.0" prefHeight="17.0" prefWidth="74.0" styleClass="signIn_choice" text="Nom" />
+      <Label layoutX="404.0" layoutY="165.0" prefHeight="17.0" prefWidth="74.0" styleClass="signIn_choice" text="Prénom" />
+      <Label layoutX="71.0" layoutY="230.0" prefHeight="17.0" prefWidth="74.0" styleClass="signIn_choice" text="Identifiant" />
+      <Label layoutX="71.0" layoutY="288.0" prefHeight="17.0" prefWidth="74.0" styleClass="signIn_choice" text="Mot de passe" />
+      <PasswordField fx:id="mdp_signIn" layoutX="71.0" layoutY="308.6000061035156" text="Mot de passe" />
+      <CheckBox fx:id="offres" layoutX="191.8000030517578" layoutY="367.0" mnemonicParsing="false" styleClass="pub" text="Voulez-vous recevoir nos offres ?" />
+      <Button fx:id="go_button" layoutX="285.3999938964844" layoutY="419.79998779296875" mnemonicParsing="false" text="Go " />
+      <TextField layoutX="69.0" layoutY="182.0" />
+      <TextField fx:id="prenom_signIn" layoutX="404.0" layoutY="182.0" />
+      <TextField fx:id="id_SignIn" layoutX="69.0" layoutY="247.0" />
    </Pane>
 </AnchorPane>

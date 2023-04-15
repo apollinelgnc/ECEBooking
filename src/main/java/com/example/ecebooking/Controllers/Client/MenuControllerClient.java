@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -20,7 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class MenuController {
+public class MenuControllerClient {
 
     public TextField destination = new TextField();
     public ChoiceBox<Integer> nb_persons = new ChoiceBox<>();
@@ -40,15 +41,29 @@ public class MenuController {
 
     private ViewFactory viewFactory; // Reference to the ViewFactory
     private DataCo data = new DataCo();
+    @FXML
+    private VBox vbox;
 
     private int id;
+    public Button menu_button=new Button();
+    public Button stats_button=new Button();
+    public Button profile_button=new Button();
+    public Button reservation_button=new Button();
+    public Button log_out_button=new Button();
 
-    public void setId(int id) {
+    public MenuControllerClient(int id){
         this.id = id;
     }
+    public MenuControllerClient(){}
+
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
 
         System.out.println(id);
+        reservation_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
+        menu_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView(id));
+        profile_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
+        stats_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
+        log_out_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().closeStage());
         nb_persons.getItems().addAll(1, 2, 3, 4, 5, 6);
         nombre_chambres.getItems().addAll(1, 2, 3, 4, 5, 6);
         int affichage;

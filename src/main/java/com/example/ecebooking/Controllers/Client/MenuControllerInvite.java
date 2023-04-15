@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class MenuController {
+public class MenuControllerInvite {
 
     public TextField destination = new TextField();
     public ChoiceBox<Integer> nb_persons = new ChoiceBox<>();
@@ -40,15 +40,16 @@ public class MenuController {
 
     private ViewFactory viewFactory; // Reference to the ViewFactory
     private DataCo data = new DataCo();
+    @FXML
+    private VBox vbox;
+    public Button menu_button=new Button();
+    public Button log_in_button=new Button();
+    private final int id=-1;
 
-    private int id;
-
-    public void setId(int id) {
-        this.id = id;
-    }
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
 
-        System.out.println(id);
+        log_in_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().SignInView());
+        menu_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().InviteView());
         nb_persons.getItems().addAll(1, 2, 3, 4, 5, 6);
         nombre_chambres.getItems().addAll(1, 2, 3, 4, 5, 6);
         int affichage;

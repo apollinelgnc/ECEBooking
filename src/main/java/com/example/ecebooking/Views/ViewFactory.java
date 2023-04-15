@@ -1,12 +1,11 @@
 package com.example.ecebooking.Views;
 
 import com.example.ecebooking.Controllers.Admin.AdminController;
-import com.example.ecebooking.Controllers.Client.ClientController;
+import com.example.ecebooking.Controllers.Client.*;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Controllers.Hebergements.Un_HebergementController;
 import com.example.ecebooking.Controllers.SignInController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -14,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ViewFactory {
+    Invite invite;
     private Stage stage;
     public ViewFactory(){}
 
@@ -33,10 +33,10 @@ public class ViewFactory {
         createStage(load);
     }
 
-    public void ClientView(){
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/Client.Fxml"));
-        ClientController clientController=new ClientController();
-        loader.setController(clientController);
+    public void ClientView(int i){
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/MenuClient.Fxml"));
+        MenuControllerClient menuControllerClient=new MenuControllerClient(i);
+        loader.setController(menuControllerClient);
         closeStage();
         createStage(loader);
     }
@@ -55,9 +55,9 @@ public class ViewFactory {
         createStage(loader);
     }
     public void InviteView(){
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/Invite.Fxml"));
-        ClientController clientController=new ClientController();
-        loader.setController(clientController);
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/MenuInvite.Fxml"));
+        MenuControllerInvite menuControllerInvite=new MenuControllerInvite();
+        loader.setController(menuControllerInvite);
         closeStage();
         createStage(loader);
     }
@@ -75,6 +75,7 @@ public class ViewFactory {
             e.printStackTrace();
         }
         stage=new Stage();
+        stage.setFullScreen(true);
         stage.setScene(scene);
         stage.setTitle("ECEBooking");
         stage.show();

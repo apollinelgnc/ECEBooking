@@ -148,7 +148,134 @@ public class Admin extends Client {
 
     }
     public void ActuHergement() throws SQLException, ClassNotFoundException {
-        // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
+        String nom_etablissement =null;
+        String ville=null;
+        int nombre_chambres= 0;
+        int nombre_places= 0;
+        int prix= 0;
+        int distanceCentre= 0;
+        String wifi=null;
+        String menage=null;
+        String  fumeur=null;
+        String S2="";
+
+
+        Scanner clavier = new Scanner(System.in);
+        String choix;
+
+        do {
+            System.out.println(S2);
+            System.out.println("\n======= Menu Update ======\n");
+            System.out.println("0. Quitter");
+            System.out.println("1. nom etablissement : " + nom_etablissement);
+            System.out.println("2. ville : " + ville);
+            System.out.println("3. nb chambre : " + nombre_chambres);
+            System.out.println("4. nb place : " + nombre_places);
+            System.out.println("5. prix : " + prix);
+            System.out.println("6. distance centre : " + distanceCentre);
+            System.out.println("7. wifi : " + wifi);
+            System.out.println("8. menage : " + menage);
+            System.out.println("9. fumeur : " + fumeur);
+            System.out.println("10. update");
+            System.out.print("\nsaisir choix: ");
+            choix = clavier.next();
+
+            switch (choix) {
+                //quitter
+                case "0" -> {
+                    System.out.println("Merci");
+
+                }
+
+                // nom hebergement
+                case "1" -> {
+                    System.out.print("Veuillez saisir le nom : ");
+                    nom_etablissement= clavier.next();
+                    S2=S2+" `nom`='" + nom_etablissement +"'";
+                }
+                // ville
+                case "2" -> {
+                    System.out.print("Veuillez saisir la ville : ");
+                    ville= clavier.next();
+                    S2=S2+" `ville`= '" + ville +"'";
+                }
+                // chambre
+                case "3" -> {
+                    System.out.print("Veuillez saisir le nombre de chambre : ");
+                    nombre_chambres = clavier.nextInt();
+                    S2=S2+" `nbChambre`='" + nombre_chambres+ "'";
+                }
+                // place
+                case "4" -> {
+                    System.out.print("Veuillez saisir le nombre de place : ");
+                    nombre_places= clavier.nextInt();
+                    S2=S2+" `nbPlace`='" + nombre_places+ "'";
+                }
+                // prix
+                case "5" -> {
+                    System.out.print("Veuillez saisir le prix : ");
+                    prix= clavier.nextInt();
+                    S2=S2+" `prix`='" + prix+ "'";
+                }
+                case "6" -> {
+                    System.out.print("Veuillez saisir la distance au centre : ");
+                    distanceCentre= clavier.nextInt();
+                    S2=S2+" `distanceCentre`='" + distanceCentre+ "'";
+                }
+                case "7" -> {
+                    do{
+                        System.out.print("Wifi : ");
+                        wifi=clavier.nextLine();
+                    }while((!Objects.equals(wifi, "oui"))&&(!wifi.equals("non")));
+
+                    if(wifi.equals("oui"))
+                    {
+                        S2=S2+"  `wifi`='1'";
+                    }else{
+                        S2=S2+" `wifi`='0'";
+                    }
+                }
+                case "8" -> {
+                    do{
+                        System.out.print("Menage : ");
+                        menage=clavier.nextLine();
+                    }while((!Objects.equals(menage, "oui"))&&(!menage.equals("non")));
+                    if(menage.equals("oui"))
+                    {
+                        S2=S2+"  `menage`='1'";
+                    }else{
+                        S2=S2+" `menage`='0'";
+                    }
+                }
+                case "9" -> {
+                    do{
+                        System.out.print("Fumeur : ");
+                        fumeur=clavier.nextLine();
+                    }while((!Objects.equals(fumeur, "oui"))&&(!fumeur.equals("non")));
+                    if(fumeur.equals("oui"))
+                    {
+                        S2=S2+"  `fumeur`='1'";
+                    }else{
+                        S2=S2+" `fumeur`='0'";
+                    }
+                }
+                case "10" -> System.out.println("Filtre valide");
+                default -> {
+                }
+            }
+
+        } while (!choix.equals("10"));
+        String S1="UPDATE `etablissement` SET ";
+        String S3=" WHERE `id`=";
+
+
+        System.out.println("-- entrer l'id du client --");
+        choix=clavier.next();
+        choix="'"+choix+"'";
+        S1=S1+S2+S3+choix;
+        System.out.println(S1);
+        dataco.Data_Actu_Hebergement(S1);
+
 
     }
 
@@ -160,11 +287,9 @@ public class Admin extends Client {
         System.out.println("\n-- Sur hebergement voulez vous Ajouter une promotion --");
         System.out.println("-- entrer l'id de l'hetablissement --");
         choix1=clavier.next();
-        choix1="'"+choix1+"'";
         System.out.println("-- quelle promo --");
         choix2=clavier.next();
-        choix2="'"+choix1+"'";
-        //dataco.Data_Promo_Hebergement(choix1, choix2);
+        dataco.Data_Promo_Hebergement(choix1, choix2);
 
     }
 
@@ -175,6 +300,10 @@ public class Admin extends Client {
         int nombre_places=0;
         int prix=0;
         int distanceCentre=0;
+        String Snombre_chambres;
+        String Snombre_places;
+        String Sprix;
+        String SdistanceCentre;
         String Wifi=null;
         String Menage=null;
         String fumeur=null;
@@ -191,47 +320,59 @@ public class Admin extends Client {
             System.out.print("nombre de chambre : ");
             nombre_chambres = Integer.parseInt(clavier.nextLine());
         }while((1>nombre_chambres)||(4<nombre_chambres));
-
+        Snombre_chambres= String.valueOf(nombre_chambres);
         do{
             System.out.print("nombre de places : ");
             nombre_places = Integer.parseInt(clavier.nextLine());
         }while((2>nombre_places)||(8<nombre_places));
-
+        Snombre_places=String.valueOf(nombre_places);
         do{
             System.out.print("prix : ");
             prix = Integer.parseInt(clavier.nextLine());
         }while((50>prix)||(10000<prix));
-
+        Sprix=String.valueOf(prix);
         do{
             System.out.print("distance du centre : ");
             distanceCentre = Integer.parseInt(clavier.nextLine());
         }while((50>distanceCentre)||(10000<distanceCentre));
-
+        SdistanceCentre=String.valueOf(distanceCentre);
 
         do{
             System.out.print("Wifi : ");
             Wifi=clavier.nextLine();
-        }while((!Objects.equals(Wifi, "oui"))||(!Wifi.equals("non")));
+        }while((!Objects.equals(Wifi, "oui"))&&(!Wifi.equals("non")));
+        if(Wifi.equals("oui"))
+        {
+            Wifi="1";
+        }else{
+            Wifi="0";
+        }
+
         do{
             System.out.print("Menage : ");
             Menage=clavier.nextLine();
-        }while((!Objects.equals(Menage, "oui"))||(!Menage.equals("non")));
+        }while((!Objects.equals(Menage, "oui"))&&(!Menage.equals("non")));
+        if(Menage.equals("oui"))
+        {
+            Menage="1";
+        }else{
+            Menage="0";
+        }
         do{
             System.out.print("Fumeur : ");
             fumeur=clavier.nextLine();
-        }while((!Objects.equals(fumeur, "oui"))||(!fumeur.equals("non")));
+        }while((!Objects.equals(fumeur, "oui"))&&(!fumeur.equals("non")));
+        if(fumeur.equals("oui"))
+        {
+            fumeur="1";
+        }else{
+            fumeur="0";
+        }
+
+        int num=7;
+        dataco.Data_Ajout_Hebergement(nom, ville, Snombre_chambres, Snombre_places, Sprix, SdistanceCentre, Wifi, Menage, fumeur, num);
 
 
-        int numClient=10;
-        //dataco.Data_Creation_Herbergement();
-                   /* for (Client client : COListe) {
-                            if ((id.equals(client.getId())) && (mdp.equals(client.getMdp()))) {
-
-                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getNumero(), hebergementListe);
-                                ConnexionClient.menu();
-                                buff=1;
-                            }
-                        }*/
 
     }
 
@@ -266,7 +407,7 @@ public class Admin extends Client {
             switch (choixH) {
                 case "0" -> System.out.println("Merci");
                 case "1" -> afficherListeClient(COListe);   //gererHebrgement();
-                case "2" -> SuppClient(COListe);
+                case "2" -> SuppClient();
                 case "3" -> PromoC();
                 //case "4" ->;
                 //case "5" ->;
@@ -290,23 +431,20 @@ public class Admin extends Client {
         }
     }
 
-    public void SuppClient(ArrayList<Client> liste) {
-        // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
+    public void SuppClient() throws SQLException, ClassNotFoundException {
+
+        String choix;
+        Scanner clavier = new Scanner(System.in);
+        System.out.println("\n-- Quelle client voulez vous supprimer --");
+        System.out.println("-- entrer l'id du client --");
+        choix=clavier.next();
+        choix="'"+choix+"'";
+        dataco.Data_Supp_Client(choix);
 
     }
 
     public void PromoC() throws SQLException, ClassNotFoundException {
         // Parcourir la liste d'hébergements et afficher les informations de chaque hébergement
-        String choix1;
-        String choix2;
-        Scanner clavier = new Scanner(System.in);
-        System.out.println("\n-- Sur hebergement voulez vous Ajouter une promotion --");
-        System.out.println("-- entrer l'id de l'hetablissement --");
-        choix1=clavier.next();
-        choix1="'"+choix1+"'";
-        System.out.println("-- quelle promo --");
-        choix2=clavier.next();
-        choix2="'"+choix1+"'";
         //dataco.Data_Promo_Client(choix1, choix2);
 
     }

@@ -77,6 +77,16 @@ public class DataCo {
         c1.executeUpdate(c1.requetes.get(0));
     }
 
+    public void Data_Supp_Client(String nom) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String S1 ="DELETE FROM `client` WHERE `id`='";
+        String S2="'";
+        S1=S1+nom+S2;
+        System.out.println(S1);
+        c1.ajouterRequete(S1);
+        c1.executeUpdate(c1.requetes.get(0));
+    }
+
 
     public void SQL_Data_Hebergements2(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
 
@@ -148,30 +158,42 @@ public class DataCo {
 
     public void Data_Supp_Hebergement(String nom) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
-        String S1 ="DELETE FROM `etablissement` WHERE `id`=";
-        S1=S1+nom;
+        String S1 ="DELETE FROM `etablissement` WHERE `id`='";
+        String S2="'";
+        S1=S1+nom+S2;
         System.out.println(S1);
         c1.ajouterRequete(S1);
         c1.executeUpdate(c1.requetes.get(0));
     }
 
-    public void Data_Actu_Hebergement(String nom) throws SQLException, ClassNotFoundException {
+    public void Data_Actu_Hebergement(String S1) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
-        String S1 ="DELETE FROM `etablissement` WHERE `nom`=";
-        S1=S1+nom;
-        c1.ajouterRequete(S1);
-        c1.executeUpdate(c1.requetes.get(0));
+        //c1.ajouterRequete(S1);
+        //c1.executeUpdate(c1.requetes.get(0));
     }
 
-    public void Data_Ajout_Hebergement(String nom) throws SQLException, ClassNotFoundException {
+    public void Data_Promo_Hebergement(String id, String promo) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String S1 ="UPDATE `etablissement` SET `Promo`='";
+        String S2="' WHERE `id`=";
+        String S4="'";
+        S1=S1+promo+S2+S4+id+S4;
+        System.out.println(S1);
+        //c1.ajouterRequete(S1);
+        //c1.executeUpdate(c1.requetes.get(0));
+    }
+
+    public void Data_Ajout_Hebergement(String nom,String ville, String Snombre_chambres, String Snombre_places, String Sprix, String SdistanceCentre, String Wifi, String Menage, String fumeur, int num) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String id= String.valueOf(num);
         String S1 ="INSERT INTO `etablissement`(`nom`, `ville`, `nbChambre`, `nbPlace`, `prix`, `distanceCentre`, `wifi`, `menage`, `fumeur`, `id`, `Promo`) VALUES ('";
         String S2="'";
         String S3=", ";
-        String S4="')";
-       // S1=S1+    +S2+S3+S2+  +S2+S3+S2+   +S2+S3+S2+    +S4;
-        c1.ajouterRequete(S1);
-        c1.executeUpdate(c1.requetes.get(0));
+        String S4=", '100')";
+        S1=S1+nom+S2+S3+S2+ville+S2+S3+S2+Snombre_chambres+S2+S3+S2+Snombre_places+S2+S3+S2+Sprix+S2+S3+S2+SdistanceCentre+S2+S3+S2+Wifi+S2+S3+S2+Menage+S2+S3+S2+fumeur+S2+S3+S2+id+S2+S4;
+        System.out.println(S1);
+        //c1.ajouterRequete(S1);
+        //c1.executeUpdate(c1.requetes.get(0));
     }
 
     public ArrayList<Reservation> SQL_Data_Reservation() throws SQLException, ClassNotFoundException {
@@ -211,13 +233,11 @@ public class DataCo {
 
     public void Data_Creation_Reservation(Reservation nouveau) throws SQLException, ClassNotFoundException {
         DataBaseConnection c5 = new DataBaseConnection("bdd_projets6", "root", "");
-        //String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
         String S1 ="INSERT INTO `reservation` (`idHebergement`, `idClient`, `debutAnnee`, `debutMois`, `debutJour`, `finAnnee`, `finMois`, `finJour`, `prix`) VALUES ('";
         String S2="'";
         String S3=", ";
         String S4="')";
         S1=S1+nouveau.getId_hebergement()+S2+S3+S2+nouveau.getId_client()+S2+S3+S2+nouveau.getDebut().getYear()+S2+S3+S2+nouveau.getDebut().getMonthValue()+S2+S3+S2+nouveau.getDebut().getDayOfMonth()+S2+S3+S2+nouveau.getFin().getYear()+S2+S3+S2+nouveau.getFin().getMonthValue()+S2+S3+S2+nouveau.getFin().getDayOfMonth()+S2+S3+S2+nouveau.getPrix()+S4;
-        //System.out.println(S1);
         c5.ajouterRequete(S1);
         c5.executeUpdate(c5.requetes.get(0));
     }

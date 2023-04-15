@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class App extends Application {
@@ -25,7 +26,6 @@ public class App extends Application {
 
         String choix;
         Scanner clavier = new Scanner(System.in);
-
 
         do{
             System.out.println("\n=======Menu======\n");

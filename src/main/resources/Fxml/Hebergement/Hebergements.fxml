@@ -6,8 +6,8 @@
 
 <Pane fx:id="conteneur" prefHeight="425.0" prefWidth="425.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-       <Label fx:id="titre" layoutX="113.0" layoutY="27.0" prefWidth="200.0" styleClass="menu_container_title" />
-       <Label fx:id="nom" layoutY="73.0" prefWidth="200.0" styleClass="menu_container_info" />
+       <Label fx:id="nom" layoutX="113.0" layoutY="27.0" prefWidth="200.0" styleClass="menu_container_title" />
+       <Label fx:id="ville" layoutY="73.0" prefWidth="200.0" styleClass="menu_container_info" />
        <Label fx:id="prix" layoutX="325.0" layoutY="75.0" prefWidth="100.0" styleClass="menu_container_info" />
       <ImageView fx:id="image" fitHeight="279.0" fitWidth="388.0" layoutX="19.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" styleClass="menu_container" />
    </children>

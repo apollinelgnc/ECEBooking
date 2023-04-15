@@ -31,7 +31,7 @@ public class Reservation {
     public LocalDate getFin() {return fin;}
     public double getPrix() {return prix;}
 
-   /* public boolean verification() throws SQLException, ClassNotFoundException {
+    public boolean verification() throws SQLException, ClassNotFoundException {
         DataCo dataco = new DataCo();
         ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation();
 
@@ -68,7 +68,7 @@ public class Reservation {
         }
         return true;
     }
-*/
+
     public void afficher()
     {
         System.out.println(this.id_hebergement + "\n" + this.id_client + "\n" + this.debut + "\n" + this.fin + "\n" + this.prix);

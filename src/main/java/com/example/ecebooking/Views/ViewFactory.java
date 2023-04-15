@@ -2,7 +2,8 @@ package com.example.ecebooking.Views;
 
 import com.example.ecebooking.Controllers.Admin.AdminController;
 import com.example.ecebooking.Controllers.Client.ClientController;
-import com.example.ecebooking.Controllers.Hebergements.HebergementsController;
+import com.example.ecebooking.Controllers.Hebergements.Hebergement;
+import com.example.ecebooking.Controllers.Hebergements.Un_HebergementController;
 import com.example.ecebooking.Controllers.SignInController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,15 +17,6 @@ public class ViewFactory {
     private Stage stage;
     public ViewFactory(){}
 
-    public void MenuView() {
-        FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Client/Menu.fxml"));
-        createStage(load);
-
-    }
-    public Node HebergementView() throws IOException {
-        FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Client/Hebergements.fxml"));
-        return load.load();
-    }
     public void LoginView(){
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(load);
@@ -43,6 +35,13 @@ public class ViewFactory {
         loader.setController(clientController);
         closeStage();
         createStage(loader);
+    }
+    public void ResaView(Hebergement hotel){
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Hebergement/Hebergement.Fxml"));
+        Un_HebergementController unHebergementController=new Un_HebergementController(hotel);
+        loader.setController(unHebergementController);
+        createStage(loader);
+        unHebergementController.setHotel();
     }
     public void AdminView(){
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.Fxml"));

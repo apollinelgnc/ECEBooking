@@ -20,8 +20,8 @@ public class Client extends Invite{
     /** CONSTRUCTEURS */
 
     // création par l'utilisateur
-   public Client(){
-       super();
+    public Client(){
+        super();
     }
 
     // constructeur base de donnees

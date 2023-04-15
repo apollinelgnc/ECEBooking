@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane prefHeight="495.0" prefWidth="1024.0" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="conteneur" alignment="TOP_CENTER" prefHeight="495.0" prefWidth="1024.0" spacing="10" styleClass="menu_container">
+          <!-- HBox pour contenir les détails de l'hôtel -->
+          <HBox prefHeight="505.0" prefWidth="1024.0" spacing="10">
+              <!-- VBox pour contenir les informations de l'hôtel -->
+              <VBox prefHeight="502.0" prefWidth="240.0" spacing="5" styleClass="menu_container_info">
+                  <Label fx:id="Nom" />
+                  <Label fx:id="Ville" />
+                  <Label fx:id="Prix" />
+                  <Label fx:id="option" />
+               <DatePicker fx:id="date_debut" prefHeight="29.0" prefWidth="189.0" promptText="date arrivée" />
+               <DatePicker fx:id="date_fin" prefHeight="29.0" prefWidth="191.0" promptText="date départ" />
+               <Button fx:id="reserver" mnemonicParsing="false" text="Réserver" />
+               <Label fx:id="erreur" />
+              </VBox>
+            <ImageView fx:id="Image" fitHeight="502.0" fitWidth="582.0" pickOnBounds="true" preserveRatio="true" />
+          </HBox>
+      </VBox>
+   </children>
+</Pane>

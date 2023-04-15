@@ -36,7 +36,6 @@ public class DataCo {
         }
     }
 
-
     public void SQL_Data_Admin(ArrayList<Admin> Admin) throws SQLException, ClassNotFoundException {
         DataBaseConnection c3 = new DataBaseConnection("bdd_projets6", "root", "root");
 
@@ -66,6 +65,7 @@ public class DataCo {
 
     public void Data_Creation_Login(String nom, String id, String mdp, int num) throws SQLException, ClassNotFoundException {
         DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "root");
+
         String Snum= String.valueOf(num);
         String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
         String S2="'";
@@ -197,11 +197,12 @@ public class DataCo {
                 int finMois = Integer.parseInt(words[6]);
                 int finJour = Integer.parseInt(words[7]);
                 int prix = Integer.parseInt(words[8]);
+                int id = Integer.parseInt(words[9]);
 
                 LocalDate debut = LocalDate.of(debutAnnee,debutMois,debutJour);
                 LocalDate fin = LocalDate.of(finAnnee,finMois,finJour);
 
-                Reservation C = new Reservation( idHebegement, idClient, debut, fin, prix);
+                Reservation C = new Reservation( idHebegement, idClient, debut, fin, prix, id);
                 listeReservation.add(C);
             }
         }
@@ -210,16 +211,27 @@ public class DataCo {
 
     public void Data_Creation_Reservation(Reservation nouveau) throws SQLException, ClassNotFoundException {
         DataBaseConnection c5 = new DataBaseConnection("bdd_projets6", "root", "root");
+
+        // Cherche l'id suivant dispo
+        int count = 0;
+        ArrayList<Reservation> ListeReservation = SQL_Data_Reservation();
+        for(Reservation resa : ListeReservation)
+        {
+            if(resa.getId() > count)
+            {
+                count = resa.getId();
+            }
+        }
+        count++;
+
         //String S1 ="INSERT INTO `client` (`nom`, `utilisateur`, `mdp`, `id`) VALUES ('";
-        String S1 ="INSERT INTO `reservation` (`idHebergement`, `idClient`, `debutAnnee`, `debutMois`, `debutJour`, `finAnnee`, `finMois`, `finJour`, `prix`) VALUES ('";
+        String S1 ="INSERT INTO `reservation` (`idHebergement`, `idClient`, `debutAnnee`, `debutMois`, `debutJour`, `finAnnee`, `finMois`, `finJour`, `prix`, `id`) VALUES ('";
         String S2="'";
         String S3=", ";
         String S4="')";
-        S1=S1+nouveau.getId_hebergement()+S2+S3+S2+nouveau.getId_client()+S2+S3+S2+nouveau.getDebut().getYear()+S2+S3+S2+nouveau.getDebut().getMonthValue()+S2+S3+S2+nouveau.getDebut().getDayOfMonth()+S2+S3+S2+nouveau.getFin().getYear()+S2+S3+S2+nouveau.getFin().getMonthValue()+S2+S3+S2+nouveau.getFin().getDayOfMonth()+S2+S3+S2+nouveau.getPrix()+S4;
+        S1=S1+nouveau.getId_hebergement()+S2+S3+S2+nouveau.getId_client()+S2+S3+S2+nouveau.getDebut().getYear()+S2+S3+S2+nouveau.getDebut().getMonthValue()+S2+S3+S2+nouveau.getDebut().getDayOfMonth()+S2+S3+S2+nouveau.getFin().getYear()+S2+S3+S2+nouveau.getFin().getMonthValue()+S2+S3+S2+nouveau.getFin().getDayOfMonth()+S2+S3+S2+nouveau.getPrix()+S2+S3+S2+count+S4;
         //System.out.println(S1);
         c5.ajouterRequete(S1);
         c5.executeUpdate(c5.requetes.get(0));
     }
-
-
 }

@@ -12,6 +12,5 @@ public class Membre {
 
         prix = prix * reduction + (double)test;
         System.out.println(prix);
-
     }
 }

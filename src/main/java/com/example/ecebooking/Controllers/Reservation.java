@@ -12,13 +12,15 @@ public class Reservation {
     final int id_client;
     final LocalDate debut;
     final LocalDate fin;
+    final int id;
 
-    public Reservation(int id_hebergement, int id_client, LocalDate date_debut, LocalDate date_fin, double prix) {
+    public Reservation(int id_hebergement, int id_client, LocalDate date_debut, LocalDate date_fin, double prix, int id) {
         this.id_hebergement = id_hebergement;
         this.id_client = id_client;
         this.debut = date_debut;
         this.fin = date_fin;
         this.prix = prix;
+        this.id = id;
     }
 
     public int getId_hebergement() {
@@ -30,7 +32,7 @@ public class Reservation {
     public LocalDate getDebut() {return debut;}
     public LocalDate getFin() {return fin;}
     public double getPrix() {return prix;}
-
+    public int getId(){return id;}
     public boolean verification() throws SQLException, ClassNotFoundException {
         DataCo dataco = new DataCo();
         ArrayList<Reservation> bdd_reservation = dataco.SQL_Data_Reservation();
@@ -75,7 +77,11 @@ public class Reservation {
 
     public void afficher()
     {
-        System.out.println(this.id_hebergement + "\n" + this.id_client + "\n" + this.debut + "\n" + this.fin + "\n" + this.prix);
+        System.out.println("ID Hebergement : " + this.id_hebergement);
+        System.out.println("ID Client : " + this.id_client);
+        System.out.println("debut : " + this.debut);
+        System.out.println("fin : " + this.fin);
+        System.out.println("prix : " + this.prix);
     }
 
     @Override

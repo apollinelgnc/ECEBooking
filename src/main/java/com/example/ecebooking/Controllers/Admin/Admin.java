@@ -11,8 +11,6 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Admin {
-
-    //static int compteur_client; // nombre de client total
     protected String nomA;
     protected String idA;
     protected String mdpA;
@@ -22,31 +20,6 @@ public class Admin {
     ArrayList<Client> COListe = new ArrayList<>();
     ArrayList<Hebergement> hebergementListe = new ArrayList<>();
     ArrayList<Admin> ADListe = new ArrayList<>();
-
-    public Admin (String nom, String id, String mdp, int numero) {
-        super();
-        this.nomA = nom;
-        this.idA = id;
-        this.mdpA = mdp;
-        this.numeroA = numero;
-        reductionA = 0.9;
-    }
-
-    public String getIdA() {
-        return idA;
-    }
-
-    public String getMdpA() {
-        return mdpA;
-    }
-
-    public int getNumeroA() {
-        return numeroA;
-    }
-
-    public String getNomA() {
-        return nomA;
-    }
 
 
     /** METHODES */
@@ -74,6 +47,7 @@ public class Admin {
         } while (!choix.equals("0"));
     }
 
+    /** Hebergement */
     public void gererHebrgement() throws SQLException, ClassNotFoundException {
 
         String choixH;
@@ -452,6 +426,7 @@ public class Admin {
 
     }
 
+    /** Client */
     public void gererClient() throws SQLException, ClassNotFoundException {
 
 
@@ -544,6 +519,34 @@ public class Admin {
         choix="'"+choix+"'";
         dataco.Data_Supp_Reza(choix);
 
+    }
+
+
+    /** GETTERS / SETTERS */
+
+    public Admin (String nom, String id, String mdp, int numero) {
+        super();
+        this.nomA = nom;
+        this.idA = id;
+        this.mdpA = mdp;
+        this.numeroA = numero;
+        reductionA = 0.9;
+    }
+
+    public String getIdA() {
+        return idA;
+    }
+
+    public String getMdpA() {
+        return mdpA;
+    }
+
+    public int getNumeroA() {
+        return numeroA;
+    }
+
+    public String getNomA() {
+        return nomA;
     }
 
 }

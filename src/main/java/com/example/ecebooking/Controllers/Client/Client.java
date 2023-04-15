@@ -37,7 +37,9 @@ public class Client extends Invite{
 
     public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix)
     {
+        System.out.println(getReduction());
         prix = prix * getReduction();
+        System.out.println(prix);
         return new Reservation(i,this.getId(),debut,fin,prix,-1);
     }
 

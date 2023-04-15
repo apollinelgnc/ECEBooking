@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Admin extends Client {
+public class Admin{
 
     //static int compteur_client; // nombre de client total
     protected String nomA;

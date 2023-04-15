@@ -59,7 +59,7 @@ public class App extends Application {
                         for (Client client : COListe) {
                             if ((id.equals(client.getUtilisateur())) && (mdp.equals(client.getMdp()))) {
 
-                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getId());
+                                Client ConnexionClient = new Client(client.getNom(), id, mdp, client.getId(),client.getReduction());
                                 ConnexionClient.menu();
                                 buff=1;
                             }

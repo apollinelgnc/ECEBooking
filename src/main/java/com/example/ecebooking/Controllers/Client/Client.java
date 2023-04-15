@@ -25,59 +25,22 @@ public class Client extends Invite{
     }
 
     // constructeur base de donnees
-    public Client (String nom,String utilisateur,String mdp,int id) {
+    public Client (String nom,String utilisateur,String mdp,int id, double reduction) {
         super();
         this.nom = nom;
         this.utilisateur = utilisateur;
         this.mdp = mdp;
         this.id = id;
-        reduction = 0.9;
+        this.reduction = reduction;
         compteur_client++;
-    }
-
-    public void menu() throws SQLException, ClassNotFoundException {
-
-
-        String choix;
-        Scanner clavier = new Scanner(System.in);
-
-        do {
-            System.out.println("\n======= Menu Client ======\n");
-            System.out.println("0. Quitter");
-            System.out.println("1. Faire une reservation");
-            System.out.println("2. Afficher mes réservations");
-            System.out.print("\nsaisir menu : ");
-            choix = clavier.next();
-
-            switch (choix) {
-                case "0" -> System.out.println("Merci");
-                case "1" -> reserver();
-                case "2" -> afficherReservation();
-                default -> {
-                }
-            }
-        } while (!choix.equals("0"));
     }
 
     public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix)
     {
         prix = prix * getReduction();
-        return new Reservation(i,this.getId(),debut,fin,prix);
+        return new Reservation(i,this.getId(),debut,fin,prix,-1);
     }
 
-    public void afficherReservation() throws SQLException, ClassNotFoundException {
-
-        DataCo dataCo = new DataCo();
-        ArrayList<Reservation> ListeReservation = dataCo.SQL_Data_Reservation();
-
-        for(Reservation resa : ListeReservation)
-        {
-            if(this.id == resa.getId_client())
-            {
-                resa.afficher();
-            }
-        }
-    }
 
     @Override
     public String toString() {

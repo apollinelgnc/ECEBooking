@@ -71,7 +71,7 @@ public class LoginController implements Initializable {
         } else if (Objects.equals(choix, "Client")) {
             for (Client client : COListe) {
                 if (id.equals(client.getUtilisateur()) && mot_de_passe.equals(client.getMdp())) {
-                    Client ConnexionClient = new Client(client.getNom(), utilisateur, mot_de_passe, client.getId());
+                    Client ConnexionClient = new Client(client.getNom(), utilisateur, mot_de_passe, client.getId(), client.getReduction());
                     return true;
                 }
             }

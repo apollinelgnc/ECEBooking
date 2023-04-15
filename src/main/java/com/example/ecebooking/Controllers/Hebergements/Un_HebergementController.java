@@ -2,6 +2,7 @@ package com.example.ecebooking.Controllers.Hebergements;
 
 import com.example.ecebooking.Controllers.Reservation;
 import com.example.ecebooking.Models.DataCo;
+import com.example.ecebooking.Models.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -38,9 +39,10 @@ public class Un_HebergementController {
         reserver.setOnAction(event -> {
             try {
                 reserver();
+                Model.getInstance().getViewFactory().PayementView();
             } catch (SQLException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
-            }
+           }
         });
     }
     public void setHotel() {
@@ -75,7 +77,7 @@ public class Un_HebergementController {
         //Calcul du prix de la reservation = nb jours * prix/jour de l'hebergement
         prix_tt = ChronoUnit.DAYS.between(debut, fin) * hotel.getPrix();
 
-        Reservation nouveau = creerReservation(hotel.getIdhebergement(), debut, fin, prix_tt);//new Reservation(ListeHebergement.get(choix-1).getIdhebergement(), -1, debut, fin);
+        Reservation nouveau = new Reservation(hotel.getIdhebergement(),-1, debut, fin, prix_tt,0);//new Reservation(ListeHebergement.get(choix-1).getIdhebergement(), -1, debut, fin);
 
         // Verification disponibilité date
             valide = nouveau.verification();
@@ -87,10 +89,5 @@ public class Un_HebergementController {
           nouveau.afficher();
           } else System.out.println("Refusée");
     }
-    public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix)
-    {
-        return new Reservation(i,-1,debut,fin,prix);
-    }
-
 
 }

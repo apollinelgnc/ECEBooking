@@ -21,6 +21,10 @@ public class ViewFactory {
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(load);
     }
+    public void PayementView(){
+        FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Hebergement/PayementPage.fxml"));
+        createStage(load);
+    }
     public void SignInView(){
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/SignIn.fxml"));
         SignInController signInController=new SignInController();

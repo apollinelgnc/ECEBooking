@@ -1,0 +1,22 @@
+.fondContainer{
+    -fx-background-color: #132A13;
+    -fx-alignment: center;
+    -fx-font-family: "Cooper Black";
+
+}
+.fondPane{
+    -fx-background-color: rgba(225, 224, 218, 0.6);
+    -fx-effect: dropshadow(two-pass-box, rgba(225, 224, 218, 0.6), 5, 0, 0, 4);
+    -fx-background-radius: 20 20 20 20;
+
+}
+.titre{
+    -fx-font-size: 2.5em;
+    -fx-text-fill: white;
+}
+
+.bouton{
+    -fx-background-color: #132A13;
+    -fx-text-fill: white;
+
+}

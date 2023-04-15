@@ -59,9 +59,17 @@ public class Invite {
         do {
             System.out.println("===== Resultat Filtre =====\n");
             System.out.println("0. Quitter");
+
+            // Affichage de hebergement correspondent au filtre + date déjà réservées
             for(int i=1; i<=ListeHebergement.size(); i++)
             {
+                /*DataCo dataco = new DataCo();
+                String request = "SELECT * FROM `etablissement` WHERE idHebergement = " + ListeHebergement.get(i).getIdhebergement();
+                ArrayList<Reservation> resaHebergement = dataco.SQL_Data_Hebergements(request.toString());
+                 */
+
                 System.out.println(i +". " + ListeHebergement.get(i-1).getNom_etablissement());
+                ListeHebergement.get(i-1).afficherReservation();
             }
             System.out.print("Saisir menu : ");
             choix = clavier.nextInt();
@@ -111,10 +119,10 @@ public class Invite {
         else System.out.println("Refusée");
     }
 
-    // Permet de creer une reservation avec l'ID du client ou -1 pour les invités
-    public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix)
-    {
-        return new Reservation(i,-1,debut,fin,prix);
+    // Permet de créer une reservation avec l'ID du client ou -1 pour les invités
+    public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix) {
+
+        return new Reservation(i,-1,debut,fin,prix,-1);
     }
 
     // Récupère tous les hebergement dans la BDD qui correspondent au filtre. Renvoie la liste en ArrayList

@@ -1,9 +1,12 @@
 package com.example.ecebooking.Controllers.Hebergements;
 
+import com.example.ecebooking.Controllers.Reservation;
+import com.example.ecebooking.Models.DataCo;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Hebergement {
@@ -82,6 +85,28 @@ public class Hebergement {
 
 
     /** METHODES */
+
+    public void afficherReservation() throws SQLException, ClassNotFoundException {
+
+        DataCo dataCo = new DataCo();
+        ArrayList<Reservation> ListeReservation = dataCo.SQL_Data_Reservation();
+
+        // Garde que les reservation dans cet hebergement
+        for(int i=0; i<ListeReservation.size(); i++)
+        {
+            if(this.idhebergement != ListeReservation.get(i).getId_hebergement())
+            {
+                ListeReservation.remove(i);
+                i--;
+            }
+        }
+        // affiche les resa
+        for(int i=0; i<ListeReservation.size(); i++)
+        {
+            System.out.println("     " + (i+1) + ". " + ListeReservation.get(i).getDebut() + " ---> " + ListeReservation.get(i).getFin());
+        }
+
+    }
     @Override
     public String toString() {
         return "Hebergement{" +

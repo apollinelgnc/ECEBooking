@@ -25,13 +25,13 @@ public class Client extends Invite{
     }
 
     // constructeur base de donnees
-    public Client (String nom,String utilisateur,String mdp,int id) {
+    public Client (String nom,String utilisateur,String mdp,int id, double reduction) {
         super();
         this.nom = nom;
         this.utilisateur = utilisateur;
         this.mdp = mdp;
         this.id = id;
-        reduction = 0.9;
+        this.reduction = reduction;
         compteur_client++;
     }
 
@@ -62,7 +62,7 @@ public class Client extends Invite{
     public Reservation creerReservation(int i, LocalDate debut, LocalDate fin, double prix)
     {
         prix = prix * getReduction();
-        return new Reservation(i,this.getId(),debut,fin,prix);
+        return new Reservation(i,this.getId(),debut,fin,prix,-1);
     }
 
     public void afficherReservation() throws SQLException, ClassNotFoundException {
@@ -74,6 +74,7 @@ public class Client extends Invite{
         {
             if(this.id == resa.getId_client())
             {
+                System.out.println();
                 resa.afficher();
             }
         }

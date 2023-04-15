@@ -28,8 +28,7 @@ public class DataCo {
                 String utilisateur = words[1];
                 String mdp = words[2];
                 int id = Integer.parseInt(words[3]);
-                //double reduction = Double.parseDouble(words[4]);
-                double reduction =0;
+                double reduction = Double.parseDouble(words[4]);
 
                 Client C = new Client( nom, utilisateur, mdp, id, reduction);
 
@@ -88,6 +87,17 @@ public class DataCo {
         c1.executeUpdate(c1.requetes.get(0));
     }
 
+    public void Data_Promo_Client(String choix1,String choix2) throws SQLException, ClassNotFoundException {
+        DataBaseConnection c1 = new DataBaseConnection("bdd_projets6", "root", "");
+        String S1 ="UPDATE `client` SET `reduction`='";
+        String S2="'";
+        String S4=" WHERE `id`='";
+        S1=S1+choix2+S2+S4+choix1+S2;
+        System.out.println(S1);
+        c1.ajouterRequete(S1);
+        c1.executeUpdate(c1.requetes.get(0));
+    }
+
 
     public void SQL_Data_Hebergements2(ArrayList<Hebergement> hebergements) throws SQLException, ClassNotFoundException {
 
@@ -114,7 +124,8 @@ public class DataCo {
                 int menage = Integer.parseInt(words[7]);
                 int fumeur = Integer.parseInt(words[8]);
                 int idhebergement = Integer.parseInt(words[9]);
-                Hebergement h = new Hebergement(nom_etablissement, ville, nombre_chambres, nombre_places, prix, distanceCentre, wifi, menage, fumeur, idhebergement);
+                double promo = Double.parseDouble((words[10]));
+                Hebergement h = new Hebergement(nom_etablissement, ville, nombre_chambres, nombre_places, prix, distanceCentre, wifi, menage, fumeur, idhebergement, promo);
                 hebergements.add(h);
             }
         }
@@ -150,7 +161,8 @@ public class DataCo {
                 int menage = Integer.parseInt(words[7]);
                 int fumeur = Integer.parseInt(words[8]);
                 int idhebergement = Integer.parseInt(words[9]);
-                Hebergement h = new Hebergement(nom_etablissement, ville, nombre_chambres, nombre_places, prix, distanceCentre, wifi, menage, fumeur, idhebergement);
+                double promo = Double.parseDouble(words[10]);
+                Hebergement h = new Hebergement(nom_etablissement, ville, nombre_chambres, nombre_places, prix, distanceCentre, wifi, menage, fumeur, idhebergement, promo);
                 hebergements.add(h);
             }
         }

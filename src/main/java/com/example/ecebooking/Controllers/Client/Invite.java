@@ -103,6 +103,7 @@ public class Invite {
         LocalDate fin = LocalDate.of(annee_fin, mois_fin, jour_fin);
         //Calcul du prix de la reservation = nb jours * prix/jour de l'hebergement
         prix = ChronoUnit.DAYS.between(debut, fin) * ListeHebergement.get(choix-1).getPrix();
+        prix=prix*ListeHebergement.get(choix-1).getPromo();
 
         Reservation nouveau = creerReservation(ListeHebergement.get(choix-1).getIdhebergement(), debut, fin, prix);//new Reservation(ListeHebergement.get(choix-1).getIdhebergement(), -1, debut, fin);
 

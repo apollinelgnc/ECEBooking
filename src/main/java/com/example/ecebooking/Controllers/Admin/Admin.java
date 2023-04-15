@@ -92,10 +92,11 @@ public class Admin extends Client {
     }
 
     public void gererHebrgement() throws SQLException, ClassNotFoundException {
-        dataco.SQL_Data_Hebergements2(hebergementListe);
+
         String choixH;
         Scanner clavier = new Scanner(System.in);
         do{
+            dataco.SQL_Data_Hebergements2(hebergementListe);
         System.out.println("\n======= Menu Admin ======\n");
         System.out.println("0. Quitter");
         System.out.println("1. Afficher la liste des hebergement");
@@ -158,7 +159,7 @@ public class Admin extends Client {
         String menage=null;
         String  fumeur=null;
         String S2="";
-
+        int buff=0;
 
         Scanner clavier = new Scanner(System.in);
         String choix;
@@ -186,41 +187,89 @@ public class Admin extends Client {
                     System.out.println("Merci");
 
                 }
-
                 // nom hebergement
                 case "1" -> {
                     System.out.print("Veuillez saisir le nom : ");
                     nom_etablissement= clavier.next();
-                    S2=S2+" `nom`='" + nom_etablissement +"'";
+                    if(buff==0)
+                    {
+                        S2=S2+" `nom`='" + nom_etablissement +"'";
+                        buff=1;
+                    }
+                    else{
+                        S2=S2+", `nom`='" + nom_etablissement +"'";
+                    }
+
+
                 }
                 // ville
                 case "2" -> {
                     System.out.print("Veuillez saisir la ville : ");
                     ville= clavier.next();
-                    S2=S2+" `ville`= '" + ville +"'";
+                    if(buff==0)
+                    {
+                        S2=S2+" `ville`= '" + ville +"'";
+                        buff=1;
+                    }
+                    else{
+                        S2=S2+", `ville`= '" + ville +"'";
+                    }
+
                 }
                 // chambre
                 case "3" -> {
                     System.out.print("Veuillez saisir le nombre de chambre : ");
                     nombre_chambres = clavier.nextInt();
-                    S2=S2+" `nbChambre`='" + nombre_chambres+ "'";
+                    if(buff==0)
+                    {
+                        S2=S2+" `nbChambre`='" + nombre_chambres+ "'";
+                        buff=1;
+                    }
+                    else{
+                        S2=S2+", `nbChambre`='" + nombre_chambres+ "'";
+                    }
+
                 }
                 // place
                 case "4" -> {
                     System.out.print("Veuillez saisir le nombre de place : ");
                     nombre_places= clavier.nextInt();
-                    S2=S2+" `nbPlace`='" + nombre_places+ "'";
+                    if(buff==0)
+                    {
+                        S2=S2+" `nbPlace`='" + nombre_places+ "'";
+                        buff=1;
+                    }
+                    else{
+                        S2=S2+", `nbPlace`='" + nombre_places+ "'";
+                    }
+
                 }
                 // prix
                 case "5" -> {
                     System.out.print("Veuillez saisir le prix : ");
                     prix= clavier.nextInt();
-                    S2=S2+" `prix`='" + prix+ "'";
+                    if(buff==0)
+                    {
+                        S2=S2+" `prix`='" + prix+ "'";
+                        buff=1;
+                    }
+                    else{
+                        S2=S2+", `prix`='" + prix+ "'";
+                    }
+
                 }
                 case "6" -> {
                     System.out.print("Veuillez saisir la distance au centre : ");
                     distanceCentre= clavier.nextInt();
-                    S2=S2+" `distanceCentre`='" + distanceCentre+ "'";
+                    if(buff==0)
+                    {
+                        S2=S2+" `distanceCentre`='" + distanceCentre+ "'";
+                        buff=1;
+                    }
+                    else{
+                        S2=S2+", `distanceCentre`='" + distanceCentre+ "'";
+                    }
+
                 }
                 case "7" -> {
                     do{
@@ -230,9 +279,25 @@ public class Admin extends Client {
 
                     if(wifi.equals("oui"))
                     {
-                        S2=S2+"  `wifi`='1'";
+                        if(buff==0)
+                        {
+                            S2=S2+"  `wifi`='1'";
+                            buff=1;
+                        }
+                        else{
+                            S2=S2+",  `wifi`='1'";
+                        }
+
                     }else{
-                        S2=S2+" `wifi`='0'";
+                        if(buff==0)
+                        {
+                            S2=S2+" `wifi`='0'";
+                            buff=1;
+                        }
+                        else{
+                            S2=S2+", `wifi`='0'";
+                        }
+
                     }
                 }
                 case "8" -> {
@@ -242,9 +307,24 @@ public class Admin extends Client {
                     }while((!Objects.equals(menage, "oui"))&&(!menage.equals("non")));
                     if(menage.equals("oui"))
                     {
-                        S2=S2+"  `menage`='1'";
+                        if(buff==0)
+                        {
+                            S2=S2+"  `menage`='1'";
+                            buff=1;
+                        }
+                        else{
+                            S2=S2+",  `menage`='1'";
+                        }
                     }else{
-                        S2=S2+" `menage`='0'";
+                        if(buff==0)
+                        {
+                            S2=S2+" `menage`='0'";
+                            buff=1;
+                        }
+                        else{
+                            S2=S2+", `menage`='0'";
+                        }
+
                     }
                 }
                 case "9" -> {
@@ -254,9 +334,25 @@ public class Admin extends Client {
                     }while((!Objects.equals(fumeur, "oui"))&&(!fumeur.equals("non")));
                     if(fumeur.equals("oui"))
                     {
-                        S2=S2+"  `fumeur`='1'";
+                        if(buff==0)
+                        {
+                            S2=S2+"  `fumeur`='1'";
+                            buff=1;
+                        }
+                        else{
+                            S2=S2+",  `fumeur`='1'";
+                        }
+
                     }else{
-                        S2=S2+" `fumeur`='0'";
+                        if(buff==0)
+                        {
+                            S2=S2+" `fumeur`='0'";
+                            buff=1;
+                        }
+                        else{
+                            S2=S2+", `fumeur`='0'";
+                        }
+
                     }
                 }
                 case "10" -> System.out.println("Filtre valide");
@@ -369,7 +465,7 @@ public class Admin extends Client {
             fumeur="0";
         }
 
-        int num=7;
+        int num=37;
         dataco.Data_Ajout_Hebergement(nom, ville, Snombre_chambres, Snombre_places, Sprix, SdistanceCentre, Wifi, Menage, fumeur, num);
 
 

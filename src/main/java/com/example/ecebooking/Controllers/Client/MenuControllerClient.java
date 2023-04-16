@@ -62,7 +62,10 @@ public class MenuControllerClient {
         System.out.println(c.getId());
         reservation_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientViewresa(c));
         menu_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().ClientView(c));
-        log_out_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().LoginView());
+        log_out_button.setOnAction(actionEvent -> {
+            Model.getInstance().getViewFactory().closeStage();
+            Model.getInstance().getViewFactory().LoginView();
+        });
         nb_persons.getItems().addAll(1, 2, 3, 4, 5, 6);
         nombre_chambres.getItems().addAll(1, 2, 3, 4, 5, 6);
         wifi.getItems().addAll("Oui", "Non");
@@ -106,7 +109,7 @@ public class MenuControllerClient {
         conteneur.getChildren().add(scrollPane); // Ajouter le ScrollPane au conteneur principal
         go.setOnAction(event -> {
             try {
-                hotels.set(filtrer());
+                hotels.get().clear();
                 initialize();
             } catch (SQLException | ClassNotFoundException | IOException e) {
                 throw new RuntimeException(e);

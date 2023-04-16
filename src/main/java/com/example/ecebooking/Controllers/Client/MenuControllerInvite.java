@@ -52,7 +52,10 @@ public class MenuControllerInvite {
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
 
         log_in_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().SignInView());
-        log_out_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().LoginView());
+        log_out_button.setOnAction(actionEvent -> {
+            Model.getInstance().getViewFactory().closeStage();
+            Model.getInstance().getViewFactory().LoginView();
+        });
         menu_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().InviteView());
         nb_persons.getItems().addAll(1, 2, 3, 4, 5, 6);
         nombre_chambres.getItems().addAll(1, 2, 3, 4, 5, 6);
@@ -66,6 +69,7 @@ public class MenuControllerInvite {
         // Charger les données d'hôtels depuis une source de données
         AtomicReference<ArrayList<Hebergement>> hotels = new AtomicReference<>(filtrer());
         ArrayList<Hebergement> referenceListe = hotels.get();
+        System.out.println(hotels.toString());
         // Récupérer la taille de l'objet ArrayList
         int taille = referenceListe.size();
         if (taille > 6) taille = 6;
@@ -78,6 +82,7 @@ public class MenuControllerInvite {
             loader.setLocation(getClass().getResource("/Fxml/Hebergement/Hebergements.fxml")); // Définir l'emplacement pour FXMLLoader
             HebergementsController hebergementsView = new HebergementsController();
             loader.setController(hebergementsView);
+            hotel.setReducClient();
             Pane view = loader.load(); // Charger Hebergements.fxml
             // Utiliser les données de l'hôtel pour configurer la vue
             hebergementsView.setHotel(hotel);
@@ -87,15 +92,15 @@ public class MenuControllerInvite {
             row.setAlignment(Pos.CENTER); // Centrer les éléments de la ligne horizontalement
             loader = new FXMLLoader(); // Créer une nouvelle instance de FXMLLoader pour la vue suivante
         }
+
         ScrollPane scrollPane = new ScrollPane(container); // Envelopper VBox dans un ScrollPane
         scrollPane.setFitToWidth(true); // Lier fitToWidth à true
-        scrollPane.setPrefHeight(600); // Définir une hauteur préférée pour le ScrollPane (par exemple 600 pixels)
         scrollPane.prefViewportWidthProperty().bind(conteneur.widthProperty());
+        scrollPane.setPrefHeight(600); // Définir une hauteur préférée pour le ScrollPane (par exemple 600 pixels)
         conteneur.getChildren().add(scrollPane); // Ajouter le ScrollPane au conteneur principal
         go.setOnAction(event -> {
             try {
-                hotels.set(filtrer());
-                System.out.println(hotels.toString());
+                hotels.get().clear();
                 initialize();
             } catch (SQLException | ClassNotFoundException | IOException e) {
                 throw new RuntimeException(e);

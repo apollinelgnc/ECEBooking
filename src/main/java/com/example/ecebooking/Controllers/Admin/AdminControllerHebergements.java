@@ -87,7 +87,7 @@ public class AdminControllerHebergements {
                 throw new RuntimeException(e);
             }
         });
-        log_out_button.setOnAction(event -> Model.getInstance().getViewFactory().closeStage());
+        log_out_button.setOnAction(event -> Model.getInstance().getViewFactory().LoginView());
         supprimer.setOnAction(event -> {
             Tapezid.setVisible(true);
             id1.setVisible(true);

@@ -20,7 +20,6 @@ public class HebergementsController {
     // attributs pour l'affichage de l'hebergement clique
 
 
-
     // Méthode pour définir les informations de l'hôtel dans les composants graphiques
 
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
@@ -32,7 +31,7 @@ public class HebergementsController {
 
     public void setHotel(Hebergement hotel2) {
         this.hotel = hotel2;
-        URL imageUrl = getClass().getResource("/Images/" + hotel.getVille() + ".jpeg");
+        URL imageUrl = getClass().getResource("/Images/" + hotel.getNom_etablissement() + ".jpg");
         if (imageUrl != null) {
             Image image_ = new Image(imageUrl.toExternalForm());
             image.setImage(image_);

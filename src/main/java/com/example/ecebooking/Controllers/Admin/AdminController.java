@@ -61,6 +61,8 @@ public class AdminController {
     @FXML
     private Button log_out_button=new Button();
     @FXML
+    private Button resa=new Button();
+    @FXML
     private TableView<Client> tableView;
 
     @FXML
@@ -87,7 +89,7 @@ public class AdminController {
                 throw new RuntimeException(e);
             }
         });
-        log_out_button.setOnAction(event -> Model.getInstance().getViewFactory().closeStage());
+        log_out_button.setOnAction(event -> Model.getInstance().getViewFactory().LoginView());
         clients.setOnAction(event-> {
             try {
                 Model.getInstance().getViewFactory().AdminViewClient(admin);
@@ -98,6 +100,14 @@ public class AdminController {
         hebergements.setOnAction(event-> {
             try {
                 Model.getInstance().getViewFactory().AdminViewHebergement(admin);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+        resa.setOnAction(event-> {
+            try {
+                Model.getInstance().getViewFactory().AdminViewResa(admin);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

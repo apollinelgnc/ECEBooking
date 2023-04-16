@@ -3,7 +3,7 @@ package com.example.ecebooking.Models;
 import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
-import com.example.ecebooking.Controllers.Reservation;
+import com.example.ecebooking.Controllers.Client.Reservation;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -276,7 +276,6 @@ public class DataCo {
     //SP de recuperation de la liste de nos Reservation
     public ArrayList<Reservation> SQL_Data_Reservation() throws SQLException, ClassNotFoundException {
         DataBaseConnection c4 = new DataBaseConnection("bdd_projets6", "root", "0802");
-
         c4.ajouterTable("reservation");     //ouverture de la table reservation dans la bdd
         c4.ajouterRequete("SELECT * FROM `reservation`");        //requete envoyé à la bdd
         ArrayList<Reservation> listeReservation = new ArrayList<>();

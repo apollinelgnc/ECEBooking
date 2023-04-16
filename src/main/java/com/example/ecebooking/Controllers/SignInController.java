@@ -16,9 +16,17 @@ public class SignInController {
     public TextField prenom_signIn;
 
     public void initialize() throws SQLException, ClassNotFoundException {
-        System.out.println(prenom_signIn.getText());
         DataCo dataco = new DataCo();
-        dataco.Data_Creation_Login(prenom_signIn.getText(), id_SignIn.getText(),mdp_signIn.getText(),15);
-        go_button.setOnAction(actionEvent -> Model.getInstance().getViewFactory().LoginView());
+        go_button.setOnAction(actionEvent -> {
+            try {
+                dataco.Data_Creation_Login(prenom_signIn.getText(), id_SignIn.getText(), mdp_signIn.getText(), 15);
+            } catch (SQLException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            if (!prenom_signIn.getText().isEmpty() && !id_SignIn.getText().isEmpty() && !mdp_signIn.getText().isEmpty()) {
+                Model.getInstance().getViewFactory().closeStage();
+                Model.getInstance().getViewFactory().LoginView();
+            }
+        });
     }
 }

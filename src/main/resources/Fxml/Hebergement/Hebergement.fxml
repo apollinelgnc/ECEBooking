@@ -1,31 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<Pane prefHeight="495.0" prefWidth="1024.0" stylesheets="@../../Styles/Hebergements.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox fx:id="conteneur" alignment="TOP_CENTER" prefHeight="495.0" prefWidth="1024.0" spacing="10" styleClass="menu_container">
-          <!-- HBox pour contenir les détails de l'hôtel -->
-          <HBox prefHeight="505.0" prefWidth="1024.0" spacing="10">
-              <!-- VBox pour contenir les informations de l'hôtel -->
-              <VBox prefHeight="502.0" prefWidth="240.0" spacing="5" styleClass="menu_container_info">
-                  <Label fx:id="Nom" />
-                  <Label fx:id="Ville" />
-                  <Label fx:id="Prix" />
-                  <Label fx:id="option" />
-               <DatePicker fx:id="date_debut" prefHeight="29.0" prefWidth="189.0" promptText="date arrivée" />
-               <DatePicker fx:id="date_fin" prefHeight="29.0" prefWidth="191.0" promptText="date départ" />
-               <Button fx:id="reserver" mnemonicParsing="false" text="Réserver" />
-               <Label fx:id="erreur" />
-              </VBox>
-            <ImageView fx:id="Image" fitHeight="502.0" fitWidth="582.0" pickOnBounds="true" preserveRatio="true" />
-          </HBox>
-      </VBox>
+      <BorderPane styleClass="background_container" stylesheets="@../../Styles/ClientInterfaceMenu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <VBox prefHeight="172.0" prefWidth="874.0" styleClass="menu_container" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="227.0" prefWidth="873.0" styleClass="background_second_container">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_white" text="Réserver vos" wrappingWidth="374.1014404296875">
+                           <VBox.margin>
+                              <Insets left="50.0" top="25.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fill="#132a13" layoutX="60.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_green" text="vacances de rêves " wrappingWidth="374.1014404296875">
+                           <VBox.margin>
+                              <Insets left="150.0" top="-15.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <Pane fx:id="conteneur1" prefHeight="608.0" prefWidth="870.0" styleClass="menu_container" stylesheets="@../../Styles/Hebergements.css" BorderPane.alignment="CENTER">
+               <children>
+                     <Label fx:id="Nom" layoutX="260.0" layoutY="28.0" prefHeight="43.0" prefWidth="349.0" styleClass="menu_container_title" text="NOM" />
+                     <Label fx:id="Ville" layoutX="105.0" layoutY="63.0" prefHeight="32.0" prefWidth="125.0" styleClass="menu_container_info" text="Ville" />
+                     <Label fx:id="Prix" alignment="CENTER" contentDisplay="RIGHT" layoutX="228.0" layoutY="133.0" prefHeight="14.0" prefWidth="79.0" text="Prix" />
+                     <Label fx:id="Option" alignment="CENTER" layoutX="34.0" layoutY="190.0" prefHeight="66.0" prefWidth="251.0" text="option : " />
+                  <ImageView fx:id="Image" fitHeight="405.0" fitWidth="495.0" layoutX="347.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="nb_chambres" layoutX="34.0" layoutY="133.0" prefHeight="14.0" prefWidth="109.0" text="nb chambres" />
+                  <Label fx:id="nb_places" alignment="CENTER" layoutX="127.0" layoutY="133.0" prefHeight="14.0" prefWidth="107.0" text="nb places" />
+               </children>
+            </Pane>
+         </center>
+         <left>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <DatePicker fx:id="date_debut" layoutX="11.0" layoutY="215.0" prefHeight="29.0" prefWidth="179.0" promptText="date arrivée" />
+                  <DatePicker fx:id="date_fin" layoutX="11.0" layoutY="284.0" prefHeight="29.0" prefWidth="179.0" promptText="date départ" />
+                  <Button fx:id="reserver" layoutX="11.0" layoutY="348.0" mnemonicParsing="false" prefWidth="179.0" text="Réserver" />
+                  <Label fx:id="erreur" layoutX="63.0" layoutY="402.0" prefHeight="14.0" prefWidth="74.0" />
+                  <Label fx:id="Ville2" layoutX="1.0" layoutY="43.0" prefHeight="80.0" prefWidth="200.0" styleClass="menu_container_info" stylesheets="@../../Styles/Hebergements.css" text="Choisissez vos dates et" />
+                  <Label fx:id="Ville21" layoutX="-1.0" layoutY="85.0" prefHeight="80.0" prefWidth="201.0" styleClass="menu_container_info" stylesheets="@../../Styles/Hebergements.css" text="réservez dès maintenant !" />
+               </children>
+            </Pane>
+         </left>
+         <right>
+            <Pane prefHeight="608.0" prefWidth="110.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="annuler" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="91.0" text="Annuler" />
+               </children>
+            </Pane>
+         </right>
+      </BorderPane>
+      <Label fx:id="Ville1" layoutX="115.0" layoutY="73.0" prefHeight="32.0" prefWidth="125.0" styleClass="menu_container_info" text="Ville" />
    </children>
-</Pane>
+</AnchorPane>

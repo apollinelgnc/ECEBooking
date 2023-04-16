@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane stylesheets="@../../Styles/ClientInterfaceMenu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
      <VBox fx:id="vbox" prefHeight="768.0" prefWidth="154.0" stylesheets="@../../Styles/InviteMenu.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <VBox prefHeight="484.0" prefWidth="180.0" styleClass="menu_container">
              <Button fx:id="menu_button" mnemonicParsing="false" text="Menu" />
              <Line endX="120.0" />
              <Button fx:id="log_in_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Sign in" />
+         <Button fx:id="log_out_button" layoutX="35.0" layoutY="245.0" mnemonicParsing="false" styleClass="alt_menu_button" text="Log out" />
          </VBox>
          <VBox layoutX="10.0" layoutY="10.0" prefHeight="410.0" prefWidth="180.0" styleClass="menu_container" />
      </VBox>
@@ -39,17 +31,17 @@
                          </VBox.margin>
                      </Text>
                  </VBox>
-                 <HBox prefHeight="100.0" prefWidth="1024.0" styleClass="research_box">
+                 <HBox prefHeight="126.0" prefWidth="871.0" styleClass="research_box">
                      <VBox prefHeight="80.0" prefWidth="184.0" styleClass="search_box">
                          <Label text="Destination" textFill="WHITE" />
                          <TextField fx:id="destination" focusTraversable="false" prefHeight="25.0" prefWidth="142.0" styleClass="search_box_Button" />
                      </VBox>
                      <VBox prefHeight="40.0" prefWidth="300.0" styleClass="search_box">
-                         <Label text="Nombre de personne" textAlignment="CENTER" textFill="WHITE" />
+                         <Label text="Nb personnes" textAlignment="CENTER" textFill="WHITE" />
                          <ChoiceBox fx:id="nb_persons" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
                      </VBox>
                      <VBox prefHeight="46.0" prefWidth="173.0" styleClass="search_box">
-                         <Label text="Nom de l'hébergement" textFill="WHITE" />
+                         <Label text="Nom hébergement" textFill="WHITE" />
                          <TextField fx:id="nom_hebergement" focusTraversable="false" prefHeight="10.0" prefWidth="95.0" styleClass="search_box_Button" />
                      </VBox>
                      <VBox prefHeight="46.0" prefWidth="173.0" styleClass="search_box">
@@ -59,13 +51,17 @@
                          <TextField fx:id="prix" focusTraversable="false" prefHeight="10.0" prefWidth="95.0" styleClass="search_box_Button" />
                      </VBox>
                      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
-                         <Label text="Check in " textAlignment="CENTER" textFill="WHITE" />
-                         <DatePicker fx:id="check_in_date" focusTraversable="false" prefHeight="38.0" prefWidth="157.0" styleClass="search_box_Button" />
-                         <Label text="Check out" textAlignment="CENTER" textFill="WHITE" />
-                         <DatePicker fx:id="check_out_date" focusTraversable="false" prefHeight="38.0" prefWidth="160.0" styleClass="search_box_Button" />
+                         <children>
+                             <Label text="Ménage" textFill="WHITE" />
+                             <ChoiceBox fx:id="menage" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+                             <Label text="Wifi" textFill="WHITE" />
+                             <ChoiceBox fx:id="wifi" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+                             <Label text="Fumeur" textFill="WHITE" />
+                             <ChoiceBox fx:id="fumeur" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
+                         </children>
                      </VBox>
                      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="search_box">
-                         <Label text="Nombre de chambre" textAlignment="CENTER" textFill="WHITE" />
+                         <Label text="Nb chambres" textAlignment="CENTER" textFill="WHITE" />
                          <ChoiceBox fx:id="nombre_chambres" focusTraversable="false" prefHeight="20.0" prefWidth="150.0" styleClass="search_box_Button" />
                      </VBox>
                      <VBox prefHeight="40.0" prefWidth="138.0" styleClass="search_box_last">
@@ -80,7 +76,7 @@
              </VBox>
          </top>
          <center>
-             <Pane AnchorPane.rightAnchor="0.0" fx:id="conteneur" BorderPane.alignment="CENTER" />
+             <Pane fx:id="conteneur" AnchorPane.rightAnchor="0.0" BorderPane.alignment="CENTER" />
          </center>
      </BorderPane>
 </AnchorPane>

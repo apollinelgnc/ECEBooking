@@ -1,12 +1,6 @@
 package com.example.ecebooking.Controllers.Client;
 
-import com.example.ecebooking.Controllers.Reservation;
-import com.example.ecebooking.Models.DataCo;
-
-import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Client extends Invite{
 

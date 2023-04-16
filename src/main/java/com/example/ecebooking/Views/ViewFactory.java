@@ -1,9 +1,6 @@
 package com.example.ecebooking.Views;
 
-import com.example.ecebooking.Controllers.Admin.Admin;
-import com.example.ecebooking.Controllers.Admin.AdminController;
-import com.example.ecebooking.Controllers.Admin.AdminControllerClient;
-import com.example.ecebooking.Controllers.Admin.AdminControllerHebergements;
+import com.example.ecebooking.Controllers.Admin.*;
 import com.example.ecebooking.Controllers.Client.*;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Controllers.Hebergements.Un_HebergementController;
@@ -24,10 +21,6 @@ public class ViewFactory {
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(load);
     }
-    public void PayementView(){
-        FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/Hebergement/PayementPage.fxml"));
-        createStage(load);
-    }
     public void SignInView(){
         FXMLLoader load=new FXMLLoader(getClass().getResource("/Fxml/SignIn.fxml"));
         closeStage();
@@ -38,6 +31,12 @@ public class ViewFactory {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/MenuClient.Fxml"));
         MenuControllerClient menuControllerClient=new MenuControllerClient(client);
         loader.setController(menuControllerClient);
+        closeStage();
+        createStage(loader);
+    }public void ClientViewresa(Client client){
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Client/MenuClientResa.Fxml"));
+        MenuControllerClientResa menuControllerClientResa=new MenuControllerClientResa(client);
+        loader.setController(menuControllerClientResa);
         closeStage();
         createStage(loader);
     }
@@ -62,6 +61,13 @@ public class ViewFactory {
         closeStage();
         createStage(loader);
     }
+    public void AdminViewResa(Admin ad) throws Exception {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Admin/AdminInterfaceMenuResa.Fxml"));
+        AdminControllerResa adminControllerResa=new AdminControllerResa(ad);
+        loader.setController(adminControllerResa);
+        closeStage();
+        createStage(loader);
+    }
     public void AdminViewHebergement(Admin ad) throws Exception {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Admin/AdminInterfaceMenuHebergement.Fxml"));
         AdminControllerHebergements adminControllerHebergements=new AdminControllerHebergements(ad);
@@ -82,7 +88,7 @@ public class ViewFactory {
         return loader.getController();
     }
 
-    private void createStage(FXMLLoader loader) {
+    public void createStage(FXMLLoader loader) {
         Scene scene=null;
         try{
             scene=new Scene(loader.load());

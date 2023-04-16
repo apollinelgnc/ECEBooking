@@ -1,10 +1,7 @@
 package com.example.ecebooking.Controllers.Hebergements;
 
-import com.example.ecebooking.Controllers.Reservation;
+import com.example.ecebooking.Controllers.Client.Reservation;
 import com.example.ecebooking.Models.DataCo;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

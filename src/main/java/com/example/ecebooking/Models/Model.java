@@ -1,6 +1,5 @@
 package com.example.ecebooking.Models;
 
-import com.example.ecebooking.Controllers.Client.MenuController;
 import com.example.ecebooking.Views.ViewFactory;
 
 public class Model {

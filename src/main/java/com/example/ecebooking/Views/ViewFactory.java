@@ -2,6 +2,8 @@ package com.example.ecebooking.Views;
 
 import com.example.ecebooking.Controllers.Admin.Admin;
 import com.example.ecebooking.Controllers.Admin.AdminController;
+import com.example.ecebooking.Controllers.Admin.AdminControllerClient;
+import com.example.ecebooking.Controllers.Admin.AdminControllerHebergements;
 import com.example.ecebooking.Controllers.Client.*;
 import com.example.ecebooking.Controllers.Hebergements.Hebergement;
 import com.example.ecebooking.Controllers.Hebergements.Un_HebergementController;
@@ -46,10 +48,24 @@ public class ViewFactory {
         createStage(loader);
         unHebergementController.setHotel();
     }
-    public void AdminView(Admin ad){
+    public void AdminView(Admin ad) throws Exception {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Admin/AdminInterfaceMenu.Fxml"));
         AdminController adminController=new AdminController(ad);
         loader.setController(adminController);
+        closeStage();
+        createStage(loader);
+    }
+    public void AdminViewClient(Admin ad) throws Exception {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Admin/AdminInterfaceMenuClient.Fxml"));
+        AdminControllerClient adminControllerClient=new AdminControllerClient(ad);
+        loader.setController(adminControllerClient);
+        closeStage();
+        createStage(loader);
+    }
+    public void AdminViewHebergement(Admin ad) throws Exception {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Fxml/Admin/AdminInterfaceMenuHebergement.Fxml"));
+        AdminControllerHebergements adminControllerHebergements=new AdminControllerHebergements(ad);
+        loader.setController(adminControllerHebergements);
         closeStage();
         createStage(loader);
     }

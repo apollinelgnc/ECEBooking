@@ -16,4 +16,8 @@
 .search_box_Button:hover{
     -fx-cursor: hand;
 }
+.erreur{
+    -fx-text-fill: #c85660;
+    -fx-font-size: 0.75em;
+}
 

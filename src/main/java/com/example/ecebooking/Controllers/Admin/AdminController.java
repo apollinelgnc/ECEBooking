@@ -2,16 +2,13 @@ package com.example.ecebooking.Controllers.Admin;
 
 import com.example.ecebooking.Controllers.Client.Client;
 import com.example.ecebooking.Models.Model;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 /*
 public class AdminController {
     @FXML
@@ -54,14 +51,15 @@ public class AdminController {
 
 import java.util.ArrayList;
 
-import com.example.ecebooking.Controllers.Admin.Admin;
-import com.example.ecebooking.Controllers.Client.Client;
-import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-
 public class AdminController {
+    @FXML
     private Button menu_button=new Button();
+    @FXML
+    private Button hebergements=new Button();
+    @FXML
+    private Button clients = new Button();
+    @FXML
+    private Button log_out_button=new Button();
     @FXML
     private TableView<Client> tableView;
 
@@ -70,23 +68,43 @@ public class AdminController {
 
     @FXML
     private TableColumn<Client, String> idCol;
+    @FXML
+    private TableColumn<Client, String> reduction;
+
+    @FXML
+    private TableColumn<Client, String> num_client;
 
     private Admin admin;
-    public AdminController(Admin ad)
-    {
+    public AdminController(Admin ad) throws Exception {
      admin=ad;
-    }
-    public void initialize() {
-        menu_button.setOnAction(event -> Model.getInstance().getViewFactory().AdminView(admin));
-        // Get the list of users from the Admin class
-        ArrayList<Client> utilisateurs = admin.getListClient();
-        // Configure the TableView to use the ArrayList as the data source
-        tableView.getItems().addAll(utilisateurs);
-        admin.afficherListeClient(utilisateurs);
 
-        // Configure the cell factories for nomCol and prenomCol columns
-        prenomCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNom()));
-        idCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
     }
+    public void initialize() throws Exception {
+        menu_button.setOnAction(event -> {
+            try {
+                Model.getInstance().getViewFactory().AdminView(admin);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+        log_out_button.setOnAction(event -> Model.getInstance().getViewFactory().closeStage());
+        clients.setOnAction(event-> {
+            try {
+                Model.getInstance().getViewFactory().AdminViewClient(admin);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+        hebergements.setOnAction(event-> {
+            try {
+                Model.getInstance().getViewFactory().AdminViewHebergement(admin);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+        // Get the list of users from the Admin class
+      }
+
 }
 

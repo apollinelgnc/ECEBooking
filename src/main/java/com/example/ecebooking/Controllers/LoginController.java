@@ -39,8 +39,9 @@ public class LoginController implements Initializable {
                 try {
                     boolean success = login_data(choix, id_entree.getText(), mot_de_passe.getText(),"");
                     if (success) {
-                        if (Objects.equals(choix, "Admin"))
+                        if (Objects.equals(choix, "Admin")){
                             Model.getInstance().getViewFactory().AdminView(admin);
+                        }
                         else if (Objects.equals(choix, "Client"))
                             Model.getInstance().getViewFactory().ClientView(client);
                     } else {
@@ -49,6 +50,8 @@ public class LoginController implements Initializable {
                         // afficher un message d'erreur si les identifiants sont invalides
                     }
                 } catch (SQLException | ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             } else {

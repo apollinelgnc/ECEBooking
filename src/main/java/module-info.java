@@ -16,5 +16,7 @@ module com.example.ecebooking {
     exports com.example.ecebooking.Controllers.Hebergements;
     exports com.example.ecebooking.Models;
     exports com.example.ecebooking.Views;
+    opens com.example.ecebooking.Controllers.Admin; // Ouvrir le package pour permettre l'accès depuis JavaFX
+
 
 }

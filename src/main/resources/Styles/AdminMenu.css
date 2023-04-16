@@ -3,11 +3,10 @@
     -fx-alignment: center;
     -fx-font-family: "Cooper Black";
 }
-
-.background_container_box{
-    -fx-background-radius: 10 10 10 10;
+.topContainer{
+    -fx-background-color : #132A12;
+    -fx-alignment: center;
 }
-
 .search_box_Button{
     -fx-background-color: white;
     -fx-text-fill: #132A13;
@@ -17,11 +16,4 @@
 .search_box_Button:hover{
     -fx-cursor: hand;
 }
-.research_box{
-    -fx-background-color: #132A13 ;
-    -fx-background-radius: 10 10 10 10;
-    -fx-alignment: center;
-    -fx-font-family: "Cooper Black";
-    -fx-spacing: 18;
-    -fx-padding: 0.75em;
-}
+

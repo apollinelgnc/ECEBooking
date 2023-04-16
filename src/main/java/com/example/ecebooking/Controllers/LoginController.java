@@ -40,7 +40,7 @@ public class LoginController implements Initializable {
                     boolean success = login_data(choix, id_entree.getText(), mot_de_passe.getText(),"");
                     if (success) {
                         if (Objects.equals(choix, "Admin"))
-                            Model.getInstance().getViewFactory().AdminView();
+                            Model.getInstance().getViewFactory().AdminView(admin);
                         else if (Objects.equals(choix, "Client"))
                             Model.getInstance().getViewFactory().ClientView(client);
                     } else {

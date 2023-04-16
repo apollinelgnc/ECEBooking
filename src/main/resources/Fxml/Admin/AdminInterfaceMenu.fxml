@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="background_container" stylesheets="@../../Styles/AdminMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ecebooking.Controllers.Admin.AdminController">
-   <Pane prefHeight="79.0" prefWidth="1024.0" styleClass="research_box">
-      <Button fx:id="hotels" layoutX="160.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Les hôtels" />
-      <Button fx:id="reservations" layoutX="348.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Les réservations" />
-      <Button fx:id="stats" layoutX="569.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Statistiques" />
-      <Button fx:id="promo" layoutX="782.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Promotions" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="background_container" stylesheets="@../../Styles/AdminMenu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <Pane layoutX="-7.0" prefHeight="78.0" prefWidth="1032.0" styleClass="topContainer" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+      <ComboBox fx:id="gerer" layoutX="444.0" layoutY="21.0" prefHeight="22.0" prefWidth="146.0" promptText="Gérer" styleClass="search_box_Button" />
+      <Button fx:id="menu_button" layoutX="264.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Menu" />
+      <Button fx:id="log_out_button" layoutX="727.0" layoutY="21.0" mnemonicParsing="false" styleClass="search_box_Button" text="Log Out" />
    </Pane>
+   <TableView fx:id="tableView" layoutX="96.0" layoutY="93.0" prefHeight="656.0" prefWidth="832.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="96.0" AnchorPane.topAnchor="93.0">
+      <columns>
+         <TableColumn fx:id="prenomCol" prefWidth="100.0" text="Prénom" />
+         <TableColumn fx:id="idCol" prefWidth="100.0" text="Identifiant" />
+         <TableColumn fx:id="numCol" prefWidth="131.20001220703125" text="Numéro Client" />
+      </columns>
+   </TableView>
 </AnchorPane>
